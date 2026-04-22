@@ -1,0 +1,114 @@
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    height: var(--nav-h);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 1.5rem;
+}
+
+.nav-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    flex-shrink: 0;
+}
+.nav-logo-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: var(--primary);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+}
+.nav-logo-text {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 1rem;
+    letter-spacing: -.01em;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex: 1;
+}
+.nav-links a {
+    color: var(--text-mid);
+    font-size: .9rem;
+    font-weight: 500;
+    transition: color .15s;
+}
+.nav-links a:hover { color: var(--text); }
+
+.nav-cta {
+    background: var(--primary);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: .5rem 1rem;
+    font-size: .875rem;
+    font-weight: 600;
+    transition: background .15s;
+}
+.nav-cta:hover { background: var(--primary-700); }
+
+.nav-cta-ghost {
+    background: transparent;
+    color: var(--text-mid);
+    border: 1px solid var(--border);
+}
+.nav-cta-ghost:hover { background: var(--surface-alt); color: var(--text); }
+
+.nav-lab .cat-tabs {
+    display: flex;
+    gap: .25rem;
+    flex: 1;
+}
+.cat-tab {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    padding: .35rem .8rem;
+    font-size: .82rem;
+    color: var(--text-dim);
+    font-weight: 500;
+    transition: background .15s, color .15s, border-color .15s;
+}
+.cat-tab:hover { background: var(--surface-alt); color: var(--text); }
+.cat-tab.active {
+    background: var(--primary-soft);
+    color: var(--primary-700);
+    border-color: #c8d8ff;
+}
+
+.nav-search input {
+    width: 220px;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: .45rem .8rem;
+    font-size: .875rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color .15s, background .15s;
+}
+.nav-search input:focus {
+    border-color: var(--primary);
+    background: var(--surface);
+}
+
+@media (max-width: 860px) {
+    .nav-links { display: none; }
+    .nav-lab .cat-tabs { display: none; }
+    .nav-search input { width: 140px; }
+}
+
