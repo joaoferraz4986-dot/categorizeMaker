@@ -39,7 +39,8 @@
 
     --font:         'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 
-    --nav-h:        60px;
+    --nav-h:        10vh;
     --max:          1200px;
+    --nav-w:        100%  ;
 }
 
