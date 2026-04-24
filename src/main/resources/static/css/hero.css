@@ -1,16 +1,23 @@
 .hero {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
     background: var(--surface);
     border-bottom: 1px solid var(--border);
     padding: 5rem 1.5rem 4.5rem;
 }
 
 .hero-inner {
-    max-width: 760px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 80vw;
     margin: 0 auto;
     text-align: center;
 }
 
 .hero-title {
+    max-width: 100%;
     font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: 700;
     color: var(--text);
@@ -22,18 +29,21 @@
 .hero-sub {
     font-size: 1rem;
     color: var(--text-dim);
-    max-width: 560px;
+    min-width: 70%;
+    max-width: 80%;
     margin: 0 auto 2rem;
 }
 
 .hero-search {
     display: flex;
+    flex-wrap: wrap;
     gap: .5rem;
-    max-width: 520px;
+    max-width: 100%;
     margin: 0 auto;
 }
 .hero-search input {
     flex: 1;
+    min-width: 230px;
     background: var(--surface);
     border: 1px solid var(--border-strong);
     border-radius: var(--radius);
@@ -48,6 +58,9 @@
     box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
 }
 .hero-search-btn {
+    flex: 1;
+    min-width: 90px;
+    min-height: 41px;
     background: var(--primary);
     color: #fff;
     border: none;
