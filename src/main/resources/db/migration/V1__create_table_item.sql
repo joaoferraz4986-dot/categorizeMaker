@@ -5,5 +5,5 @@ CREATE TABLE item (
     tipo VARCHAR(255),
     quantidade INT NOT NULL,
     estado VARCHAR(100) NOT NULL,
-    imagem_item LONGTEXT
+    imagem LONGTEXT
 );
