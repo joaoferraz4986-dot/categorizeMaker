@@ -1,7 +1,7 @@
 package com.makernav.categorize.controller;
 
 import com.makernav.categorize.dto.ItemDTOCriacao;
-import com.makernav.categorize.infra.lab.LaboratorioService;
+import com.makernav.categorize.service.LaboratorioService;
 import com.makernav.categorize.model.Item;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;

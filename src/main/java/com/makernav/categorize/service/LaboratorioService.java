@@ -1,4 +1,4 @@
-package com.makernav.categorize.infra.lab;
+package com.makernav.categorize.service;
 
 import com.makernav.categorize.dto.ItemDTOCriacao;
 import com.makernav.categorize.infra.repository.ItemRepository;
@@ -37,13 +37,16 @@ public class LaboratorioService {
     }
 
     public void atualizarItem(int id, ItemDTOCriacao itemDTOCriacao) {
+
         var item = itemRepository.findById(id).orElseThrow();
+
         item.setCategoria(itemDTOCriacao.categoria());
         item.setNome(itemDTOCriacao.nome());
         item.setTipo(itemDTOCriacao.tipo());
         item.setQuantidade(itemDTOCriacao.quantidade());
         item.setEstado(itemDTOCriacao.estado());
         item.setImagem(itemDTOCriacao.imagem());
+
         itemRepository.save(item);
     }
 
