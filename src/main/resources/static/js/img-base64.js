@@ -17,7 +17,7 @@ function handlePhotoUpload(e) {
         $('#photo-hint').style.display = 'none';
         console.log(state.pendingPhoto);
 
-        const response = await fetch('http://localhost:8080/api/imagem', {
+        const response = await fetch('http://localhost:8080/api/items', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ imagem: state.pendingPhoto })
