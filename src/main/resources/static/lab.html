@@ -22,7 +22,7 @@
         <button class="cat-tab active" data-cat="Todos">Todos</button>
         <button class="cat-tab" data-cat="Ferramentas">Ferramentas</button>
         <button class="cat-tab" data-cat="Componentes">Componentes</button>
-        <button class="cat-tab" data-cat="Utilitarios">Utilitarios</button>
+        <button class="cat-tab" data-cat="Utilitarios">Utilitários</button>
     </div>
     <div class="nav-search">
         <input id="search-input" type="text" placeholder="Buscar..." aria-label="Buscar item" />
@@ -42,13 +42,13 @@
                 <button class="state-pill" data-state="QUEBRADO">Quebrado</button>
             </div>
             <div class="view-switch">
-                <button class="view-btn active" id="btn-grid" title="Grade" aria-label="Visualizacao em grade">
+                <button class="view-btn active" id="btn-grid" title="Grade" aria-label="Visualização em grade">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
                         <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
                     </svg>
                 </button>
-                <button class="view-btn" id="btn-table" title="Tabela" aria-label="Visualizacao em tabela">
+                <button class="view-btn" id="btn-table" title="Tabela" aria-label="Visualização em tabela">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/>
                         <line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
@@ -69,7 +69,7 @@
             <thead>
                 <tr>
                     <th>Foto</th><th>Nome</th><th>Tipo</th><th>Categoria</th>
-                    <th>Quantidade</th><th>Estado</th><th>Acoes</th>
+                    <th>Quantidade</th><th>Estado</th><th>Ações</th>
                 </tr>
             </thead>
             <tbody id="table-body"></tbody>
@@ -77,7 +77,7 @@
     </section>
 </main>
 <footer class="footer footer-compact">
-    <span>© 2025 MakerNav - Laboratorio Maker Escolar</span>
+    <span>© 2025 MakerNav - Laboratório Maker Escolar</span>
     <span class="footer-tech">Java · Spring Boot</span>
 </footer>
 <div class="overlay" id="form-overlay" aria-hidden="true">
@@ -98,7 +98,7 @@
                         <option value="">Selecione...</option>
                         <option value="Ferramentas">Ferramentas</option>
                         <option value="Componentes">Componentes</option>
-                        <option value="Utilitarios">Utilitarios</option>
+                        <option value="Utilitarios">Utilitários</option>
                     </select>
                 </div>
                 <div class="form-field">
@@ -138,7 +138,7 @@
                         <p>Clique ou arraste uma imagem</p>
                         <small>JPG, PNG, WEBP - max. 5MB</small>
                     </div>
-                    <img id="photo-preview" class="photo-preview" alt="Pre-visualizacao" />
+                    <img id="photo-preview" class="photo-preview" alt="Pré-visualização" />
                 </div>
             </div>
         </div>
@@ -157,7 +157,7 @@
             </svg>
         </div>
         <h3 class="confirm-title">Deletar item?</h3>
-        <p class="confirm-sub">Tem certeza que deseja deletar <span id="del-item-name" class="confirm-name"></span>? Esta acao nao pode ser desfeita.</p>
+        <p class="confirm-sub">Tem certeza que deseja deletar <span id="del-item-name" class="confirm-name"></span>? Esta ação não pode ser desfeita.</p>
         <div class="confirm-actions">
             <button class="btn-ghost" id="cancel-del">Cancelar</button>
             <button class="btn-danger" id="confirm-del">Deletar</button>
