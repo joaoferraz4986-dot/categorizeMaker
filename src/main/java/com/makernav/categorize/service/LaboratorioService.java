@@ -7,7 +7,10 @@ import com.makernav.categorize.model.Item;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.util.UriBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @Service
@@ -31,9 +34,16 @@ public class LaboratorioService {
         return itemRepository.findById(id).orElse(null);
     }
 
-    public void criarItem(ItemDTOCriacao itemDTOCriacao) {
+    public URI criarItem(ItemDTOCriacao itemDTOCriacao) {
         var item = new Item(itemDTOCriacao);
+
+        var uri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/items/{id}/")
+                .buildAndExpand(item.getId())
+                .toUri();
         itemRepository.save(item);
+
+        return uri;
     }
 
     public void atualizarItem(int id, ItemDTOCriacao itemDTOCriacao) {
