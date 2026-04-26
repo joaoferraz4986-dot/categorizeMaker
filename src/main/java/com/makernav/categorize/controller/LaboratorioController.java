@@ -5,6 +5,7 @@ import com.makernav.categorize.service.LaboratorioService;
 import com.makernav.categorize.model.Item;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,9 +38,11 @@ public class LaboratorioController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<Void> criarItem(@Valid @RequestBody ItemDTOCriacao itemDTOCriacao) {
-        laboratorioService.criarItem(itemDTOCriacao);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<HttpStatus> criarItem(@Valid @RequestBody ItemDTOCriacao itemDTOCriacao) {
+        var uri = laboratorioService.criarItem(itemDTOCriacao);
+
+        return ResponseEntity.created(uri)
+                .build();
     }
 
     @PutMapping("/{id}")
