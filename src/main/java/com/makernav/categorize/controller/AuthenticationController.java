@@ -20,7 +20,6 @@ public class AuthenticationController {
         this.authenticationService = authenticationService;
     }
 
-    @Transactional
     @PostMapping("/registrar/")
     public ResponseEntity<UsuarioDTO> registrar(@Valid @RequestBody UsuarioDTO usuarioDTO) {
         var usuarioCriado = authenticationService.createUsuario(usuarioDTO);

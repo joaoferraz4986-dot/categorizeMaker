@@ -5,6 +5,8 @@ import com.makernav.categorize.dto.mapper.ItemMapper;
 import com.makernav.categorize.infra.repository.ItemRepository;
 import com.makernav.categorize.model.Estado;
 import com.makernav.categorize.model.Item;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -33,27 +35,31 @@ public class LaboratorioService {
     }
 
     public Item getItemPorId(int id) {
-        return itemRepository.findById(id).orElse(null);
+        return itemRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
+    @Transactional
     public URI criarItem(ItemDTO itemDTO) {
         var item = itemMapper.toEntity(itemDTO);
+
+        itemRepository.save(item);
 
         var uri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/items/{id}/")
                 .buildAndExpand(item.getIdItem())
                 .toUri();
-        itemRepository.save(item);
 
         return uri;
     }
 
+    @Transactional
     public void atualizarItem(int id, ItemDTO itemDTO) {
         var item = itemRepository.findById(id).orElseThrow();
         itemMapper.updateEntityFromDTO(itemDTO, item);
         itemRepository.save(item);
     }
 
+    @Transactional
     public void deletarItem(int id) {
         itemRepository.deleteById(id);
     }

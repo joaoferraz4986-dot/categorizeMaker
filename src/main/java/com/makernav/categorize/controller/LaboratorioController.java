@@ -42,7 +42,6 @@ public class LaboratorioController {
     }
 
     @PostMapping
-    @Transactional
     public ResponseEntity<HttpStatus> criarItem(@Valid @RequestBody ItemDTO itemDTO) {
         var uri = laboratorioService.criarItem(itemDTO);
 
@@ -51,16 +50,14 @@ public class LaboratorioController {
     }
 
     @PutMapping("/{id}")
-    @Transactional
     public ResponseEntity<Void> atualizarItem(@PathVariable int id, @Valid @RequestBody ItemDTO itemDTO) {
         laboratorioService.atualizarItem(id, itemDTO);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
-    @Transactional
     public ResponseEntity<Void> deletarItem(@PathVariable int id) {
         laboratorioService.deletarItem(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.notFound().build();
     }
 }
