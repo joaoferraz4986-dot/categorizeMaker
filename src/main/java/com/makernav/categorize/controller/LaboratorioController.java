@@ -55,4 +55,10 @@ public class LaboratorioController {
         laboratorioService.deletarItem(id);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Item>> buscarPorNome(@RequestParam String nome) {
+        List<Item> resultado = laboratorioService.getItemPorNome(nome);
+        return ResponseEntity.ok(resultado);
+    }
 }
