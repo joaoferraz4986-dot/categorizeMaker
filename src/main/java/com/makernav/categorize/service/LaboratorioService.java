@@ -1,22 +1,29 @@
 package com.makernav.categorize.service;
 
-import com.makernav.categorize.dto.ItemDTOCriacao;
+import com.makernav.categorize.dto.ItemDTO;
+import com.makernav.categorize.dto.mapper.ItemMapper;
 import com.makernav.categorize.infra.repository.ItemRepository;
 import com.makernav.categorize.model.Estado;
 import com.makernav.categorize.model.Item;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @Service
 public class LaboratorioService {
 
     private final ItemRepository itemRepository;
+    private final ItemMapper itemMapper;
 
-    public LaboratorioService(ItemRepository itemRepository) {
+    public LaboratorioService(ItemRepository itemRepository, ItemMapper itemMapper) {
         this.itemRepository = itemRepository;
+        this.itemMapper = itemMapper;
     }
 
     public List<Item> getTodosOsItens() {
@@ -28,28 +35,31 @@ public class LaboratorioService {
     }
 
     public Item getItemPorId(int id) {
-        return itemRepository.findById(id).orElse(null);
+        return itemRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
-    public void criarItem(ItemDTOCriacao itemDTOCriacao) {
-        var item = new Item(itemDTOCriacao);
+    @Transactional
+    public URI criarItem(ItemDTO itemDTO) {
+        var item = itemMapper.toEntity(itemDTO);
+
         itemRepository.save(item);
+
+        var uri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/items/{id}/")
+                .buildAndExpand(item.getIdItem())
+                .toUri();
+
+        return uri;
     }
 
-    public void atualizarItem(int id, ItemDTOCriacao itemDTOCriacao) {
-
+    @Transactional
+    public void atualizarItem(int id, ItemDTO itemDTO) {
         var item = itemRepository.findById(id).orElseThrow();
-
-        item.setCategoria(itemDTOCriacao.categoria());
-        item.setNome(itemDTOCriacao.nome());
-        item.setTipo(itemDTOCriacao.tipo());
-        item.setQuantidade(itemDTOCriacao.quantidade());
-        item.setEstado(itemDTOCriacao.estado());
-        item.setImagem(itemDTOCriacao.imagem());
-
+        itemMapper.updateEntityFromDTO(itemDTO, item);
         itemRepository.save(item);
     }
 
+    @Transactional
     public void deletarItem(int id) {
         itemRepository.deleteById(id);
     }
