@@ -63,4 +63,8 @@ public class LaboratorioService {
     public void deletarItem(int id) {
         itemRepository.deleteById(id);
     }
+
+    public List<Item> getItemPorNome(String nome){
+        return itemRepository.findByNomeStartingWithIgnoreCase(nome);
+    }
 }
