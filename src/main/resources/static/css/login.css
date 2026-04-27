@@ -1,6 +1,6 @@
 .container-login{
     display: flex;
-    background-color: #F5F7FA;
+    background-color: var(--bg);
     left: 50%;
     width: 50%;
     height: 100%;
@@ -17,17 +17,17 @@
     max-width: 60%;
     min-height: 50%;
     max-height: 80%;
-    background-color: #FFFFFF;
-    border: solid 1px #CBD5E0;
+    background-color: var(--surface);
+    border: solid 1px var(--border);
     border-radius: 20px;
     filter: drop-shadow(0px 0px 20px rgb(0 0 0 / 0.25));
 }
 .log-text{
-    color: #0A0A14;
+    color: var(--text);
     font-size: clamp(1rem, 2vw, 1.75rem);
 }
 .log-sub-text{
-    color: #4B5568;
+    color: var(--text-mid);
     text-align: center;
     font-size: 1rem;
 }
@@ -55,18 +55,18 @@
     width: 60%;
     height: 3%;
     border-radius: 8px;
-    border: 1px solid #A0AEC0;
+    border: 1px solid var(--border-strong);
     outline: none;
     margin: 4%;
 }
 .log button{
-    background-color: #0057FF;
+    background-color: var(--primary);
     color: #f1f1f1;
     margin: 5%;
     width: 65%;
     height: 3%;
     padding: 6px;
-    border: 1px solid #CBD5E0;
+    border: 1px solid var(--border);
     border-radius: 8px;
 }
 .log-bottom{
@@ -80,7 +80,7 @@
 }
 .troca-do-log{
     font-size: .8rem;
-    color: #4B5568;
+    color: var(--text-mid);
 }
 .troca-do-log span{
     color: blue;
