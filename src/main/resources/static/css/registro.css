@@ -31,6 +31,5 @@ button{
     width: 50%;
     height: 100%;
     background: linear-gradient(247deg, #000000 0%, #6c0094 100%);
-    filter: blur(500px);
-    filter: drop-shadow(1px 1px 15px rgba(0, 0, 0, 0.95));
+    box-shadow: -10px 0px 50px 2px rgb(0 0 0 / 0.25);;
 }
