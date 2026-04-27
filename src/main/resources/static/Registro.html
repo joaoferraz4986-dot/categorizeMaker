@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/registro.css">
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="stylesheet" href="css/login.css">
 </head>
@@ -21,9 +22,10 @@
     <div class="container-cadastro">
         <div class="cad">
             <div class="cad-header">
-                <h2 class="text">Seja bem vindo</h2>
-                <span class="sub-text">Crie sua conta inserindo seus dados abaixo</span>
+                <h2 class="cad-text">Seja bem vindo</h2>
+                <span class="cad-sub-text">Crie sua conta inserindo seus dados abaixo</span>
             </div>
+            <hr class="divisor">
             <form action="" class="cad-inner">
                 <input type="text" id="nome" name="nome" required placeholder="Nome">
 
@@ -34,14 +36,32 @@
                 <button type="submit" class="cad-btn">Cadastrar</button>
             </form>
             <div class="cad-bottom">
+                <span class="troca-do-cad">Não tem uma conta? <span> crie aqui </span></span>
             </div>
         </div>
     </div>
 
 
 
+    
     <div class="container-login">
+        <div class="log">
+            <div class="log-header">
+                <h2 class="log-text">Bem vindo de volta!</h2>
+                <span class="log-sub-text">insira seus dados abaixo para entrar em sua conta!</span>
+            </div>
+            <hr class="divisor">
+            <form action="" class="log-inner">
+                <input type="text" id="nome" name="nome" required placeholder="Nome">
 
+                <input type="password" id="senha" name="senha" required placeholder="Senha">
+                
+                <button type="submit" class="cad-btn">Login</button>
+            </form>
+            <div class="log-bottom">
+                <span class="troca-do-log">Não tem uma conta? <span> crie aqui </span> ou <span>esqueceu?</span> </span:></span>
+            </div>
+        </div>
     </div>
 </section>
 
