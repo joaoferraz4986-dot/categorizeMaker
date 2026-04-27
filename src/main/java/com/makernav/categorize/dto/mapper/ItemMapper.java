@@ -9,7 +9,6 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface ItemMapper {
 
-    @Mapping(source = "idItem", target = "idItem")
     ItemDTO toDTO(Item item);
 
     @Mapping(target = "idItem", ignore = true)

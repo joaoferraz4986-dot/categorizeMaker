@@ -4,7 +4,7 @@ import com.makernav.categorize.dto.UsuarioDTO;
 import com.makernav.categorize.dto.mapper.UsuarioMapper;
 import com.makernav.categorize.infra.repository.UsuarioRepository;
 import com.makernav.categorize.model.Usuario;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.transaction.Transactional;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,10 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AuthenticationService implements UserDetailsService {
 
-    @Autowired
     private final UsuarioRepository usuarioRepository;
-
-    @Autowired
     private final PasswordEncoder passwordEncoder;
 
     private final UsuarioMapper usuarioMapper;
@@ -30,9 +27,10 @@ public class AuthenticationService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return usuarioRepository.findByNome(username);
+        return usuarioRepository.findByEmail(username);
     }
 
+    @Transactional
     public UsuarioDTO createUsuario(UsuarioDTO usuarioDTO) {
         var passwordEncrypted = passwordEncoder.encode(usuarioDTO.senha());
 
