@@ -17,9 +17,9 @@
     --primary-700:  #003BB5;
     --primary-soft: #E0EFFF;
 
-    --sucess:       #10B981;
-    --error:        #F59E0B;
-    --warning:      #EF4444;
+    --success:       #10B981;
+    --warning:       #F59E0B;
+    --error:         #EF4444;
 
     
     --green:        #16a34a;
@@ -50,8 +50,8 @@
 }
 
 /*  Dark mode deve ser atribuido com js, tira os comentarios caso queira usar  */
-/*
-[dark-mode = "dark"]{
+
+:root[data-theme="dark"]{
     --bg:           #070710;
     --surface:      #0F0F1A;
     --surface-alt:  #1A1A2E;
@@ -71,9 +71,9 @@
     --primary-700:  #60A5FA;
     --primary-soft: #1E3A8A;
 
-    --sucess:       #059669;
-    --error:        #D97706;
-    --warning:      #DC2626;
+    --success:       #059669;
+    --warning:       #D97706;
+    --error:         #DC2626;
 
     
     --green:        #16a34a;
@@ -102,4 +102,3 @@
     --max:          1200px;
     --nav-w:        100%  ;
 }
-*/
