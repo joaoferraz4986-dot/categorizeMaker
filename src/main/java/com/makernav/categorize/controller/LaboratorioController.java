@@ -8,11 +8,12 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/api/items")
 public class LaboratorioController {
 
@@ -24,7 +25,13 @@ public class LaboratorioController {
         this.itemMapper = itemMapper;
     }
 
+    @GetMapping("/lab")
+    public String getLabPage() {
+        return "forward:/lab.html";
+    }
+
     @GetMapping
+    @ResponseBody
     public ResponseEntity<List<ItemDTO>> getTodosItens() {
         return ResponseEntity.ok(laboratorioService.getTodosOsItens()
                 .stream()
@@ -33,6 +40,7 @@ public class LaboratorioController {
     }
 
     @GetMapping("/{id}")
+    @ResponseBody
     public ResponseEntity<ItemDTO> getItemPorId(@PathVariable int id) {
         Item item = laboratorioService.getItemPorId(id);
         if (item == null) {
@@ -42,7 +50,8 @@ public class LaboratorioController {
     }
 
     @PostMapping
-    public ResponseEntity<HttpStatus> criarItem(@Valid @RequestBody ItemDTO itemDTO) {
+    @ResponseBody
+    public ResponseEntity<Void> criarItem(@Valid @RequestBody ItemDTO itemDTO) {
         var uri = laboratorioService.criarItem(itemDTO);
 
         return ResponseEntity.created(uri)

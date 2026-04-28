@@ -1,19 +1,13 @@
 package com.makernav.categorize.controller;
 
-import com.makernav.categorize.dto.ItemDTO;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
-@RestController
-@RequestMapping("/MakerNav")
+@Controller
 public class PaginaPrincipalController {
 
-    @GetMapping
-    public String getPage() {
-        return "../../resources/principal.html";
+    @GetMapping("/")
+    public String getIndexPage() {
+        return "forward:/index.html";
     }
 }

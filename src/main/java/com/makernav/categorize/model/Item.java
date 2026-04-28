@@ -37,6 +37,6 @@ public class Item {
     private Estado estado;
 
     @Lob
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "LONGTEXT")
     private String imagem;
 }
