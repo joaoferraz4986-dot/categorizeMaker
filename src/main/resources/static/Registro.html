@@ -19,6 +19,7 @@
 
 <section class="container-cad-log">                 <!--cad = cadastro, log = login-->
     <div class="tampa"></div>
+
     <div class="container-cadastro">
         <div class="cad">
             <div class="cad-header">
@@ -36,7 +37,7 @@
                 <button type="submit" class="cad-btn">Cadastrar</button>
             </form>
             <div class="cad-bottom">
-                <span class="troca-do-cad">Não tem uma conta? <span> crie aqui </span></span>
+                <span class="troca-do-cad">Já tem uma conta? <span id="troca-1"> faça login </span></span>
             </div>
         </div>
     </div>
@@ -45,6 +46,7 @@
 
     
     <div class="container-login">
+
         <div class="log">
             <div class="log-header">
                 <h2 class="log-text">Bem vindo de volta!</h2>
@@ -59,7 +61,7 @@
                 <button type="submit" class="cad-btn">Login</button>
             </form>
             <div class="log-bottom">
-                <span class="troca-do-log">Não tem uma conta? <span> crie aqui </span> ou <span>esqueceu?</span> </span:></span>
+                <span class="troca-do-log">Não tem uma conta? <span id="troca-2"> crie aqui </span></span>
             </div>
         </div>
     </div>
@@ -102,6 +104,8 @@
         <span>© 2025 MakerNav - Laboratorio Maker Escolar.</span>
         <span class="footer-tech">Java · Spring Boot · HTML · CSS · JS</span>
     </div>
+
+    <script src="js/troca.js"></script>
 </footer>
 </body>
 </html>
