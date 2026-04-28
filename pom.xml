@@ -87,6 +87,13 @@
 			<optional>true</optional>
 		</dependency>
 
+        <!-- tokenJWT -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>4.5.1</version>
+        </dependency>
+
 		<!-- Springdoc -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
