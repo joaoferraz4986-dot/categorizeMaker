@@ -2,12 +2,12 @@
     --bg:           #F8F8FF;
     --surface:      #FAFBFD;
     --surface-alt:  #F1F5FA;
-    --border:       #E2E8F0;
+    --border:       #D1D9E6;
     --border-strong:#CBD5E0;
 
     
     --text:         #0F172A;
-    --text-mid:     #475569;
+    --text-mid:     #334155;
     --text-dim:     #94A3B8;
     --text-soft:    #9ca3af;
     --text-on-pri:  #FFFFFF;
@@ -49,3 +49,57 @@
     --nav-w:        100%  ;
 }
 
+/*  Dark mode deve ser atribuido com js, tira os comentarios caso queira usar  */
+/*
+[dark-mode = "dark"]{
+    --bg:           #070710;
+    --surface:      #0F0F1A;
+    --surface-alt:  #1A1A2E;
+    --border:       #1E293B;
+    --border-strong:#334155;
+    --nav-color:    #050510;
+
+    
+    --text:         #F1F5F9;
+    --text-mid:     #94A3B8;
+    --text-dim:     #64748B;
+    --text-soft:    #9ca3af;
+    --text-on-pri:  #FFFFFF;
+
+    
+    --primary:      #3B82F6;
+    --primary-700:  #60A5FA;
+    --primary-soft: #1E3A8A;
+
+    --sucess:       #059669;
+    --error:        #D97706;
+    --warning:      #DC2626;
+
+    
+    --green:        #16a34a;
+    --green-soft:   #e7f6ed;
+    --amber:        #d97706;
+    --amber-soft:   #fef3e2;
+    --red:          #dc2626;
+    --red-soft:     #fdeaea;
+
+    
+    --cat-ferramentas: #b45309;
+    --cat-componentes: #2563eb;
+    --cat-utilitarios: #047857;
+
+    
+    --radius-sm:    6px;
+    --radius:       8px;
+    --radius-lg:    12px;
+    --shadow-sm:    0 1px 2px rgba(16, 24, 40, 0.05);
+    --shadow:       0 4px 16px rgba(16, 24, 40, 0.08);
+    --shadow-lg:    0 12px 32px rgba(16, 24, 40, 0.12);
+
+    --font:         'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+
+    --nav-h:        10vh;
+    --max:          1200px;
+    --nav-w:        100%  ;
+}
+*/
