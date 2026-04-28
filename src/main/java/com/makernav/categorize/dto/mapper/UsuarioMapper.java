@@ -9,7 +9,8 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface UsuarioMapper {
 
-    @Mapping(source = "idUsuario", target = "idUsuario")
+    @Mapping(target = "idUsuario", ignore = true)
+    @Mapping(target = "senha", ignore = true)
     UsuarioDTO toDTO(Usuario usuario);
 
     @Mapping(target = "idUsuario", ignore = true)

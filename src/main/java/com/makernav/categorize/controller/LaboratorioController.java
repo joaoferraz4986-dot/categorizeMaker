@@ -67,7 +67,7 @@ public class LaboratorioController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarItem(@PathVariable int id) {
         laboratorioService.deletarItem(id);
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/search")

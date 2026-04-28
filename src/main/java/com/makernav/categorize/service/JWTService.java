@@ -20,7 +20,7 @@ public class JWTService {
         Algorithm algorithm = Algorithm.HMAC384("12345678");
         return JWT.create()
                 .withIssuer("MakerNav")
-                .withSubject(usuario.getNome())
+                .withSubject(usuario.getEmail())
                 .withExpiresAt(expiracao(40))
                 .sign(algorithm);
 
