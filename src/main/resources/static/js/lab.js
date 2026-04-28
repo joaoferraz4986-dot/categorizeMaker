@@ -77,7 +77,7 @@ function renderGrid(list) {
 
     grid.innerHTML = list.map((item) => `
         <article class="item-card">
-            ${photoEl(item.foto, item.categoria)}
+            ${photoEl(item.imagem, item.categoria)}
             <div class="item-body">
                 <h3 class="item-name" title="${item.nome}">${item.nome}</h3>
                 <p class="item-type">${item.tipo}</p>
@@ -109,7 +109,7 @@ function renderTable(list) {
 
     tbody.innerHTML = list.map((item) => `
         <tr>
-            <td><div class="td-thumb">${item.foto ? `<img src="${item.foto}" alt="" />` : SVG.photo}</div></td>
+            <td><div class="td-thumb">${item.imagem ? `<img src="${item.imagem}" alt="" />` : SVG.photo}</div></td>
             <td class="td-name">${item.nome}</td>
             <td class="td-mono">${item.tipo}</td>
             <td>${item.categoria}</td>
@@ -153,7 +153,7 @@ function openEditModal(id) {
     if (!item) return;
 
     state.editingId = id;
-    state.pendingPhoto = item.foto || '';
+    state.pendingPhoto = item.imagem || '';
     $('#f-categoria').value = item.categoria;
     $('#f-tipo').value = item.tipo;
     $('#f-nome').value = item.nome;
@@ -162,8 +162,8 @@ function openEditModal(id) {
 
     const preview = $('#photo-preview');
     const hint = $('#photo-hint');
-    if (item.foto) {
-        preview.src = item.foto;
+    if (item.imagem) {
+        preview.src = item.imagem;
         preview.style.display = 'block';
         hint.style.display = 'none';
     } else {
@@ -193,7 +193,7 @@ function validateForm() {
         showToast('Preencha todos os campos corretamente', 'error');
         return null;
     }
-    return { nome, tipo, categoria, quantidade, estado, foto: state.pendingPhoto };
+    return { nome, tipo, categoria, quantidade, estado, imagem: state.pendingPhoto };
 }
 
 async function apiSave(payload) {
