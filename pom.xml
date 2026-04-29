@@ -13,7 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Categorize Application</name>
 	<description>A Spring Boot application for categorizing items</description>
-	<url>https://github.com/makernav/categorize</url>
+	<url>https://github.com/joaoferraz4986-dot/categorizeMaker</url>
 	<licenses>
 		<license>
 			<name>MIT License</name>
