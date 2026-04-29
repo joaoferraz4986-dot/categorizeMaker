@@ -1,4 +1,11 @@
-import { projectService } from "./projectService.js";
+import { projectService } from "./services/projectService.js";
+
+window.openCreateProjectModal = () => openCreateProjectModal();
+window.openEditProjectModal = (id) => openEditProjectModal(id);
+window.openDeleteProjectModal = (id) => openDeleteProjectModal(id);
+window.closeProjectModal = () => closeProjectModal();
+window.cancelDelete = () => cancelDelete();
+
 
 const VALID_CATEGORIES = ["Web", "Mobile", "Desktop", "Embarcados"];
 const TITLE_BY_CATEGORY = {
