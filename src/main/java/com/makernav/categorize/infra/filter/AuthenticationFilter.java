@@ -23,31 +23,33 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     private final JWTService jwtService;
     private final UsuarioRepository usuarioRepository;
 
-    public AuthenticationFilter(JWTService jwtService, UsuarioRepository usuarioRepository) {
+    public AuthenticationFilter( JWTService jwtService, UsuarioRepository usuarioRepository ) {
         this.jwtService = jwtService;
         this.usuarioRepository = usuarioRepository;
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        String token = recuperarTokenRequisicao(request);
+    protected void doFilterInternal( HttpServletRequest request, HttpServletResponse response, FilterChain filterChain ) throws ServletException, IOException {
+        String token = recuperarTokenRequisicao( request );
 
-        if(token != null){
-            String email = jwtService.verifyToken(token);
-            Usuario usuario = usuarioRepository.findByEmailIgnoreCase(email).orElseThrow();
+        if( token != null ){
+            String email = jwtService.verifyToken( token );
+            Usuario usuario = usuarioRepository.findByEmailIgnoreCase( email ).orElseThrow();
 
-            Authentication authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+            Authentication authentication = new UsernamePasswordAuthenticationToken( usuario, null, usuario.getAuthorities() );
+            SecurityContextHolder.getContext().setAuthentication( authentication );
         }
 
         filterChain.doFilter(request, response);
     }
 
-    private String recuperarTokenRequisicao(HttpServletRequest request) {
-        var authorizationHeader = request.getHeader("Authorization");
-        if(authorizationHeader != null){
-            return authorizationHeader.replace("Bearer ", "");
+    private String recuperarTokenRequisicao( HttpServletRequest request ) {
+        var authorizationHeader = request.getHeader( "Authorization" );
+
+        if( authorizationHeader != null ){
+            return authorizationHeader.replace( "Bearer ", "" );
         }
+
         return null;
     }
 }

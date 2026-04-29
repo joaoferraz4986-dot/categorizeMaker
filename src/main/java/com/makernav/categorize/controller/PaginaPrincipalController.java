@@ -11,12 +11,12 @@ public class PaginaPrincipalController {
         return "forward:/index.html";
     }
 
-    @GetMapping("/authentication/registro")
+    @GetMapping( "/authentication/registro" )
     public String getRegistroPage() {
         return "forward:/Registro.html";
     }
 
-    @GetMapping("/lab")
+    @GetMapping( "/lab" )
     public String getLabPage() {
         return "forward:/lab.html";
     }

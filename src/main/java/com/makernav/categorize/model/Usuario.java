@@ -17,32 +17,32 @@ import java.util.UUID;
 @Setter @Getter
 @NoArgsConstructor @AllArgsConstructor
 @Entity
-@Table(name = "usuario")
+@Table( name = "usuario" )
 public class Usuario implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id_usuario")
+    @GeneratedValue( strategy = GenerationType.UUID )
+    @Column( name = "id_usuario" )
     private UUID idUsuario;
 
-    @Column(nullable = false, length = 100)
+    @Column( nullable = false, length = 100 )
     private String nome;
 
-    @Column(nullable = false, unique = true, length = 100)
+    @Column( nullable = false, unique = true, length = 100 )
     @Email
     private String email;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated( EnumType.STRING )
     @NotNull
     private Cargo cargo;
 
-    @Column(nullable = false, length = 255)
+    @Column( nullable = false, length = 255 )
     private String senha;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(
-                new SimpleGrantedAuthority("ROLE_" + this.cargo)
+                new SimpleGrantedAuthority( "ROLE_" + this.cargo )
         );
     }
 

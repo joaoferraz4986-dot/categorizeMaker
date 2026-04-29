@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface ItemRepository extends JpaRepository<Item, Integer> {
-    Page<Item> findAllByEstado (Estado estado, Pageable pageable);
+    Page<Item> findAllByEstado ( Estado estado, Pageable pageable );
 
     // SELECT * FROM peca WHERE nome LIKE 'Abac%'  | case unsensitive (ignoreCase)
-    List<Item> findByNomeStartingWithIgnoreCase(String nome);
+    List<Item> findByNomeStartingWithIgnoreCase( String nome );
 }

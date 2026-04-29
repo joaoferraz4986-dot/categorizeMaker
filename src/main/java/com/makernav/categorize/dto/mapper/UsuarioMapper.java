@@ -7,14 +7,14 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring")
+@Mapper( componentModel = "spring" )
 public interface UsuarioMapper {
 
-    UsuarioResponseDTO toResponseDTO(Usuario usuario);
+    UsuarioResponseDTO toResponseDTO( Usuario usuario );
 
-    @Mapping(target = "idUsuario", ignore = true)
-    Usuario toEntity(UsuarioRequestDTO usuarioRequestDTO);
+    @Mapping( target = "idUsuario", ignore = true )
+    Usuario toEntity( UsuarioRequestDTO usuarioRequestDTO );
 
-    @Mapping(target = "idUsuario", ignore = true)
-    void updateEntityFromDTO(UsuarioRequestDTO usuarioRequestDTO, @MappingTarget Usuario usuario);
+    @Mapping( target = "idUsuario", ignore = true )
+    void updateEntityFromDTO( UsuarioRequestDTO usuarioRequestDTO, @MappingTarget Usuario usuario );
 }

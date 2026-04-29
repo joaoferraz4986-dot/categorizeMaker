@@ -17,8 +17,9 @@ public class JWTService {
     @Value("${jwt.secret}")
     private String secret;
 
-    public String createToken(Usuario usuario) {
-        Algorithm algorithm = Algorithm.HMAC384(secret);
+    public String createToken( Usuario usuario ) {
+        Algorithm algorithm = Algorithm.HMAC384( secret );
+
         return JWT.create()
                 .withIssuer("MakerNav")
                 .withSubject(usuario.getEmail())
@@ -28,19 +29,19 @@ public class JWTService {
 
     public String verifyToken(String token) {
         try {
-            Algorithm algorithm = Algorithm.HMAC384(secret);
-            DecodedJWT decodedJWT = JWT.require(algorithm)
-                    .withIssuer("MakerNav")
-                    .build().verify(token);
+            Algorithm algorithm = Algorithm.HMAC384( secret );
+            DecodedJWT decodedJWT = JWT.require( algorithm )
+                    .withIssuer( "MakerNav" )
+                    .build().verify( token );
 
             return decodedJWT.getSubject();
-        } catch (JWTVerificationException e) {
-            throw new JWTVerificationException("Token invalido ou expirado! " + e.getMessage());
+        } catch ( JWTVerificationException e ) {
+            throw new JWTVerificationException( "Token invalido ou expirado! " + e.getMessage() );
         }
     }
 
-    private Instant expiracao(Integer minutos) {
-        return Instant.now().plus(Duration.ofMinutes(minutos));
+    private Instant expiracao( Integer minutos ) {
+        return Instant.now().plus( Duration.ofMinutes(minutos) );
     }
 
 }
