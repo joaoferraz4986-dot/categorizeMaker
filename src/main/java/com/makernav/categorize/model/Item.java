@@ -11,32 +11,32 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "item")
+@Table( name = "item" )
 public class Item {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_item")
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    @Column( name = "id_item" )
     private int idItem;
 
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
+    @Column( nullable = false )
+    @Enumerated( EnumType.STRING )
     private Categoria categoria;
 
-    @Column(nullable = false, length = 255)
+    @Column( nullable = false, length = 255 )
     private String nome;
 
-    @Column(length = 255)
+    @Column( length = 255 )
     private String tipo;
 
-    @Column(nullable = false)
+    @Column( nullable = false )
     private Integer quantidade;
 
-    @Column(nullable = false)
+    @Column( nullable = false )
     @Enumerated(EnumType.STRING)
     private Estado estado;
 
     @Lob
-    @Column(columnDefinition = "LONGTEXT")
+    @Column( columnDefinition = "LONGTEXT" )
     private String imagem;
 }

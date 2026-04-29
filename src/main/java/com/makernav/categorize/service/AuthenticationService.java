@@ -17,28 +17,28 @@ public class AuthenticationService implements UserDetailsService {
 
     private final UsuarioRepository usuarioRepository;
     private final PasswordEncoder passwordEncoder;
-
     private final UsuarioMapper usuarioMapper;
 
-    public AuthenticationService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder, UsuarioMapper usuarioMapper) {
+    public AuthenticationService( UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder, UsuarioMapper usuarioMapper ) {
         this.usuarioRepository = usuarioRepository;
         this.passwordEncoder = passwordEncoder;
         this.usuarioMapper = usuarioMapper;
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return usuarioRepository.findByEmail(username);
+    public UserDetails loadUserByUsername( String username ) throws UsernameNotFoundException {
+        return usuarioRepository.findByEmail( username );
     }
 
     @Transactional
-    public UsuarioResponseDTO createUsuario(UsuarioRequestDTO usuarioRequestDTO) {
-        var usuario = usuarioMapper.toEntity(usuarioRequestDTO);
-        usuario.setSenha(passwordEncoder.encode(usuarioRequestDTO.senha()));
-        usuario.setCargo(Cargo.PROFESSOR);
+    public UsuarioResponseDTO createUsuario( UsuarioRequestDTO usuarioRequestDTO ) {
+        var usuario = usuarioMapper.toEntity( usuarioRequestDTO );
 
-        var usuarioSalvo = usuarioRepository.save(usuario);
+        usuario.setSenha( passwordEncoder.encode(usuarioRequestDTO.senha()) );
+        usuario.setCargo( Cargo.PROFESSOR );
 
-        return usuarioMapper.toResponseDTO(usuarioSalvo);
+        var usuarioSalvo = usuarioRepository.save( usuario );
+
+        return usuarioMapper.toResponseDTO( usuarioSalvo );
     }
 }

@@ -20,7 +20,7 @@ public class ItemService {
     private final ItemRepository itemRepository;
     private final ItemMapper itemMapper;
 
-    public ItemService(ItemRepository itemRepository, ItemMapper itemMapper) {
+    public ItemService( ItemRepository itemRepository, ItemMapper itemMapper ) {
         this.itemRepository = itemRepository;
         this.itemMapper = itemMapper;
     }
@@ -32,41 +32,43 @@ public class ItemService {
                 .toList();
     }
 
-    public Page<ItemResponseDTO> getItemsByState(Estado estado, Pageable pageable) {
-        return itemRepository.findAllByEstado(estado, pageable)
+    public Page<ItemResponseDTO> getItemsByState( Estado estado, Pageable pageable ) {
+        return itemRepository.findAllByEstado( estado, pageable )
                 .map(itemMapper::toResponseDTO);
     }
 
     public ItemResponseDTO getItemById(int id) {
-        var item = itemRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-        return itemMapper.toResponseDTO(item);
-    }
-
-    @Transactional
-    public ItemResponseDTO createItem(ItemRequestDTO itemRequestDTO) {
-        var item = itemMapper.toEntity(itemRequestDTO);
-
-        itemRepository.save(item);
+        var item = itemRepository.findById(id).orElseThrow( EntityNotFoundException::new );
 
         return itemMapper.toResponseDTO(item);
     }
 
     @Transactional
-    public void updateItem(int id, ItemRequestDTO itemRequestDTO) {
-        var item = itemRepository.findById(id).orElseThrow();
-        itemMapper.updateEntityFromDTO(itemRequestDTO, item);
-        itemRepository.save(item);
+    public ItemResponseDTO createItem( ItemRequestDTO itemRequestDTO ) {
+        var item = itemMapper.toEntity( itemRequestDTO );
+
+        itemRepository.save( item );
+
+        return itemMapper.toResponseDTO( item );
     }
 
     @Transactional
-    public void deleteItem(int id) {
-        itemRepository.deleteById(id);
+    public void updateItem( int id, ItemRequestDTO itemRequestDTO ) {
+        var item = itemRepository.findById( id ).orElseThrow();
+
+        itemMapper.updateEntityFromDTO( itemRequestDTO, item );
+        itemRepository.save( item );
     }
 
-    public List<ItemResponseDTO> getItemsByName(String nome){
-        return itemRepository.findByNomeStartingWithIgnoreCase(nome)
+    @Transactional
+    public void deleteItem( int id ) {
+        itemRepository.deleteById( id );
+    }
+
+    public List<ItemResponseDTO> getItemsByName( String nome ){
+        return itemRepository.findByNomeStartingWithIgnoreCase( nome )
                 .stream()
-                .map(itemMapper::toResponseDTO)
+                .map( itemMapper::toResponseDTO )
                 .toList();
     }
 }

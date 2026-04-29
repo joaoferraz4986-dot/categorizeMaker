@@ -24,9 +24,9 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityConfiguration(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityConfiguration( HttpSecurity http ) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
+                .csrf( csrf -> csrf.disable() )
 
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -52,9 +52,9 @@ public class SecurityConfig {
                                 "/swagger-ui.html"
                         ).permitAll()
 
-                        .anyRequest().hasRole("PROFESSOR")
+                        .anyRequest().hasRole( "PROFESSOR" )
                 )
-                .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore( authenticationFilter, UsernamePasswordAuthenticationFilter.class );
 
         return http.build();
     }
@@ -65,7 +65,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+    public AuthenticationManager authenticationManager( AuthenticationConfiguration authenticationConfiguration ) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 }

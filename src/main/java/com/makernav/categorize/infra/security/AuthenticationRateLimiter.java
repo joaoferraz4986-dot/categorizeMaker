@@ -19,19 +19,21 @@ public class AuthenticationRateLimiter {
 
     private final Map<String, Deque<Instant>> attempts = new ConcurrentHashMap<>();
 
-    public void validate(String clientIp) {
+    public void validate( String clientIp ) {
         var now = Instant.now();
-        var queue = attempts.computeIfAbsent(clientIp, key -> new ArrayDeque<>());
+        var queue = attempts.computeIfAbsent( clientIp, key -> new ArrayDeque<>() );
 
         synchronized (queue) {
-            while (!queue.isEmpty() && queue.peekFirst().isBefore(now.minus(WINDOW))) {
+            while ( !queue.isEmpty() && queue.peekFirst().isBefore(now.minus(WINDOW)) ) {
                 queue.pollFirst();
             }
-            if (queue.size() >= MAX_ATTEMPTS) {
-                throw new ResponseStatusException(HttpStatus.TOO_MANY_REQUESTS,
-                        "Too many authentication requests. Please wait a few minutes.");
+
+            if ( queue.size() >= MAX_ATTEMPTS ) {
+                throw new ResponseStatusException( HttpStatus.TOO_MANY_REQUESTS,
+                        "Too many authentication requests. Please wait a few minutes." );
             }
-            queue.addLast(now);
+
+            queue.addLast( now );
         }
     }
 }

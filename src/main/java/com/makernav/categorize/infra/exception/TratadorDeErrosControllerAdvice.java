@@ -16,40 +16,40 @@ import java.util.NoSuchElementException;
 @RestControllerAdvice
 public class TratadorDeErrosControllerAdvice {
 
-    @ExceptionHandler({EntityNotFoundException.class, NoSuchElementException.class})
+    @ExceptionHandler( {EntityNotFoundException.class, NoSuchElementException.class} )
     public ResponseEntity<Void> tratarErro404() {
         return ResponseEntity.notFound().build();
     }
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Object> tratarErro400(MethodArgumentNotValidException ex) {
+    @ExceptionHandler( MethodArgumentNotValidException.class )
+    public ResponseEntity<Object> tratarErro400( MethodArgumentNotValidException ex ) {
         var erros = ex.getFieldErrors();
-        return ResponseEntity.badRequest().body(erros.stream().map(DadosErroValidacao::new).toList());
+        return ResponseEntity.badRequest().body( erros.stream().map(DadosErroValidacao::new).toList() );
     }
 
-    @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<String> tratarErro400(HttpMessageNotReadableException ex) {
-        return ResponseEntity.badRequest().body(ex.getMessage());
+    @ExceptionHandler( HttpMessageNotReadableException.class )
+    public ResponseEntity<String> tratarErro400( HttpMessageNotReadableException ex ) {
+        return ResponseEntity.badRequest().body( ex.getMessage() );
     }
 
-    @ExceptionHandler(AccessDeniedException.class)
-    public ResponseEntity<String> tratarErro403(AccessDeniedException ex) {
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ex.getMessage());
+    @ExceptionHandler( AccessDeniedException.class )
+    public ResponseEntity<String> tratarErro403( AccessDeniedException ex ) {
+        return ResponseEntity.status( HttpStatus.FORBIDDEN).body(ex.getMessage() );
     }
 
-    @ExceptionHandler(AuthenticationException.class)
-    public ResponseEntity<String> tratarErro401(AuthenticationException ex) {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ex.getMessage());
+    @ExceptionHandler( AuthenticationException.class )
+    public ResponseEntity<String> tratarErro401( AuthenticationException ex ) {
+        return ResponseEntity.status( HttpStatus.UNAUTHORIZED).body(ex.getMessage() );
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> tratarErro500(Exception ex) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro: " +ex.getLocalizedMessage());
+    @ExceptionHandler( Exception.class )
+    public ResponseEntity<String> tratarErro500( Exception ex ) {
+        return ResponseEntity.status( HttpStatus.INTERNAL_SERVER_ERROR).body("Erro: " +ex.getLocalizedMessage() );
     }
 
-    private record DadosErroValidacao(String campo, String mensagem) {
-        public DadosErroValidacao(FieldError erro) {
-            this(erro.getField(), erro.getDefaultMessage());
+    private record DadosErroValidacao( String campo, String mensagem ) {
+        public DadosErroValidacao( FieldError erro ) {
+            this( erro.getField(), erro.getDefaultMessage() );
         }
     }
 
