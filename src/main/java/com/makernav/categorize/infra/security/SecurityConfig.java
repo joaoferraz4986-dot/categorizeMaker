@@ -34,8 +34,9 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/**",
+                                "/",
                                 "/index.html",
+                                "/lab",
                                 "/lab.html",
                                 "/Registro.html",
                                 "/css/**",
@@ -45,11 +46,13 @@ public class SecurityConfig {
 
                         .requestMatchers(
                                 "/authentication/login/",
-                                "/authentication/registrar/",
-                                "/authentication/registro"
+                                "/authentication/registro",
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html"
                         ).permitAll()
 
-                        .anyRequest().authenticated()
+                        .anyRequest().hasRole("PROFESSOR")
                 )
                 .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
 

@@ -5,8 +5,7 @@ import com.makernav.categorize.model.Estado;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record ItemDTO(
-        Integer idItem,
+public record ItemRequestDTO(
         @NotNull Categoria categoria,
         @NotBlank String nome,
         String tipo,

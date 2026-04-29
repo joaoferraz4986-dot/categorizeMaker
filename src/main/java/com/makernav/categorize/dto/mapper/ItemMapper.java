@@ -1,6 +1,7 @@
 package com.makernav.categorize.dto.mapper;
 
-import com.makernav.categorize.dto.ItemDTO;
+import com.makernav.categorize.dto.ItemRequestDTO;
+import com.makernav.categorize.dto.ItemResponseDTO;
 import com.makernav.categorize.model.Item;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -9,11 +10,12 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface ItemMapper {
 
-    ItemDTO toDTO(Item item);
+    @Mapping(source = "idItem", target = "id")
+    ItemResponseDTO toResponseDTO(Item item);
 
     @Mapping(target = "idItem", ignore = true)
-    Item toEntity(ItemDTO itemDTO);
+    Item toEntity(ItemRequestDTO itemRequestDTO);
 
     @Mapping(target = "idItem", ignore = true)
-    void updateEntityFromDTO(ItemDTO itemDTO, @MappingTarget Item item);
+    void updateEntityFromDTO(ItemRequestDTO itemRequestDTO, @MappingTarget Item item);
 }
