@@ -83,7 +83,7 @@
     color: var(--text-mid);
 }
 .troca-do-cad span{
-    color: blue;
+    color: var(--primary);
 }
 .troca-do-cad span:hover{
     cursor: pointer;

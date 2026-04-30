@@ -24,3 +24,19 @@ button{
     height: 100vh;
     background-color: #F8F8FF;
 }
+
+.bloqueio {
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(180deg, var(--bg) 20%, var(--primary) 80%);
+    box-shadow: -10px 0px 50px 2px rgb(0 0 0 / 0.25);
+    transition: transform 0.5s ease-in-out;
+}
+
+.bloqueio.active {
+    background: linear-gradient(180deg, var(--bg) 20%, var(--primary) 80%);
+    transform: translateX(-100%);
+}
