@@ -7,7 +7,7 @@ import com.makernav.categorize.infra.repository.ItemRepository;
 import com.makernav.categorize.model.Estado;
 import com.makernav.categorize.model.Item;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

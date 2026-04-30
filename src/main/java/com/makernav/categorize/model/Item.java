@@ -30,7 +30,7 @@ public class Item {
     private String tipo;
 
     @Column( nullable = false )
-    private Integer quantidade;
+    private int quantidade;
 
     @Column( nullable = false )
     @Enumerated(EnumType.STRING)

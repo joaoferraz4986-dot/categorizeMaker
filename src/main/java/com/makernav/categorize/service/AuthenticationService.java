@@ -5,7 +5,7 @@ import com.makernav.categorize.dto.UsuarioResponseDTO;
 import com.makernav.categorize.dto.mapper.UsuarioMapper;
 import com.makernav.categorize.infra.repository.UsuarioRepository;
 import com.makernav.categorize.model.Cargo;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -27,7 +27,8 @@ public class AuthenticationService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername( String username ) throws UsernameNotFoundException {
-        return usuarioRepository.findByEmail( username );
+        return usuarioRepository.findByEmailIgnoreCase( username )
+                .orElseThrow( () -> new UsernameNotFoundException("Usuário não encontrado: " + username) );
     }
 
     @Transactional

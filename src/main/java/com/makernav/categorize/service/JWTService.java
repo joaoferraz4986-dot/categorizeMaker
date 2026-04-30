@@ -23,7 +23,7 @@ public class JWTService {
         return JWT.create()
                 .withIssuer("MakerNav")
                 .withSubject(usuario.getEmail())
-                .withExpiresAt(expiracao(40))
+                .withExpiresAt(expiracao(90))
                 .sign(algorithm);
     }
 

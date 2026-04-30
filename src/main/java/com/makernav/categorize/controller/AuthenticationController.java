@@ -57,14 +57,7 @@ public class AuthenticationController {
         return ResponseEntity.ok( new TokenDTO(token) );
     }
 
-    private String getClientAddress( HttpServletRequest request ) {
-
-        var forwarded = request.getHeader( "X-Forwarded-For" );
-
-        if ( forwarded != null && !forwarded.isBlank() ) {
-            return forwarded.split( "," )[0].trim();
-        }
-
+    private String getClientAddress(HttpServletRequest request) {
         return request.getRemoteAddr();
     }
 
