@@ -1,5 +1,6 @@
 const btnTheme = document.querySelector('.btn-theme');
 const html = document.documentElement;
+const icon = document.querySelector('.icon');
 
 
 function initTheme() {
@@ -16,9 +17,11 @@ function toggleTheme(){
     if (currentTheme === 'dark'){
         html.setAttribute('data-theme', 'light');
         localStorage.setItem('theme','light');
+        icon.style.backgroundImage = "url(imgs/sun.svg)";
     } else {
         html.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme','dark');
+        icon.style.backgroundImage = "url(imgs/moon.svg)";
     }
 }
 initTheme();
