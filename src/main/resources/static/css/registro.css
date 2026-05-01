@@ -28,15 +28,30 @@ button{
 .bloqueio {
     z-index: 10;
     position: absolute;
-    left: 50%;
-    width: 50%;
+    width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, var(--bg) 20%, var(--primary) 80%);
-    box-shadow: -10px 0px 50px 2px rgb(0 0 0 / 0.25);
+    background: linear-gradient(var(--bg)20%, var(--primary)100%);
+    box-shadow: -10px 0px 50px 2px var(--primary);
     transition: transform 0.5s ease-in-out;
+    clip-path: inset(0);
 }
 
-.bloqueio.active {
-    background: linear-gradient(180deg, var(--bg) 20%, var(--primary) 80%);
-    transform: translateX(-100%);
+.bloqueio-formas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+
+}
+.forma {
+    position: absolute;
+    opacity: 0.1;
+    animation: flutuar linear infinite;
+
+}
+
+@keyframes flutuar {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-100vh) rotate(360deg); }
 }
