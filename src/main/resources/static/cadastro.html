@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro</title>
+    <meta name="description" content="Sistema de gestao para laboratorios maker escolares: organize ferramentas, componentes e utilitarios." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+<section class="container-cad-log">                 <!--cad = cadastro-->
+    <div class="bloqueio">
+        <div class="bloqueio-formas"></div>
+    </div>
+
+    <div class="container-cadastro">
+        <div class="cad">
+            <div class="cad-header">
+                <h2 class="cad-text">Seja bem vindo</h2>
+                <span class="cad-sub-text">Crie sua conta inserindo seus dados abaixo</span>
+            </div>
+            <hr class="divisor">
+            <form action="" class="cad-inner">
+                <input type="text" id="cadastro-nome" name="nome" required placeholder="Nome">
+
+                <input type="email" id="cadastro-email" name="email" required placeholder="Email">
+
+                <input type="password" id="cadastro-senha" name="senha" required placeholder="Senha">
+
+                <button type="submit" class="cad-btn">Cadastrar</button>
+            </form>
+            <div class="cad-bottom">
+                <span class="troca-do-cad">Já tem uma conta? <a href="login.html" id="troca-log"> faça login </a></span>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="nav-logo">
+                <span class="nav-logo-text">MakerNav</span>
+            </div>
+            <p>Sistema de gestao para laboratorios maker escolares.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Categorias</h4>
+            <ul>
+                <li><a href="/lab.html?cat=Ferramentas">Ferramentas</a></li>
+                <li><a href="/lab.html?cat=Componentes">Componentes</a></li>
+                <li><a href="/lab.html?cat=Utilitarios">Utilitarios</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Sistema</h4>
+            <ul>
+                <li><a href="/lab.html">Buscar pecas</a></li>
+                <li><a href="/lab.html">Novo item</a></li>
+                <li><a href="/lab.html">Gerenciar</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Estados</h4>
+            <ul>
+                <li>Livre</li>
+                <li>Em uso</li>
+                <li>Quebrado</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2025 MakerNav - Laboratorio Maker Escolar.</span>
+        <span class="footer-tech">Java · Spring Boot · HTML · CSS · JS</span>
+    </div>
+
+</footer>
+<script src="js/formas.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/services/registro.js" type="module"></script>
+</body>
+</html>

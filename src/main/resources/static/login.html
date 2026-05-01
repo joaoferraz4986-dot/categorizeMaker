@@ -1,4 +1,3 @@
-<!-- LOGIN E CADASTRO no mesmo lugar só uma ideia-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -17,34 +16,11 @@
 </head>
 <body>
 
-<section class="container-cad-log">                 <!--cad = cadastro, log = login-->
-    <div class="bloqueio"></div>
-
-    <div class="container-cadastro">
-        <div class="cad">
-            <div class="cad-header">
-                <h2 class="cad-text">Seja bem vindo</h2>
-                <span class="cad-sub-text">Crie sua conta inserindo seus dados abaixo</span>
-            </div>
-            <hr class="divisor">
-            <form action="" class="cad-inner">
-                <input type="text" id="cadastro-nome" name="nome" required placeholder="Nome">
-
-                <input type="email" id="cadastro-email" name="email" required placeholder="Email">
-
-                <input type="password" id="cadastro-senha" name="senha" required placeholder="Senha">
-
-                <button type="submit" class="cad-btn">Cadastrar</button>
-            </form>
-            <div class="cad-bottom">
-                <span class="troca-do-cad">Já tem uma conta? <span id="troca-1"> faça login </span></span>
-            </div>
-        </div>
+<section class="container-cad-log">                 <!--log = login-->
+    <div class="bloqueio">
+        <div class="bloqueio-formas"></div>
     </div>
 
-
-
-    
     <div class="container-login">
 
         <div class="log">
@@ -61,7 +37,7 @@
                 <button type="submit" class="cad-btn">Login</button>
             </form>
             <div class="log-bottom">
-                <span class="troca-do-log">Não tem uma conta? <span id="troca-2"> crie aqui </span></span>
+                <span class="troca-do-log">Não tem uma conta? <a href="cadastro.html" id="troca-cad"> crie aqui </a></span>
             </div>
         </div>
     </div>
@@ -106,7 +82,7 @@
     </div>
 
 </footer>
-<script src="js/troca.js"></script>
+<script src="js/formas.js"></script>
 <script src="js/theme.js"></script>
 <script src="js/services/registro.js" type="module"></script>
 </body>
