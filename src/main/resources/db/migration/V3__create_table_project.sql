@@ -5,7 +5,7 @@ CREATE TABLE projeto (
     descricao TEXT NOT NULL,
     data_inicio DATETIME DEFAULT CURRENT_TIMESTAMP,
     data_fim DATETIME NULL,
-    id_usuario INT NOT NULL,
+    id_usuario BINARY(16) NOT NULL,
     
     FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
 );
