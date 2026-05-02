@@ -1,10 +1,20 @@
-const BASE_URL = 'http://localhost:8080/api';
+const BASE_URL = 'http://localhost:8080';
+
+async function parseResposta(resposta) {
+    const texto = await resposta.text();
+    return texto ? JSON.parse(texto) : {};
+}
 
 const api = {
     async get(endpoint) {
         const resposta = await fetch(BASE_URL + endpoint);
-        const dados = await resposta.json();
-        return dados;
+
+        if (!resposta.ok) {
+            const erro = await parseResposta(resposta);
+            throw new Error(erro.message || 'Erro na requisição');
+        }
+
+        return await parseResposta(resposta);
     },
 
     async post(endpoint, corpo) {
@@ -13,7 +23,13 @@ const api = {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(corpo)
         });
-        return await resposta.json();
+
+        if (!resposta.ok) {
+            const erro = await parseResposta(resposta);
+            throw new Error(erro.message || 'Erro na requisição');
+        }
+
+        return await parseResposta(resposta);
     },
 
     async put(endpoint, corpo) {
@@ -22,14 +38,24 @@ const api = {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(corpo)
         });
-        return await resposta.json();
+
+        if (!resposta.ok) {
+            const erro = await parseResposta(resposta);
+            throw new Error(erro.message || 'Erro na requisição');
+        }
+
+        return await parseResposta(resposta);
     },
 
     async delete(endpoint) {
         const resposta = await fetch(BASE_URL + endpoint, {
             method: 'DELETE'
         });
-        // no delete normalmente não é retornado nada então só dar ok
+
+        if (!resposta.ok) {
+            throw new Error('Erro ao deletar');
+        }
+
         return resposta.ok;
     }
 };

@@ -33,6 +33,12 @@
 
                 <input type="email" id="cadastro-email" name="email" required placeholder="Email">
 
+                <select id="cadastro-cargo" name="cargo" required>
+                    <option value="" disabled selected>Selecione o cargo</option>
+                    <option value="PROFESSOR">Professor</option>
+                    <option value="ALUNO">Aluno</option>
+                </select>
+
                 <input type="password" id="cadastro-senha" name="senha" required placeholder="Senha">
 
                 <button type="submit" class="cad-btn">Cadastrar</button>
@@ -86,6 +92,6 @@
 </footer>
 <script src="js/formas.js"></script>
 <script src="js/theme.js"></script>
-<script src="js/services/registro.js" type="module"></script>
+<script src="js/cad/log/cadastro.js" type="module"></script>
 </body>
 </html>
