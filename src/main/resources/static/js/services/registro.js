@@ -6,11 +6,11 @@ const formCadastro = document.querySelector('.cad-inner');
 formCadastro.addEventListener('submit', async (evento) => {
     evento.preventDefault();
 
-    const dadosUsuario = {
-        nome:  document.querySelector('.cad-inner #nome').value,
-        email: document.querySelector('.cad-inner #email').value,
-        senha: document.querySelector('.cad-inner #senha').value
-    };
+    const nome  = document.getElementById('cadastro-nome').value.trim();
+    const email = document.getElementById('cadastro-email').value.trim();
+    const senha = document.getElementById('cadastro-senha').value;
+    
+    const dadosUsuario = { nome, email, senha };
 
     try {
         await authService.cadastrar(dadosUsuario);
