@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,162 +14,178 @@
     <link rel="stylesheet" href="css/lab.css" />
     <link rel="stylesheet" href="css/footer.css" />
 </head>
+
 <body class="lab-body">
-<nav class="nav nav-lab">
-    <a href="index.html" class="nav-logo">
-        <span class="nav-logo-text">MakerNav</span>
-    </a>
-    <div class="cat-tabs" role="tablist">
-        <button class="cat-tab active" data-cat="Todos">Todos</button>
-        <button class="cat-tab" data-cat="FERRAMENTAS">Ferramentas</button>
-        <button class="cat-tab" data-cat="COMPONENTES">Componentes</button>
-        <button class="cat-tab" data-cat="UTILITARIOS">Utilitários</button>
-    </div>
-    <div class="nav-search">
-        <input id="search-input" type="text" placeholder="Buscar..." aria-label="Buscar item" />
-    </div>
-    <a href="index.html" class="nav-cta nav-cta-ghost">Voltar</a>
-</nav>
-<main class="page-wrap">
-    <div class="toolbar">
-        <div class="toolbar-left">
-            <h1 class="toolbar-title" id="toolbar-title">Todos os Itens</h1>
-            <span class="count-badge" id="count-badge">0 itens</span>
+    <nav class="nav nav-lab">
+        <a href="index.html" class="nav-logo">
+            <span class="nav-logo-text">MakerNav</span>
+        </a>
+        <div class="cat-tabs" role="tablist">
+            <button class="cat-tab active" data-cat="Todos">Todos</button>
+            <button class="cat-tab" data-cat="FERRAMENTAS">Ferramentas</button>
+            <button class="cat-tab" data-cat="COMPONENTES">Componentes</button>
+            <button class="cat-tab" data-cat="UTILITARIOS">Utilitários</button>
         </div>
-        <div class="toolbar-right">
-            <div class="state-filters" role="group" aria-label="Filtrar por estado">
-                <button class="state-pill" data-state="LIVRE">Livre</button>
-                <button class="state-pill" data-state="USADO">Usado</button>
-                <button class="state-pill" data-state="QUEBRADO">Quebrado</button>
-            </div>
-            <div class="view-switch">
-                <button class="view-btn active" id="btn-grid" title="Grade" aria-label="Visualização em grade">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-                        <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
-                    </svg>
-                </button>
-                <button class="view-btn" id="btn-table" title="Tabela" aria-label="Visualização em tabela">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/>
-                        <line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
-                    </svg>
-                </button>
-            </div>
-            <button class="btn-primary" id="btn-open-create">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
-                </svg>
-                Novo Item
-            </button>
+        <div class="nav-search">
+            <input id="search-input" type="text" placeholder="Buscar..." aria-label="Buscar item" />
         </div>
-    </div>
-    <section id="items-grid" aria-live="polite"></section>
-    <section id="items-table" hidden>
-        <table>
-            <thead>
-                <tr>
-                    <th>Foto</th><th>Nome</th><th>Tipo</th><th>Categoria</th>
-                    <th>Quantidade</th><th>Estado</th><th>Ações</th>
-                </tr>
-            </thead>
-            <tbody id="table-body"></tbody>
-        </table>
-    </section>
-</main>
-<footer class="footer footer-compact">
-    <span>© 2025 MakerNav - Laboratório Maker Escolar</span>
-    <span class="footer-tech">Java · Spring Boot</span>
-</footer>
-<div class="overlay" id="form-overlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <header class="modal-header">
-            <h2 class="modal-title" id="modal-title">Novo Item</h2>
-            <button class="modal-close" id="close-modal" aria-label="Fechar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-                </svg>
-            </button>
-        </header>
-        <div class="modal-body">
-            <div class="form-row">
-                <div class="form-field">
-                    <label for="f-categoria">Categoria</label>
-                    <select id="f-categoria" required>
-                        <option value="">Selecione...</option>
-                        <option value="FERRAMENTAS">Ferramentas</option>
-                        <option value="COMPONENTES">Componentes</option>
-                        <option value="UTILITARIOS">Utilitários</option>
-                    </select>
-                </div>
-                <div class="form-field">
-                    <label for="f-tipo">Tipo</label>
-                    <input type="text" id="f-tipo" placeholder="Ex: Uno, Mega, Nano" required />
-                </div>
+        <a href="index.html" class="nav-cta nav-cta-ghost">Voltar</a>
+    </nav>
+    <main class="page-wrap">
+        <div class="toolbar">
+            <div class="toolbar-left">
+                <h1 class="toolbar-title" id="toolbar-title">Todos os Itens</h1>
+                <span class="count-badge" id="count-badge">0 itens</span>
             </div>
-            <div class="form-field">
-                <label for="f-nome">Nome do item</label>
-                <input type="text" id="f-nome" placeholder="Ex: Arduino Uno R3" required />
-            </div>
-            <div class="form-row">
-                <div class="form-field">
-                    <label for="f-quantidade">Quantidade</label>
-                    <input type="number" id="f-quantidade" min="1" placeholder="0" required />
+            <div class="toolbar-right">
+                <div class="state-filters" role="group" aria-label="Filtrar por estado">
+                    <button class="state-pill" data-state="LIVRE">Livre</button>
+                    <button class="state-pill" data-state="USADO">Em uso</button>
+                    <button class="state-pill" data-state="QUEBRADO">Quebrado</button>
                 </div>
-                <div class="form-field">
-                    <label for="f-estado">Estado</label>
-                    <select id="f-estado" required>
-                        <option value="">Selecione...</option>
-                        <option value="LIVRE">Livre</option>
-                        <option value="USADO">Usado</option>
-                        <option value="QUEBRADO">Quebrado</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-field">
-                <label>Foto do item</label>
-                <div class="photo-upload">
-                    <input type="file" id="f-foto" accept="image/*" />
-                    <div id="photo-hint" class="photo-upload-hint">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <circle cx="8.5" cy="8.5" r="1.5"/>
-                            <path d="m21 15-5-5L5 21"/>
+                <div class="view-switch">
+                    <button class="view-btn active" id="btn-grid" title="Grade" aria-label="Visualização em grade">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7" />
+                            <rect x="14" y="3" width="7" height="7" />
+                            <rect x="14" y="14" width="7" height="7" />
+                            <rect x="3" y="14" width="7" height="7" />
                         </svg>
-                        <p>Clique ou arraste uma imagem</p>
-                        <small>JPG, PNG, WEBP - max. 5MB</small>
-                    </div>
-                    <img id="photo-preview" class="photo-preview" alt="Pré-visualização" />
+                    </button>
+                    <button class="view-btn" id="btn-table" title="Tabela" aria-label="Visualização em tabela">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="8" y1="6" x2="21" y2="6" />
+                            <line x1="8" y1="12" x2="21" y2="12" />
+                            <line x1="8" y1="18" x2="21" y2="18" />
+                            <line x1="3" y1="6" x2="3.01" y2="6" />
+                            <line x1="3" y1="12" x2="3.01" y2="12" />
+                            <line x1="3" y1="18" x2="3.01" y2="18" />
+                        </svg>
+                    </button>
                 </div>
+                <button class="btn-primary" id="btn-open-create">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                    Novo Item
+                </button>
             </div>
         </div>
-        <footer class="modal-footer">
-            <button class="btn-ghost" id="btn-cancel">Cancelar</button>
-            <button class="btn-primary" id="btn-save">Salvar</button>
-        </footer>
-    </div>
-</div>
-<div class="overlay" id="del-overlay" aria-hidden="true">
-    <div class="modal modal-confirm" role="alertdialog" aria-modal="true">
-        <div class="confirm-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="3 6 5 6 21 6"/>
-                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-            </svg>
+        <section id="items-grid" aria-live="polite"></section>
+        <section id="items-table" hidden>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Nome</th>
+                        <th>Tipo</th>
+                        <th>Categoria</th>
+                        <th>Quantidade</th>
+                        <th>Estado</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>
+        </section>
+    </main>
+    <footer class="footer footer-compact">
+        <span>© 2025 MakerNav - Laboratório Maker Escolar</span>
+        <span class="footer-tech">Java · Spring Boot</span>
+    </footer>
+    <div class="overlay" id="form-overlay" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <header class="modal-header">
+                <h2 class="modal-title" id="modal-title">Novo Item</h2>
+                <button class="modal-close" id="close-modal" aria-label="Fechar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </header>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="f-categoria">Categoria</label>
+                        <select id="f-categoria" required>
+                            <option value="">Selecione...</option>
+                            <option value="FERRAMENTAS">Ferramentas</option>
+                            <option value="COMPONENTES">Componentes</option>
+                            <option value="UTILITARIOS">Utilitários</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="f-tipo">Tipo</label>
+                        <input type="text" id="f-tipo" placeholder="Ex: Uno, Mega, Nano" required />
+                    </div>
+                </div>
+                <div class="form-field">
+                    <label for="f-nome">Nome do item</label>
+                    <input type="text" id="f-nome" placeholder="Ex: Arduino Uno R3" required />
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="f-quantidade">Quantidade</label>
+                        <input type="number" id="f-quantidade" min="1" placeholder="0" required />
+                    </div>
+                    <div class="form-field">
+                        <label for="f-estado">Estado</label>
+                        <select id="f-estado" required>
+                            <option value="">Selecione...</option>
+                            <option value="LIVRE">Livre</option>
+                            <option value="USADO">Em uso</option>
+                            <option value="QUEBRADO">Quebrado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-field">
+                    <label>Foto do item</label>
+                    <div class="photo-upload">
+                        <input type="file" id="f-foto" accept="image/*" />
+                        <div id="photo-hint" class="photo-upload-hint">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" />
+                                <path d="m21 15-5-5L5 21" />
+                            </svg>
+                            <p>Clique ou arraste uma imagem</p>
+                            <small>JPG, PNG, WEBP - máx. 5 MB</small>
+                        </div>
+                        <img id="photo-preview" class="photo-preview" alt="Pré-visualização" />
+                    </div>
+                </div>
+            </div>
+            <footer class="modal-footer">
+                <button class="btn-ghost" id="btn-cancel">Cancelar</button>
+                <button class="btn-primary" id="btn-save">Salvar</button>
+            </footer>
         </div>
-        <h3 class="confirm-title">Deletar item?</h3>
-        <p class="confirm-sub">Tem certeza que deseja deletar <span id="del-item-name" class="confirm-name"></span>? Esta ação não pode ser desfeita.</p>
-        <div class="confirm-actions">
-            <button class="btn-ghost" id="cancel-del">Cancelar</button>
-            <button class="btn-danger" id="confirm-del">Deletar</button>
+    </div>
+    <div class="overlay" id="del-overlay" aria-hidden="true">
+        <div class="modal modal-confirm" role="alertdialog" aria-modal="true">
+            <div class="confirm-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6" />
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+            </div>
+            <h3 class="confirm-title">Deletar item?</h3>
+            <p class="confirm-sub">Tem certeza de que deseja deletar <span id="del-item-name"
+                    class="confirm-name"></span>? Esta ação não pode ser desfeita.</p>
+            <div class="confirm-actions">
+                <button class="btn-ghost" id="cancel-del">Cancelar</button>
+                <button class="btn-danger" id="confirm-del">Deletar</button>
+            </div>
         </div>
     </div>
-</div>
-<div class="toast-wrap" id="toast-wrap" aria-live="polite"></div>
-<script src="js/lab.js"></script>
-<script src="js/nav.js"></script>
-<script src="js/img-base64.js"></script>
-<script src="js/theme.js"></script>
+    <div class="toast-wrap" id="toast-wrap" aria-live="polite"></div>
+    <script src="js/lab.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/img-base64.js"></script>
+    <script src="js/theme.js"></script>
 
 </body>
+
 </html>
