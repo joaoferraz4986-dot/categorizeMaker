@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro</title>
-    <meta name="description" content="Sistema de gestao para laboratorios maker escolares: organize ferramentas, componentes e utilitarios." />
+    <title>Entrar</title>
+    <meta name="description"
+        content="Sistema de gestão para laboratórios maker escolares: organize ferramentas, componentes e utilitários." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -14,76 +16,79 @@
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="stylesheet" href="css/login.css">
 </head>
+
 <body>
 
-<section class="container-cad-log">                 <!--log = login-->
-    <div class="bloqueio">
-        <div class="bloqueio-formas"></div>
-    </div>
+    <section class="container-cad-log"> <!--log = login-->
+        <div class="bloqueio">
+            <div class="bloqueio-formas"></div>
+        </div>
 
-    <div class="container-login">
+        <div class="container-login">
 
-        <div class="log">
-            <div class="log-header">
-                <h2 class="log-text">Bem vindo de volta!</h2>
-                <span class="log-sub-text">insira seus dados abaixo para entrar em sua conta!</span>
+            <div class="log">
+                <div class="log-header">
+                    <h2 class="log-text">Bem-vindo de volta!</h2>
+                    <span class="log-sub-text">Insira seus dados abaixo para entrar em sua conta!</span>
+                </div>
+                <hr class="divisor">
+                <form action="" class="log-inner">
+                    <input type="email" id="login-email" name="email" required placeholder="E-mail">
+
+                    <input type="password" id="login-senha" name="senha" required placeholder="Senha">
+
+                    <button type="submit" class="cad-btn">Entrar</button>
+                </form>
+                <div class="log-bottom">
+                    <span class="troca-do-log">Não tem uma conta? <a href="cadastro.html" id="troca-cad">Crie
+                            aqui</a></span>
+                </div>
             </div>
-            <hr class="divisor">
-            <form action="" class="log-inner">
-                <input type="email" id="login-email" name="email" required placeholder="Email">
+        </div>
+    </section>
 
-                <input type="password" id="login-senha" name="senha" required placeholder="Senha">
-                
-                <button type="submit" class="cad-btn">Login</button>
-            </form>
-            <div class="log-bottom">
-                <span class="troca-do-log">Não tem uma conta? <a href="cadastro.html" id="troca-cad"> crie aqui </a></span>
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="nav-logo">
+                    <span class="nav-logo-text">MakerNav</span>
+                </div>
+                <p>Sistema de gestão para laboratórios maker escolares.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Categorias</h4>
+                <ul>
+                    <li><a href="/lab.html?cat=Ferramentas">Ferramentas</a></li>
+                    <li><a href="/lab.html?cat=Componentes">Componentes</a></li>
+                    <li><a href="/lab.html?cat=Utilitarios">Utilitários</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Sistema</h4>
+                <ul>
+                    <li><a href="/lab.html">Buscar peças</a></li>
+                    <li><a href="/lab.html">Novo item</a></li>
+                    <li><a href="/lab.html">Gerenciar</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Estados</h4>
+                <ul>
+                    <li>Livre</li>
+                    <li>Em uso</li>
+                    <li>Quebrado</li>
+                </ul>
             </div>
         </div>
-    </div>
-</section>
+        <div class="footer-bottom">
+            <span>© 2025 MakerNav - Laboratório Maker Escolar.</span>
+            <span class="footer-tech">Java · Spring Boot · HTML · CSS · JS</span>
+        </div>
+    </footer>
 
-<footer class="footer">
-    <div class="footer-inner">
-        <div class="footer-brand">
-            <div class="nav-logo">
-                <span class="nav-logo-text">MakerNav</span>
-            </div>
-            <p>Sistema de gestao para laboratorios maker escolares.</p>
-        </div>
-        <div class="footer-col">
-            <h4>Categorias</h4>
-            <ul>
-                <li><a href="/lab.html?cat=Ferramentas">Ferramentas</a></li>
-                <li><a href="/lab.html?cat=Componentes">Componentes</a></li>
-                <li><a href="/lab.html?cat=Utilitarios">Utilitarios</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Sistema</h4>
-            <ul>
-                <li><a href="/lab.html">Buscar pecas</a></li>
-                <li><a href="/lab.html">Novo item</a></li>
-                <li><a href="/lab.html">Gerenciar</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Estados</h4>
-            <ul>
-                <li>Livre</li>
-                <li>Em uso</li>
-                <li>Quebrado</li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <span>© 2025 MakerNav - Laboratorio Maker Escolar.</span>
-        <span class="footer-tech">Java · Spring Boot · HTML · CSS · JS</span>
-    </div>
-
-</footer>
-<script src="js/formas.js"></script>
-<script src="js/theme.js"></script>
-<script src="js/cad/log/login.js" type="module"></script>
+    <script src="js/formas.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/cad/log/login.js" type="module"></script>
 </body>
+
 </html>
