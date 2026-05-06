@@ -58,6 +58,24 @@
     outline: none;
     margin: 4%;
 }
+.cad select{
+    padding: 10px;
+    width: 70%;
+    height: 3%;
+    border-radius: 12px;
+    border: 1px solid var(--border-strong);
+    outline: none;
+    margin: 4%;
+    color: #7c7878;
+}
+option{
+    position: absolute;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--border-strong);
+    overflow: hidden;
+    z-index: 10;
+}
 .cad button{
     background-color: var(--primary);
     color: #f1f1f1;
