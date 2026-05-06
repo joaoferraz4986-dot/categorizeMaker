@@ -16,7 +16,7 @@
 
 .nav-log{
     background: transparent;
-    color: #fff;
+    color: var(--text);
     border-radius: var(--radius);
     padding: .5rem 1rem;
     font-size: .875rem;
