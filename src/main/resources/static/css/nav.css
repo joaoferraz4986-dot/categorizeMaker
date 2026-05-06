@@ -1,4 +1,6 @@
 .nav {
+    display: flex;
+    justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 50;
@@ -6,12 +8,45 @@
     max-height: 10vh;
     background: var(--surface);
     border-bottom: 1px solid var(--border);
-    display: flex;
     align-items: center;
     gap: 2rem;
     padding: 0 1.5rem;
 }
 
+
+.nav-log{
+    background: transparent;
+    color: #fff;
+    border-radius: var(--radius);
+    padding: .5rem 1rem;
+    font-size: .875rem;
+    font-weight: 600;
+}
+.nav-cad{
+    background: var(--primary);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: .5rem 1rem;
+    font-size: .875rem;
+    font-weight: 600;
+}
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.nav-center {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.nav-right{
+    justify-content: flex-end;
+}
 .nav-logo {
     display: inline-flex;
     align-items: center;
