@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
+
 <head>
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MakerNav - Gestão de Laboratório Maker</title>
-    <meta name="description" content="Sistema de gestão para laboratórios maker escolares: organize ferramentas, componentes e utilitários." />
+    <meta name="description"
+        content="Sistema de gestão para laboratórios maker escolares: organize ferramentas, componentes e utilitários." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -16,41 +19,58 @@
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/btnTheme.css" />
 </head>
+
 <body>
-<nav class="nav">
-    <div class="nav-menu">
-        <div class="menu-links">
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="#categorias">Categorias</a></li>
-                <li><a href="lab.html">Lab</a></li>
-            </ul>
+    <nav class="nav">
+
+        <!-- MOBILE -->
+        <div class="nav-menu">
+            <div class="menu-links">
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#categorias">Categorias</a></li>
+                    <li><a href="lab.html">Lab</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <a href="/" class="nav-logo">
-        <span class="nav-logo-text">MakerNav</span>
-    </a>
-    <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="#categorias">Categorias</a></li>
-        <li><a href="lab.html">Lab</a></li>
-    </ul>
-    <a href="lab.html" class="nav-cta">Acessar Lab</a>
-</nav>
-<header class="hero">
-    <div class="hero-inner">
-        <h1 class="hero-title">Navegue pelo inventário do seu lab.</h1>
-        <p class="hero-sub">
-            Gerencie ferramentas, componentes e utilitários do laboratório maker da escola
-            com clareza e controle total - do Arduino ao último cabo.
-        </p>
-        <form class="hero-search" onsubmit="event.preventDefault(); window.location='/lab.html'">
-            <input type="text" placeholder="Buscar peça, ferramenta ou componente..." aria-label="Buscar" />
-            <button type="submit" class="hero-search-btn">Buscar</button>
-        </form>
-    </div>
-</header>
-<section class="categories" id="categorias">
+        <!-- FIM MOBILE -->
+
+        <div class="nav-left">
+        <a href="login.html" class="nav-log">Entrar</a>
+        <a href="cadastro.html" class="nav-cad">Cadastrar</a>
+        <a href="index.html" class="nav-logo">
+            <span class="nav-logo-text">MakerNav</span>
+        </a>
+        </div>
+
+        <div class="nav-center">
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="#categorias">Categorias</a></li>
+            <li><a href="lab.html">Lab</a></li>
+        </ul>
+        </div>
+
+        <div class="nav-right">
+        <a href="lab.html" class="nav-cta">Acessar Lab</a>
+        </div>
+
+    </nav>
+    
+    <header class="hero">
+        <div class="hero-inner">
+            <h1 class="hero-title">Navegue pelo inventário do seu lab.</h1>
+            <p class="hero-sub">
+                Gerencie ferramentas, componentes e utilitários do laboratório maker da escola
+                com clareza e controle total - do Arduino ao último cabo.
+            </p>
+            <form class="hero-search" onsubmit="event.preventDefault(); window.location='/lab.html'">
+                <input type="text" placeholder="Buscar peça, ferramenta ou componente..." aria-label="Buscar" />
+                <button type="submit" class="hero-search-btn">Buscar</button>
+            </form>
+        </div>
+    </header>
+    <section class="categories" id="categorias">
         <div class="categories-header">
             <span class="section-label">Categorias do laboratório</span>
             <h2 class="section-title">Três áreas, um sistema.</h2>
@@ -58,77 +78,89 @@
                 Cada tipo de item tem o seu espaço. Selecione uma categoria para gerenciar os itens do lab.
             </p>
         </div>
- 
-    <div class="cat-grid">
-        <a href="/lab.html?cat=Ferramentas" class="cat-card">
-            <span class="cat-arrow" aria-hidden="true">-></span>
-            <h3 class="cat-name">Ferramentas</h3>
-            <p class="cat-desc">Equipamentos físicos para construção, montagem, medição e reparo.</p>
-            <ul class="cat-tags">
-                <li>Furadeira</li><li>Multímetro</li><li>Ferro de Solda</li><li>Alicate</li>
-            </ul>
-            <span class="cat-cta">Gerenciar ferramentas</span>
-        </a>
-        <a href="/lab.html?cat=Componentes" class="cat-card">
-            <span class="cat-arrow" aria-hidden="true">-></span>
-            <h3 class="cat-name">Componentes</h3>
-            <p class="cat-desc">Peças eletrônicas e módulos: placas, sensores, LEDs, resistores e mais.</p>
-            <ul class="cat-tags">
-                <li>Arduino</li><li>LED</li><li>Resistor</li><li>Sensor</li>
-            </ul>
-            <span class="cat-cta">Gerenciar componentes</span>
-        </a>
-        <a href="/lab.html?cat=Utilitarios" class="cat-card">
-            <span class="cat-arrow" aria-hidden="true">-></span>
-            <h3 class="cat-name">Utilitários</h3>
-            <p class="cat-desc">Materiais de apoio e consumíveis para projetos e manutenção.</p>
-            <ul class="cat-tags">
-                <li>Fita Isolante</li><li>Parafuso</li><li>Cola Quente</li><li>Lupa</li>
-            </ul>
-            <span class="cat-cta">Gerenciar utilitários</span>
-        </a>
-    </div>
-</section>
-<footer class="footer">
-    <div class="footer-inner">
-        <div class="footer-brand">
-            <div class="nav-logo">
-                <span class="nav-logo-text">MakerNav</span>
+
+        <div class="cat-grid">
+            <a href="/lab.html?cat=Ferramentas" class="cat-card">
+                <span class="cat-arrow" aria-hidden="true">-></span>
+                <h3 class="cat-name">Ferramentas</h3>
+                <p class="cat-desc">Equipamentos físicos para construção, montagem, medição e reparo.</p>
+                <ul class="cat-tags">
+                    <li>Furadeira</li>
+                    <li>Multímetro</li>
+                    <li>Ferro de Solda</li>
+                    <li>Alicate</li>
+                </ul>
+                <span class="cat-cta">Gerenciar ferramentas</span>
+            </a>
+            <a href="/lab.html?cat=Componentes" class="cat-card">
+                <span class="cat-arrow" aria-hidden="true">-></span>
+                <h3 class="cat-name">Componentes</h3>
+                <p class="cat-desc">Peças eletrônicas e módulos: placas, sensores, LEDs, resistores e mais.</p>
+                <ul class="cat-tags">
+                    <li>Arduino</li>
+                    <li>LED</li>
+                    <li>Resistor</li>
+                    <li>Sensor</li>
+                </ul>
+                <span class="cat-cta">Gerenciar componentes</span>
+            </a>
+            <a href="/lab.html?cat=Utilitarios" class="cat-card">
+                <span class="cat-arrow" aria-hidden="true">-></span>
+                <h3 class="cat-name">Utilitários</h3>
+                <p class="cat-desc">Materiais de apoio e consumíveis para projetos e manutenção.</p>
+                <ul class="cat-tags">
+                    <li>Fita Isolante</li>
+                    <li>Parafuso</li>
+                    <li>Cola Quente</li>
+                    <li>Lupa</li>
+                </ul>
+                <span class="cat-cta">Gerenciar utilitários</span>
+            </a>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="nav-logo">
+                    <span class="nav-logo-text">MakerNav</span>
+                </div>
+                <p>Sistema de gestão para laboratórios maker escolares.</p>
             </div>
-            <p>Sistema de gestão para laboratórios maker escolares.</p>
+            <div class="footer-col">
+                <h4>Categorias</h4>
+                <ul>
+                    <li><a href="/lab.html?cat=Ferramentas">Ferramentas</a></li>
+                    <li><a href="/lab.html?cat=Componentes">Componentes</a></li>
+                    <li><a href="/lab.html?cat=Utilitarios">Utilitários</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Sistema</h4>
+                <ul>
+                    <li><a href="/lab.html">Buscar peças</a></li>
+                    <li><a href="/lab.html">Novo item</a></li>
+                    <li><a href="/lab.html">Gerenciar</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Estados</h4>
+                <ul>
+                    <li>Livre</li>
+                    <li>Em uso</li>
+                    <li>Quebrado</li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-col">
-            <h4>Categorias</h4>
-            <ul>
-                <li><a href="/lab.html?cat=Ferramentas">Ferramentas</a></li>
-                <li><a href="/lab.html?cat=Componentes">Componentes</a></li>
-                <li><a href="/lab.html?cat=Utilitarios">Utilitários</a></li>
-            </ul>
+        <div class="footer-bottom">
+            <span>© 2025 MakerNav - Laboratório Maker Escolar.</span>
+            <span class="footer-tech">Java · Spring Boot · HTML · CSS · JS</span>
         </div>
-        <div class="footer-col">
-            <h4>Sistema</h4>
-            <ul>
-                <li><a href="/lab.html">Buscar peças</a></li>
-                <li><a href="/lab.html">Novo item</a></li>
-                <li><a href="/lab.html">Gerenciar</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Estados</h4>
-            <ul>
-                <li>Livre</li>
-                <li>Em uso</li>
-                <li>Quebrado</li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <span>© 2025 MakerNav - Laboratório Maker Escolar.</span>
-        <span class="footer-tech">Java · Spring Boot · HTML · CSS · JS</span>
-    </div>
-</footer>
-<button class="btn-theme"><div class="icon"></div></button>
-<script src="js/nav.js"></script>
-<script src="js/theme.js"></script>
+    </footer>
+    <button class="btn-theme">
+        <div class="icon"></div>
+    </button>
+    <script src="js/nav.js"></script>
+    <script src="js/theme.js"></script>
 </body>
+
 </html>
