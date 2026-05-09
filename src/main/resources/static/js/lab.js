@@ -1,3 +1,6 @@
+import api from './services/api.js';
+import { handlePhotoUpload } from './img-base64.js';
+
 const API_BASE_URL = '/api/items';
 const VALID_CATEGORIES = ['Ferramentas', 'Componentes', 'Utilitarios'];
 const TITLE_BY_CATEGORY = {
@@ -198,21 +201,11 @@ function validateForm() {
 
 async function apiSave(payload) {
     const isEdit = state.editingId !== null;
-    const url = isEdit ? `${API_BASE_URL}/${state.editingId}` : API_BASE_URL;
-    const method = isEdit ? 'PUT' : 'POST';
-    const res = await fetch(url, {
-        method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    });
-
-    if (!res.ok) {
-        let msg = 'Erro ao salvar item';
-        try {
-            const data = await res.json();
-            msg = data.error || data.message || msg;
-        } catch (_) {}
-        throw new Error(msg);
+    const endpoint = isEdit ? `${API_BASE_URL}/${state.editingId}` : API_BASE_URL;
+    if (isEdit) {
+        await api.put(endpoint, payload);
+    } else {
+        await api.post(endpoint, payload);
     }
 }
 
@@ -244,8 +237,7 @@ function cancelDelete() {
 }
 
 async function apiDelete(id) {
-    const res = await fetch(`${API_BASE_URL}/${id}`, { method: 'DELETE' });
-    if (!res.ok) throw new Error('Erro ao deletar item');
+    await api.delete(`${API_BASE_URL}/${id}`);
 }
 
 async function confirmDelete() {
@@ -303,9 +295,7 @@ function showToast(message, type = 'success') {
 
 async function loadItems() {
     try {
-        const res = await fetch(API_BASE_URL);
-        if (!res.ok) throw new Error(`http ${res.status}`);
-        state.items = await res.json();
+        state.items = await api.get(API_BASE_URL);
     } catch (err) {
         console.warn('API indisponivel, usando lista vazia.', err);
         state.items = [];
@@ -335,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $('#cancel-del').addEventListener('click', cancelDelete);
     bindOverlayClose('#del-overlay', cancelDelete);
 
-    $('#f-foto').addEventListener('change', handlePhotoUpload);
+    $('#f-foto').addEventListener('change', (e) => handlePhotoUpload(e, state, showToast, $));
     $('#btn-grid').addEventListener('click', () => switchViewMode('grid'));
     $('#btn-table').addEventListener('click', () => switchViewMode('table'));
     $$('.cat-tab').forEach((tab) => tab.addEventListener('click', () => filterByCategory(tab.dataset.cat)));
