@@ -32,7 +32,7 @@ public class Projeto {
     @Column()
     private Date dataInicio;
 
-    @Column( nullable = true )
+    @Column(name = "data_fim", nullable = true )
     private Date dataFinal;
 
     @ManyToOne
