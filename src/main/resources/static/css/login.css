@@ -1,4 +1,4 @@
-.container-login{
+.container-login {
     z-index: 20;
     display: flex;
     width: 100%;
@@ -6,10 +6,10 @@
     justify-content: center;
     align-items: center;
 }
-.log{
+
+.log {
     display: flex;
     flex-direction: column;
-    padding: 0 auto;
     justify-content: center;
     align-items: center;
     min-width: 30vw;
@@ -21,16 +21,19 @@
     border-radius: 10px;
     filter: drop-shadow(0px 0px 20px rgb(0 0 0 / 0.55));
 }
-.log-text{
+
+.log-text {
     color: var(--text);
     font-size: clamp(1rem, 2vw, 1.75rem);
 }
-.log-sub-text{
+
+.log-sub-text {
     color: var(--text-mid);
     text-align: center;
     font-size: 1rem;
 }
-.log-header{
+
+.log-header {
     margin: auto auto 0 auto;
     display: flex;
     justify-content: center;
@@ -39,7 +42,8 @@
     width: 80%;
     max-height: 40%;
 }
-.log-inner{
+
+.log-inner {
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -49,19 +53,23 @@
     min-height: 30%;
     max-height: 60%;
 }
-.log input{
+
+.log input {
     padding: 10px;
-    width: 70%;
+    width: 75%;
     height: 3%;
     border-radius: 12px;
     border: 1px solid var(--border-strong);
+    background-color: var(--surface);
+    color: var(--text);
     outline: none;
-    margin: 4%;
+    margin: 4% auto;
 }
-.log button{
+
+.log button {
     background-color: var(--primary);
     color: #f1f1f1;
-    margin: 5%;
+    margin: 5% auto;
     width: 75%;
     min-height: 10%;
     max-height: 15%;
@@ -70,7 +78,8 @@
     border-radius: 12px;
     cursor: pointer;
 }
-.log-bottom{
+
+.log-bottom {
     margin: 0 auto auto auto;
     display: flex;
     width: 80%;
@@ -79,13 +88,13 @@
     align-items: center;
     flex-direction: column;
 }
-.troca-do-log{
+
+.troca-do-log {
     font-size: .8rem;
     color: var(--text-mid);
 }
-.troca-do-log a{
-    color:  var(--primary);
-}
-.troca-do-log a:hover{
+
+.troca-do-log a {
+    color: var(--primary);
     cursor: pointer;
 }
