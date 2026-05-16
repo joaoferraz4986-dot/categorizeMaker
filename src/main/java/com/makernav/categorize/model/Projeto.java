@@ -24,7 +24,8 @@ public class Projeto {
     private String nome;
 
     @Column( nullable = false, length = 50)
-    private String categoria;
+    @Enumerated(EnumType.STRING)
+    private CategoriaProjeto categoria;
 
     @Column( nullable = false )
     private String descricao;
@@ -33,7 +34,7 @@ public class Projeto {
     private Date dataInicio;
 
     @Column(name = "data_fim", nullable = true )
-    private Date dataFinal;
+    private Date dataFim;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)

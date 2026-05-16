@@ -1,7 +1,10 @@
 package com.makernav.categorize.controller;
 
+import com.makernav.categorize.dto.ProjetoRequestDTO;
+import com.makernav.categorize.dto.ProjetoResponseDTO;
 import com.makernav.categorize.model.Projeto;
 import com.makernav.categorize.service.ProjetoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +14,17 @@ import java.util.List;
 @RestController
 @RequestMapping("/projeto")
 public class ProjetoController {
+
+    private final ProjetoService projetoService;
+
+    public ProjetoController(ProjetoService projetoService){
+        this.projetoService = projetoService;
+    }
+
+    @PostMapping
+    public ProjetoResponseDTO criar(@Valid @RequestBody ProjetoRequestDTO projetoRequestDTO){
+        return projetoService.salvar(new Projeto(projetoRequestDTO));
+    }
 
     @Autowired
     private ProjetoService projetoService;
