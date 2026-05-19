@@ -65,7 +65,22 @@
     font-weight: 700;
     letter-spacing: .02em;
 }
+.config{
+    display: none;
+    width: 5vh;
+    height: 5vh;
+    background-color: aqua;
+    border-radius: 100%;
+    background-image: url(../imgs/config.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.config img{
+    width: 50%;
+    height: 50%;
+}
 .nav-logo-text {
+    margin-left: 1vw;
     font-weight: 700;
     color: var(--text);
     font-size: 1rem;

@@ -38,7 +38,22 @@ img { max-width: 100%; display: block; }
     font-weight: 600;
     transition: background .15s ease;
 }
+.btn-second{
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: var(--primary);
+    color: #fff;
+    border: 1px solid var(--primary);
+    border-radius: var(--radius);
+    padding: .55rem 1rem;
+    font-size: .9rem;
+    font-weight: 600;
+    transition: background .15s ease;
+    cursor: pointer;
+}
 .btn-primary:hover { background: var(--primary-700); border-color: var(--primary-700); }
+.btn-second:hover { background: var(--primary-700); border-color: var(--primary-700); }
 .btn-primary svg { width: 16px; height: 16px; }
 
 .btn-ghost {
