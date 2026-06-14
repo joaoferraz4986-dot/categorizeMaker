@@ -1,3 +1,4 @@
+
 import api from './services/api.js';
 import { handlePhotoUpload } from './img-base64.js';
 
@@ -65,6 +66,33 @@ function photoEl(photo, category) {
     return `<div class="item-photo">${tag}<div class="item-photo-placeholder">${SVG.photo}<span>Sem foto</span></div></div>`;
 }
 
+function openItemCard(id) {
+    const item = findItemById(id);
+    if (!item) return;
+
+    $('#view-nome').textContent = item.nome;
+    $('#view-categoria').textContent = item.categoria;
+    $('#view-tipo').textContent = item.tipo;
+    $('#view-quantidade').textContent = `${item.quantidade} un.`;
+
+    const estadoEl = $('#view-estado');
+    estadoEl.innerHTML = stateBadge(item.estado);
+
+    const photoContainer = $('#view-photo-container');
+    if (item.imagem) {
+        photoContainer.innerHTML = `<img src="${item.imagem}" alt="${item.nome}" />`;
+    } else {
+        photoContainer.innerHTML = `<div class="item-photo-view-placeholder">${SVG.photo}<span>Sem foto</span></div>`;
+    }
+
+    $('#view-btn-edit').onclick = () => { closeItemCard(); openEditModal(id); };
+    setOpen('#view-overlay', true);
+}
+
+function closeItemCard() {
+    setOpen('#view-overlay', false);
+}
+
 function renderGrid(list) {
     const grid = $('#items-grid');
     if (!list.length) {
@@ -79,7 +107,7 @@ function renderGrid(list) {
     }
 
     grid.innerHTML = list.map((item) => `
-        <article class="item-card">
+        <article class="item-card" onclick="openItemCard(${item.id})" style="cursor:pointer;" title="Ver detalhes">
             ${photoEl(item.imagem, item.categoria)}
             <div class="item-body">
                 <h3 class="item-name" title="${item.nome}">${item.nome}</h3>
@@ -90,8 +118,8 @@ function renderGrid(list) {
                 </div>
             </div>
             <div class="item-actions">
-                <button class="action-btn action-edit" onclick="openEditModal(${item.id})" title="Editar">${SVG.edit}</button>
-                <button class="action-btn action-delete" onclick="openDeleteModal(${item.id})" title="Deletar">${SVG.delete}</button>
+                <button class="action-btn action-edit" onclick="event.stopPropagation(); openEditModal(${item.id})" title="Editar">${SVG.edit}</button>
+                <button class="action-btn action-delete" onclick="event.stopPropagation(); openDeleteModal(${item.id})" title="Deletar">${SVG.delete}</button>
             </div>
         </article>
     `).join('');
@@ -111,7 +139,7 @@ function renderTable(list) {
     }
 
     tbody.innerHTML = list.map((item) => `
-        <tr>
+        <tr onclick="openItemCard(${item.id})" style="cursor:pointer;" title="Ver detalhes">
             <td><div class="td-thumb">${item.imagem ? `<img src="${item.imagem}" alt="" />` : SVG.photo}</div></td>
             <td class="td-name">${item.nome}</td>
             <td class="td-mono">${item.tipo}</td>
@@ -119,8 +147,8 @@ function renderTable(list) {
             <td>${item.quantidade}</td>
             <td>${stateBadge(item.estado)}</td>
             <td><div class="td-actions">
-                <button class="table-btn edit" onclick="openEditModal(${item.id})" title="Editar">${SVG.edit}</button>
-                <button class="table-btn delete" onclick="openDeleteModal(${item.id})" title="Deletar">${SVG.delete}</button>
+                <button class="table-btn edit" onclick="event.stopPropagation(); openEditModal(${item.id})" title="Editar">${SVG.edit}</button>
+                <button class="table-btn delete" onclick="event.stopPropagation(); openDeleteModal(${item.id})" title="Deletar">${SVG.delete}</button>
             </div></td>
         </tr>
     `).join('');
@@ -307,6 +335,7 @@ async function loadItems() {
 window.openCreateModal = openCreateModal;
 window.openEditModal = openEditModal;
 window.openDeleteModal = openDeleteModal;
+window.openItemCard = openItemCard;
 
 document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
@@ -324,6 +353,9 @@ document.addEventListener('DOMContentLoaded', () => {
     $('#confirm-del').addEventListener('click', confirmDelete);
     $('#cancel-del').addEventListener('click', cancelDelete);
     bindOverlayClose('#del-overlay', cancelDelete);
+
+    $('#close-view-modal').addEventListener('click', closeItemCard);
+    bindOverlayClose('#view-overlay', closeItemCard);
 
     $('#f-foto').addEventListener('change', (e) => handlePhotoUpload(e, state, showToast, $));
     $('#btn-grid').addEventListener('click', () => switchViewMode('grid'));

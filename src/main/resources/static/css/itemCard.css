@@ -1,0 +1,115 @@
+.item-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+
+.item-card:hover {
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+}
+.form-field #view-estado .state-badge{
+    padding: 0%;
+    font-style: normal;
+    border: none;
+}
+.item-photo {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: var(--surface-alt);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.item-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-cat-tag {
+    position: absolute;
+    top: .55rem;
+    left: .55rem;
+    font-size: .65rem;
+    font-weight: 600;
+    padding: .15rem .55rem;
+    border-radius: 4px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-mid);
+}
+
+.item-body {
+    padding: .9rem 1rem .75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.item-name {
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-type {
+    font-size: .75rem;
+    color: var(--text-soft);
+}
+
+.item-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: .35rem;
+}
+
+.item-qty {
+    font-size: .78rem;
+    color: var(--text-mid);
+}
+
+.state-badge {
+    font-size: .65rem;
+    font-weight: 600;
+    padding: .15rem .55rem;
+    border-radius: 100px;
+    text-transform: capitalize;
+}
+
+.state-livre    { color: var(--green);   background: var(--green-soft); }
+.state-usado    { color: var(--primary); background: var(--primary-soft); }
+.state-quebrado { color: var(--amber);   background: var(--amber-soft); }
+
+.item-actions {
+    display: flex;
+    gap: .35rem;
+    padding: .55rem 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.action-btn {
+    flex: 1;
+    padding: .35rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-mid);
+    display: grid;
+    place-items: center;
+    transition: background .15s, color .15s, border-color .15s;
+}
