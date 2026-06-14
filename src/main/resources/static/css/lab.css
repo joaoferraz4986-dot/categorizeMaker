@@ -323,6 +323,7 @@
 }
 .form-field input,
 .form-field select,
+.form-field span,
 .form-field textarea {
     width: 100%;
     background: var(--surface);
@@ -433,4 +434,3 @@
 @media (max-width: 600px) {
     .form-row { grid-template-columns: 1fr; }
 }
-

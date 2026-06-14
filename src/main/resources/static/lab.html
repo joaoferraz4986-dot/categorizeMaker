@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/nav.css" />
     <link rel="stylesheet" href="css/lab.css" />
+    <link rel="stylesheet" href="css/itemCard.css">
     <link rel="stylesheet" href="css/footer.css" />
 </head>
 
@@ -70,7 +71,7 @@
                     </svg>
                     Novo Item
                 </button>
-                <a class="btn-second" id="btn-page-project" href="projetos.html">
+                <a class="btn-primary" id="btn-page-project" href="projetos.html">
                     Projetos
                 </a>
             </div>
@@ -97,6 +98,7 @@
         <span>© 2025 MakerNav - Laboratório Maker Escolar</span>
         <span class="footer-tech">Java · Spring Boot</span>
     </footer>
+
     <div class="overlay" id="form-overlay" aria-hidden="true">
         <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
             <header class="modal-header">
@@ -166,6 +168,7 @@
             </footer>
         </div>
     </div>
+
     <div class="overlay" id="del-overlay" aria-hidden="true">
         <div class="modal modal-confirm" role="alertdialog" aria-modal="true">
             <div class="confirm-icon" aria-hidden="true">
@@ -183,11 +186,57 @@
             </div>
         </div>
     </div>
+
+    <div class="overlay" id="view-overlay" aria-hidden="true">
+        <div class="modal modal-view" role="dialog" aria-modal="true" aria-labelledby="view-modal-title">
+            <header class="modal-header">
+                
+                <button class="modal-close" id="close-view-modal" aria-label="Fechar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </header>
+            <div class="view-photo-wrap">
+                <div class="item-photo-view" id="view-photo-container"></div>
+            </div>
+            <div class="modal-body">
+                <div class="form-field">
+                    <label>Nome do item</label>
+                    <span class="view-field" id="view-nome"></span>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label>Categoria</label>
+                        <span class="view-field" id="view-categoria"></span>
+                    </div>
+                    <div class="form-field">
+                        <label>Tipo</label>
+                        <span class="view-field" id="view-tipo"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label>Quantidade</label>
+                        <span class="view-field" id="view-quantidade"></span>
+                    </div>
+                    <div class="form-field">
+                        <label>Estado</label>
+                        <span class="view-field" id="view-estado"></span>
+                    </div>
+                </div>
+            </div>
+            <footer class="modal-footer">
+                <button class="btn-primary" id="view-btn-edit">Editar</button>
+            </footer>
+        </div>
+    </div>
+
     <div class="toast-wrap" id="toast-wrap" aria-live="polite"></div>
     <script type="module" src="js/lab.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/theme.js"></script>
-
 </body>
 
 </html>
