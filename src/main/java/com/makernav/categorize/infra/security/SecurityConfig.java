@@ -45,7 +45,8 @@ public class SecurityConfig {
                                 "/index.html",
                                 "/lab",
                                 "/lab.html",
-                                "/Registro.html",
+                                "/cadastro.html",
+                                "/login.html",
                                 "/css/**",
                                 "/js/**",
                                 "/imgs/**"
