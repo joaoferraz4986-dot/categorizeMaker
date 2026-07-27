@@ -1,5 +1,5 @@
 const BASE_URL = 'http://localhost:8080';
-    
+import {logout} from './authGuard.js';
 // Essas rotas significam que não necessitam de um token para acesso
 const ROTAS_PUBLICAS = [
     '/authentication/login/',
@@ -31,8 +31,7 @@ function getHeaders(endpoint, comCorpo = false) {
 
 function verificarErroAutorizacao(status) {
     if (status === 401 || status === 403) {
-        localStorage.removeItem('token');
-        window.location.href = '/login.html';
+        logout();
         throw new Error('Sessão expirada. Redirecionando para login.');
     }
 }
