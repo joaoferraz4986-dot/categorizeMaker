@@ -49,7 +49,8 @@ public class SecurityConfig {
                                 "/login.html",
                                 "/css/**",
                                 "/js/**",
-                                "/imgs/**"
+                                "/imgs/**",
+                                "/api/items/export/pdf"
                         ).permitAll()
 
                         .requestMatchers(
