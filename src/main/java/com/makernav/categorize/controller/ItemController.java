@@ -2,13 +2,20 @@ package com.makernav.categorize.controller;
 
 import com.makernav.categorize.dto.ItemRequestDTO;
 import com.makernav.categorize.dto.ItemResponseDTO;
+import com.makernav.categorize.infra.repository.ItemRepository;
+import com.makernav.categorize.model.Categoria;
+import com.makernav.categorize.model.Item;
+import com.makernav.categorize.service.ItemPdfService;
 import com.makernav.categorize.service.ItemService;
 import jakarta.validation.Valid;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.io.ByteArrayInputStream;
 import java.net.URI;
 import java.util.List;
 
@@ -17,9 +24,13 @@ import java.util.List;
 public class ItemController {
 
     private final ItemService itemService;
+    private final ItemPdfService itemPdfService;
+    private final ItemRepository itemRepository;
 
-    public ItemController(ItemService itemService) {
+    public ItemController(ItemService itemService, ItemPdfService itemPdfService, ItemRepository itemRepository) {
         this.itemService = itemService;
+        this.itemPdfService = itemPdfService;
+        this.itemRepository = itemRepository;
     }
 
     @GetMapping
@@ -61,5 +72,24 @@ public class ItemController {
     @GetMapping("/search")
     public ResponseEntity<List<ItemResponseDTO>> searchByName( @RequestParam String nome ) {
         return ResponseEntity.ok( itemService.getItemsByName(nome) );
+    }
+
+    @GetMapping("/export/pdf")
+    public ResponseEntity<InputStreamResource> exportarPdf( @RequestParam(required = false) List<Categoria> categorias) {
+        if (categorias != null && categorias.isEmpty()) {
+            categorias = null;
+        }
+
+        List<Item> itens = itemRepository.findByCategoriasEOrdenar(categorias);
+        ByteArrayInputStream pdfStream = itemPdfService.gerarPdfItens(itens);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "inline; filename=relatorio-itens.pdf");
+
+        return ResponseEntity
+            .ok()
+            .headers(headers)
+            .contentType(MediaType.APPLICATION_PDF)
+            .body(new InputStreamResource(pdfStream));
     }
 }
