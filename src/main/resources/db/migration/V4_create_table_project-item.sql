@@ -8,6 +8,6 @@ CREATE TABLE projeto_item (
     UNIQUE KEY uk_projeto_item (id_projeto, id_item),
     INDEX (id_projeto),
     CHECK (quantidade_usada >= 0),
-    FOREIGN KEY (id_projeto) REFERENCES projeto(id_projeto) ON DELETE CASCADE, 
     FOREIGN KEY (id_item) REFERENCES item(id_item) ON DELETE RESTRICT
+    FOREIGN KEY (id_projeto) REFERENCES projeto(id_projeto) ON DELETE CASCADE, 
 );
