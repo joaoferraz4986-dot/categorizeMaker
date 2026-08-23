@@ -1,3 +1,4 @@
+/*
 export function handlePhotoUpload(e, state, showToast, $) {
     const file = e.target.files[0];
     if (!file) return;
@@ -15,3 +16,4 @@ export function handlePhotoUpload(e, state, showToast, $) {
     };
     reader.readAsDataURL(file);
 }
+*/

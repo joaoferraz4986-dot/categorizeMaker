@@ -1,6 +1,7 @@
 
 import api from './services/api.js';
-import { handlePhotoUpload } from './img-base64.js';
+//import { handlePhotoUpload } from './img-base64.js';
+import { handlePhotoUpload } from './img-comprimida.js';
 
 const API_BASE_URL = '/api/items';
 const VALID_CATEGORIES = ['Ferramentas', 'Componentes', 'Utilitarios'];
