@@ -5,7 +5,6 @@ import com.makernav.categorize.dto.ItemResponseDTO;
 import com.makernav.categorize.dto.mapper.ItemMapper;
 import com.makernav.categorize.infra.repository.ItemRepository;
 import com.makernav.categorize.model.Estado;
-import com.makernav.categorize.model.Item;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.domain.Page;

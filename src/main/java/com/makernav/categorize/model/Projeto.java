@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
-import java.util.UUID;
+import java.util.List;
 
 @Setter @Getter
 @NoArgsConstructor @AllArgsConstructor
@@ -40,5 +40,10 @@ public class Projeto {
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 
+    // Relacionamento com a entidade ProjetoItem 1:N
+    @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProjetoItem> itens;
+
     public String getNomeProjeto(){return this.nome; }
+    public Integer getId(){return this.idProjeto; }
 }

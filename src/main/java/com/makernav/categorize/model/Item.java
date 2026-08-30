@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -39,4 +41,10 @@ public class Item {
     @Lob
     @Column( columnDefinition = "LONGTEXT" )
     private String imagem;
+
+    // Relacionamento com a entidade ProjetoItem 1:N
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProjetoItem> projetos;
+
+    public Integer getId() { return this.idItem; }
 }
