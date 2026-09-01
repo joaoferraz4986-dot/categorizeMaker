@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/nav.css" />
     <link rel="stylesheet" href="css/lab.css" />
+    <link rel="stylesheet" href="css/itemCard.css" />
     <link rel="stylesheet" href="css/footer.css" />
 </head>
 
@@ -77,6 +78,7 @@
             <table>
                 <thead>
                     <tr>
+                        <th>Foto</th>
                         <th>Nome</th>
                         <th>Categoria</th>
                         <th>Descrição</th>
@@ -117,10 +119,10 @@
                         <label for="p-cat">Categoria</label>
                         <select id="p-cat" required>
                             <option value="">Selecione...</option>
-                            <option value="Web">Web</option>
-                            <option value="Mobile">Mobile</option>
-                            <option value="Desktop">Desktop</option>
-                            <option value="Embarcados">Embarcados</option>
+                            <option value="WEB">Web</option>
+                            <option value="MOBILE">Mobile</option>
+                            <option value="DESKTOP">Desktop</option>
+                            <option value="EMBARCADOS">Embarcados</option>
                         </select>
                         <small id="err-p-cat" role="alert" aria-live="polite" hidden></small>
                     </div>
@@ -131,6 +133,17 @@
                             required></textarea>
                         <small id="err-p-desc" role="alert" aria-live="polite" hidden></small>
                     </div>
+
+                    <div class="form-field">
+                        <label for="p-image">Foto</label>
+                        <input type="file" id="p-image" accept="image/*" />
+                        <img id="p-image-preview" class="project-image-preview" alt="Pré-visualização da foto" hidden />
+                    </div>
+
+                    <div class="form-field">
+                        <label>Itens utilizados</label>
+                        <div id="project-items-picker" class="project-items-picker"></div>
+                    </div>
                 </form>
             </div>
 
@@ -138,6 +151,22 @@
                 <button class="btn-ghost" id="btn-cancel-project">Cancelar</button>
                 <button class="btn-primary" id="btn-save-project">Salvar</button>
             </footer>
+        </div>
+    </div>
+
+    <div class="overlay" id="view-overlay" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="view-project-title">
+            <header class="modal-header">
+                <h2 class="modal-title" id="view-project-title">Detalhes do projeto</h2>
+                <button class="modal-close" id="close-view-modal" aria-label="Fechar modal">&times;</button>
+            </header>
+            <div class="modal-body project-details">
+                <img id="view-project-image" class="project-detail-image" alt="" hidden />
+                <div><strong id="view-project-name"></strong><span id="view-project-category" class="card-cat-tag"></span></div>
+                <p id="view-project-description"></p>
+                <h3>Itens vinculados</h3>
+                <div id="view-project-items" class="project-linked-items"></div>
+            </div>
         </div>
     </div>
 
@@ -162,7 +191,7 @@
 
     <div class="toast-wrap" id="toast-wrap" aria-live="polite"></div>
 
-    <script type="module" src="js/userTimesOut.js"> </script>>
+    <script type="module" src="js/userTimesOut.js"></script>
     <script type="module" src="js/projetos.js"></script>
 </body>
 
