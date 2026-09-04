@@ -1,0 +1,315 @@
+
+Dashboard · CSS
+body {
+    display: block;
+    background: var(--bg);
+}
+.dashboard {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr) 320px;
+    min-height: 100vh;
+}
+ 
+.navbar {
+    background: var(--surface-alt);
+    border-right: 1px solid var(--border);
+    padding: 1.75rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+}
+ 
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+ 
+.perfilFoto {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: var(--text-on-pri);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+}
+ 
+.perfilInfo {
+    display: flex;
+    flex-direction: column;
+    gap: .1rem;
+    min-width: 0;
+}
+ 
+.perfilNome {
+    color: var(--text);
+    font-weight: 600;
+    font-size: .95rem;
+}
+ 
+.perfilEmail {
+    color: var(--text-dim);
+    font-size: .78rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+ 
+.navbarLinks {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+ 
+.navLink {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius);
+    padding: .65rem .75rem;
+    color: var(--text-dim);
+    font-size: .9rem;
+    font-weight: 500;
+    text-align: left;
+    transition: background .15s, color .15s;
+}
+ 
+.navLink:hover {
+    background: var(--surface);
+    color: var(--text);
+}
+ 
+.navLink.active {
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 700;
+}
+ 
+.principal {
+    padding: 2.5rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-width: 0;
+}
+ 
+.principalInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+ 
+.titulo {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -.02em;
+    color: var(--text);
+}
+ 
+.subtitulo {
+    color: var(--text-dim);
+    font-size: .9rem;
+    margin-top: .35rem;
+}
+ 
+.mudanca {
+    display: flex;
+    align-items: flex-end;
+    gap: .5rem;
+    height: 160px;
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+ 
+.principalSecao {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem 1.5rem;
+}
+ 
+.principalSecao-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: .75rem;
+    margin-bottom: .5rem;
+    border-bottom: 1px solid var(--border);
+}
+ 
+.principalSecao-head h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+}
+ 
+.opcoes {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    padding: .25rem;
+    border-radius: var(--radius-sm);
+}
+ 
+.lista {
+    display: flex;
+    flex-direction: column;
+}
+ 
+.listaItem {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    padding: .8rem 0;
+    border-bottom: 1px solid var(--border);
+}
+ 
+.listaItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+ 
+.listaItemImagem {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+ 
+.listaItem-text {
+    display: flex;
+    flex-direction: column;
+    gap: .1rem;
+    flex: 1;
+    min-width: 0;
+}
+ 
+.listaItemTitulo {
+    font-size: .92rem;
+    font-weight: 600;
+    color: var(--text);
+}
+ 
+.listaItemSubtexto {
+    font-size: .78rem;
+    color: var(--text-dim);
+}
+ 
+.listaItemQuantidade {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    flex-shrink: 0;
+}
+ 
+.parteDireita {
+    padding: 2.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border-left: 1px solid var(--border);
+    min-width: 0;
+}
+ 
+.parteDireitaTitulo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+}
+ 
+.projetos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+ 
+.projetoDescricao{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .45rem;
+}
+ 
+.projetoNome {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+ 
+.projetoContador {
+    font-size: .78rem;
+    color: var(--text-dim);
+    flex-shrink: 0;
+    margin-left: .5rem;
+}
+ 
+.progresso {
+    height: 6px;
+    background: var(--border);
+    border-radius: 100px;
+    overflow: hidden;
+}
+ 
+.log {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.25rem 1.5rem;
+}
+ 
+.logTitulo {
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 700;
+}
+ 
+.logTexto {
+    color: var(--text-dim);
+    font-size: .78rem;
+    margin-top: .25rem;
+    margin-bottom: 1rem;
+}
+ 
+.logLista {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+ 
+.logConteudo {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: .55rem .75rem;
+}
+ 
+.logImagem {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--border);
+    color: var(--text-mid);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+.logItemTexto {
+    font-size: .8rem;
+    font-weight: 600;
+}

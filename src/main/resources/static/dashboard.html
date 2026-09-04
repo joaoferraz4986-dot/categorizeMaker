@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MakerNav - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+
+<body>
+    <div class="dashboard">
+        <nav class="navbar">
+            <div class="perfil">
+                <div class="perfilFoto">C</div>
+                <div class="perfilInfo">
+                    <p class="perfilNome">Perfil</p>
+                    <p class="perfilEmail">email</p>
+                </div>
+            </div>
+            <div class="navbarLinks">
+                <button type="button" class="navLink" data-cat="home">Home
+                </button>
+                <button type="button" class="navLink" data-cat="dashboard">Dashboard
+                </button>
+                <button type="button" class="navLink" data-cat="armazem">Armazem
+                </button>
+                <button type="button" class="navLink" data-cat="projetos">Projetos
+                </button>
+                <button type="button" class="navLink" data-cat="contas">Contas
+                </button>
+                <button type="button" class="navLink" data-cat="configuracao">Configurações
+                </button>
+            </div>
+        </nav>
+
+        <section class="principal">
+            <div class="principalInfo">
+                <div>
+                    <h1 class="titulo">Visão Geral</h1>
+                    <p class="subtitulo">2026 - 03 de Setembro</p>
+                </div>
+            </div>
+
+            <div class="mudanca"> <!--Mudanças onde tera os graficos do mes-->
+            </div>
+
+            <section class="principalSecao">
+                <div class="principalSecao-head">
+                    <h2>Atualmente</h2>
+                    <button type="button" class="opcoes">...
+                    </button>
+                </div>
+                <ul class="lista">
+                    <li class="listaItem">
+                        <div class="listaItemImagem">
+
+                        </div>
+                        <span class="listaItem-texto">
+                            <span class="listaItemTitulo">Projetos</span>
+                            <span class="listaItemSubtexto">Todos projetos dos Lab Maker</span>
+                        </span>
+                        <span class="listaItemQuantidade">14</span>
+                    </li>
+                    <li class="listaItem">
+                        <div class="listaItemImagem">
+
+                        </div>
+                        <span class="listaItem-texto">
+                            <span class="listaItemTitulo">Projetos Antigos</span>
+                            <span class="listaItemSubtexto">Projetos ativos já concluídos</span>
+                        </span>
+                        <span class="listaItemQuantidade">4</span>
+                    </li>
+                    <li class="listaItem">
+                        <div class="listaItemImagem">
+
+                        </div>
+                        <span class="listaItem-texto">
+                            <span class="listaItemTitulo">Itens Armazenados</span>
+                            <span class="listaItemSubtexto">Itens Armazenados no Total</span>
+                        </span>
+                        <span class="listaItemQuantidade">999</span>
+                    </li>
+                    <li class="listaItem">
+                        <div class="listaItemImagem">
+
+                        </div>
+                        <span class="listaItem-texto">
+                            <span class="listaItemTitulo">Itens Quebrados</span>
+                            <span class="listaItemSubtexto">Todos itens quebrados</span>
+                        </span>
+                        <span class="listaItemQuantidade">999</span>
+                    </li>
+                    <li class="listaItem">
+                        <div class="listaItemImagem">
+
+                        </div>
+                        <span class="listaItem-texto">
+                            <span class="listaItemTitulo">Itens sendo Usados</span>
+                            <span class="listaItemSubtexto">Todos itens quebrados</span>
+                        </span>
+                        <span class="listaItemQuantidade">23</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="principalSecao">
+                <div class="principalSecao-head">
+                    <h2>Agosto</h2>
+                    <button type="button">
+
+                    </button>
+                </div>
+                <ul class="lista">
+                    <li class="listaItem">
+                        <span class="dash-icon dash-icon-blue">
+
+                        </span>
+                        <span class="listaItem-texto">
+                            <span class="listaItemTitulo">Projetos</span>
+                            <span class="listaItemSubtexto">Todos projetos dos Lab Maker</span>
+                        </span>
+                        <span class="listaItemQuantidade">13</span>
+                    </li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="parteDireita">
+            <h2 class="parteDireitaTitulo">Projetos Ativos</h2>
+            <ul class="projetos">
+                <li class="projetosItens">
+                    <div class="item">
+                        <div class="projetoDescricao">
+                            <span class="projetoNome">Robo Otto</span>
+                            <span class="projetoContador">4 itens</span>
+                        </div>
+                        <div class="progresso">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="log">
+                <h3 class="logTitulo">Log de Eventos</h3>
+                <p class="logTexto">Últimas alterações feitas no aplicativo</p>
+                <ul class="logLista">
+                    <li class="logConteudo">
+                        <div class="logImagem"></div>
+                        <span class="logItemTexto">Item adicionado</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>
