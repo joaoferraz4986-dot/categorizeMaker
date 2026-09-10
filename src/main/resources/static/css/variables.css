@@ -1,104 +1,92 @@
 :root {
-    --bg:           #F8F8FF;
-    --surface:      #FAFBFD;
-    --surface-alt:  #F1F5FA;
-    --border:       #D1D9E6;
-    --border-strong:#CBD5E0;
+  --bg: #fbf1c7;
+  --surface: #f2e5bc;
+  --surface-alt: #ebdbb2;
+  --border: #d5c4a1;
+  --border-strong: #bdae93;
 
-    
-    --text:         #0F172A;
-    --text-mid:     #334155;
-    --text-dim:     #94A3B8;
-    --text-soft:    #9ca3af;
-    --text-on-pri:  #FFFFFF;
+  --text: #3c3836;
+  --text-mid: #504945;
+  --text-dim: #665c54;
+  --text-soft: #7c6f64;
+  --text-on-pri: #fbf1c7;
 
-    
-    --primary:      #0057FF;
-    --primary-700:  #003BB5;
-    --primary-soft: #E0EFFF;
+  --primary: #d65d0e;
+  --primary-700: #af3a03;
+  --primary-soft: #f2e5bc;
 
-    --success:       #10B981;
-    --warning:       #F59E0B;
-    --error:         #EF4444;
+  --success: #79740e;
+  --warning: #b57614;
+  --error: #9d0006;
 
-    
-    --green:        #16a34a;
-    --green-soft:   #e7f6ed;
-    --amber:        #d97706;
-    --amber-soft:   #fef3e2;
-    --red:          #dc2626;
-    --red-soft:     #fdeaea;
+  --green: #79740e;
+  --green-soft: #e9e5b5;
+  --amber: #b57614;
+  --amber-soft: #f2e3b5;
+  --red: #9d0006;
+  --red-soft: #f3d6c8;
 
-    
-    --cat-ferramentas: #b45309;
-    --cat-componentes: #2563eb;
-    --cat-utilitarios: #047857;
+  --cat-ferramentas: #af3a03;
+  --cat-componentes: #076678;
+  --cat-utilitarios: #79740e;
 
-    
-    --radius-sm:    6px;
-    --radius:       8px;
-    --radius-lg:    12px;
-    --shadow-sm:    0 1px 2px rgba(16, 24, 40, 0.05);
-    --shadow:       0 4px 16px rgba(16, 24, 40, 0.08);
-    --shadow-lg:    0 12px 32px rgba(16, 24, 40, 0.12);
+  --radius-sm: 6px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 2px rgba(60, 56, 54, 0.08);
+  --shadow: 0 4px 16px rgba(60, 56, 54, 0.12);
+  --shadow-lg: 0 12px 32px rgba(60, 56, 54, 0.18);
 
-    --font:         'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 
-    --nav-h:        10vh;
-    --max:          1200px;
-    --nav-w:        100%  ;
+  --nav-h: 10vh;
+  --max: 1200px;
+  --nav-w: 100%;
 }
 
-/*  Dark mode deve ser atribuido com js, tira os comentarios caso queira usar  */
+:root[data-theme="dark"] {
+  --bg: #282828;
+  --surface: #3c3836;
+  --surface-alt: #504945;
+  --border: #665c54;
+  --border-strong: #7c6f64;
+  --nav-color: #1d2021;
 
-:root[data-theme="dark"]{
-    --bg:           #070710;
-    --surface:      #0F0F1A;
-    --surface-alt:  #1A1A2E;
-    --border:       #1E293B;
-    --border-strong:#334155;
-    --nav-color:    #050510;
+  --text: #ebdbb2;
+  --text-mid: #d5c4a1;
+  --text-dim: #bdae93;
+  --text-soft: #928374;
+  --text-on-pri: #282828;
 
-    
-    --text:         #F1F5F9;
-    --text-mid:     #94A3B8;
-    --text-dim:     #64748B;
-    --text-soft:    #9ca3af;
-    --text-on-pri:  #FFFFFF;
+  --primary: #fe8019;
+  --primary-700: #fabd2f;
+  --primary-soft: #504945;
 
-    
-    --primary:      #3B82F6;
-    --primary-700:  #60A5FA;
-    --primary-soft: #1E3A8A;
+  --success: #b8bb26;
+  --warning: #fabd2f;
+  --error: #fb4934;
 
-    --success:       #059669;
-    --warning:       #D97706;
-    --error:         #DC2626;
+  --green: #b8bb26;
+  --green-soft: #3f4327;
+  --amber: #fabd2f;
+  --amber-soft: #4a3f24;
+  --red: #fb4934;
+  --red-soft: #4a2926;
 
-    
-    --green:        #16a34a;
-    --green-soft:   #e7f6ed;
-    --amber:        #d97706;
-    --amber-soft:   #fef3e2;
-    --red:          #dc2626;
-    --red-soft:     #fdeaea;
+  --cat-ferramentas: #fe8019;
+  --cat-componentes: #83a598;
+  --cat-utilitarios: #b8bb26;
 
-    
-    --cat-ferramentas: #b45309;
-    --cat-componentes: #2563eb;
-    --cat-utilitarios: #047857;
+  --radius-sm: 6px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 2px rgba(29, 32, 33, 0.25);
+  --shadow: 0 4px 16px rgba(29, 32, 33, 0.35);
+  --shadow-lg: 0 12px 32px rgba(29, 32, 33, 0.45);
 
-    
-    --radius-sm:    6px;
-    --radius:       8px;
-    --radius-lg:    12px;
-    --shadow-sm:    0 1px 2px rgba(16, 24, 40, 0.05);
-    --shadow:       0 4px 16px rgba(16, 24, 40, 0.08);
-    --shadow-lg:    0 12px 32px rgba(16, 24, 40, 0.12);
+  --font: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 
-    --font:         'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-
-    --nav-h:        10vh;
-    --max:          1200px;
-    --nav-w:        100%  ;
+  --nav-h: 10vh;
+  --max: 1200px;
+  --nav-w: 100%;
 }

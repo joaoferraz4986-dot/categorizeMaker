@@ -1,56 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Entrar</title>
-    <meta name="description"
-        content="Sistema de gestão para laboratórios maker escolares: organize ferramentas, componentes e utilitários." />
+    <meta
+      name="description"
+      content="Sistema de gestão para laboratórios maker escolares: organize ferramentas, componentes e utilitários."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/registro.css">
-    <link rel="stylesheet" href="css/cadastro.css">
-    <link rel="stylesheet" href="css/login.css">
-</head>
+    <link rel="stylesheet" href="css/registro.css" />
+    <link rel="stylesheet" href="css/cadastro.css" />
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
 
-<body>
+  <body>
+    <section class="container-cad-log">
+      <div class="bloqueio">
+        <div class="bloqueio-formas"></div>
+      </div>
 
-    <section class="container-cad-log"> <!--log = login-->
-        <div class="bloqueio">
-            <div class="bloqueio-formas"></div>
+      <div class="container-login">
+        <div class="log">
+          <div class="log-header">
+            <h2 class="log-text">Bem-vindo de volta!</h2>
+            <span class="log-sub-text"
+              >Insira seus dados abaixo para entrar em sua conta!</span
+            >
+          </div>
+          <hr class="divisor" />
+          <form action="" class="log-inner">
+            <input
+              type="email"
+              id="login-email"
+              name="email"
+              required
+              placeholder="E-mail"
+            />
+
+            <input
+              type="password"
+              id="login-senha"
+              name="senha"
+              required
+              placeholder="Senha"
+            />
+
+            <button type="submit" class="cad-btn">Entrar</button>
+          </form>
+          <div class="log-bottom">
+            <span class="troca-do-log"
+              >Não tem uma conta?
+              <a href="cadastro.html" id="troca-cad">Crie aqui</a></span
+            >
+          </div>
         </div>
-
-        <div class="container-login">
-
-            <div class="log">
-                <div class="log-header">
-                    <h2 class="log-text">Bem-vindo de volta!</h2>
-                    <span class="log-sub-text">Insira seus dados abaixo para entrar em sua conta!</span>
-                </div>
-                <hr class="divisor">
-                <form action="" class="log-inner">
-                    <input type="email" id="login-email" name="email" required placeholder="E-mail">
-
-                    <input type="password" id="login-senha" name="senha" required placeholder="Senha">
-
-                    <button type="submit" class="cad-btn">Entrar</button>
-                </form>
-                <div class="log-bottom">
-                    <span class="troca-do-log">Não tem uma conta? <a href="cadastro.html" id="troca-cad">Crie
-                            aqui</a></span>
-                </div>
-            </div>
-        </div>
-    </section> 
-    
+      </div>
+    </section>
 
     <script src="js/formas.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/cad/log/login.js" type="module"></script>
-</body>
-
+  </body>
 </html>

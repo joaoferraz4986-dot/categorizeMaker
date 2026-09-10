@@ -1,61 +1,87 @@
 body {
-    margin: 0%;
-    font-family: var(--font);
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    min-height: 100vh;
+  margin: 0;
+  font-family: var(--font);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
 }
-.divisor{
-    border: none;
-    border-top: 1px solid #E2E8F0;
-    margin: 5% 0 5% 0;
-    width: 80%;
+.divisor {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 5% 0;
+  width: 80%;
 }
-input{
-    font-family: var(--font);
+input,
+button,
+select {
+  font-family: var(--font);
 }
-button{
-    font-family: var(--font);
+.container-cad-log {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: auto;
+  overflow: hidden;
+  background-color: var(--bg);
 }
-.container-cad-log{
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    background-color: #F8F8FF;
-}
-
 .bloqueio {
-    z-index: 10;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(var(--bg)20%, var(--primary)100%);
-    box-shadow: -10px 0px 50px 2px var(--primary);
-    transition: transform 0.5s ease-in-out;
-    clip-path: inset(0);
+  z-index: 10;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  min-height: 100%;
+  background: linear-gradient(var(--bg) 20%, var(--primary) 100%);
+  box-shadow: -10px 0 50px 2px var(--primary);
+  transition: transform 0.5s ease-in-out;
+  clip-path: inset(0);
 }
-
 .bloqueio-formas {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
 }
 .forma {
-    position: absolute;
-    opacity: 0.1;
-    animation: flutuar linear infinite;
-
+  position: absolute;
+  opacity: 0.1;
+  animation: flutuar linear infinite;
 }
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 8px; border: 2px solid var(--bg); }
-::-webkit-scrollbar-thumb:hover { background: var(--text-soft); }
-
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 8px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-soft);
+}
 @keyframes flutuar {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(-100vh) rotate(360deg); }
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+  }
+}
+@media (max-width: 600px) {
+  .container-cad-log {
+    min-height: 100dvh;
+    overflow-y: auto;
+  }
+  .bloqueio,
+  .bloqueio-formas {
+    min-height: 100dvh;
+  }
 }
