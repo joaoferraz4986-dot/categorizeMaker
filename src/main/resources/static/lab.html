@@ -1,244 +1,502 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR" data-theme="dark">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MakerNav - Gerenciar Itens</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/app-sidebar.css" />
     <link rel="stylesheet" href="css/lab.css" />
-    <link rel="stylesheet" href="css/itemCard.css">
+    <link rel="stylesheet" href="css/itemCard.css" />
     <link rel="stylesheet" href="css/footer.css" />
-</head>
+  </head>
 
-<body class="lab-body">
-    <nav class="nav nav-lab">
-        <a href="index.html" class="nav-logo">
-            <span class="nav-logo-text">MakerNav</span>
-        </a>
-        <div class="cat-tabs" role="tablist">
-            <button class="cat-tab active" data-cat="Todos">Todos</button>
-            <button class="cat-tab" data-cat="FERRAMENTAS">Ferramentas</button>
-            <button class="cat-tab" data-cat="COMPONENTES">Componentes</button>
-            <button class="cat-tab" data-cat="UTILITARIOS">Utilitários</button>
+  <body class="app-body lab-body">
+    <div class="app-shell">
+      <aside class="app-sidebar" aria-label="Navegação principal">
+        <div class="app-profile">
+          <div class="app-profile-avatar">C</div>
+          <div class="app-profile-info">
+            <p class="app-profile-name">Perfil</p>
+            <p class="app-profile-email">email</p>
+          </div>
         </div>
-        <div class="nav-search">
-            <input id="search-input" type="text" placeholder="Buscar..." aria-label="Buscar item" />
-        </div>
-        <a href="index.html" class="nav-cta nav-cta-ghost">Voltar</a>
-    </nav>
-    <main class="page-wrap">
-        <div class="toolbar">
+        <nav class="app-sidebar-nav">
+          <a class="app-sidebar-link" href="dashboard.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" />
+            </svg>
+            <span>Dashboard</span>
+          </a>
+          <a
+            class="app-sidebar-link active"
+            href="lab.html"
+            aria-current="page"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 3h6" />
+              <path
+                d="M10 3v6l-5.5 8.8A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.2L14 9V3"
+              />
+              <path d="M8 15h8" />
+            </svg>
+            <span>Itens do Lab</span>
+          </a>
+          <a class="app-sidebar-link" href="projetos.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 6.5A2.5 2.5 0 0 1 6.5 4H10l2 2h5.5A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5z"
+              />
+            </svg>
+            <span>Projetos</span>
+          </a>
+        </nav>
+        <div class="app-sidebar-spacer"></div>
+        <a href="index.html" class="app-sidebar-footer-link"
+          >Voltar para o início</a
+        >
+      </aside>
+
+      <div class="app-content">
+        <header class="app-mobile-header">
+          <a class="app-mobile-link" href="projetos.html">Projetos</a>
+        </header>
+
+        <main class="page-wrap">
+          <div class="toolbar">
             <div class="toolbar-left">
+              <div>
+                <span class="eyebrow">Laboratório Maker</span>
                 <h1 class="toolbar-title" id="toolbar-title">Todos os Itens</h1>
-                <span class="count-badge" id="count-badge">0 itens</span>
+              </div>
+              <span class="count-badge" id="count-badge">0 itens</span>
             </div>
             <div class="toolbar-right">
-                <div class="state-filters" role="group" aria-label="Filtrar por estado">
-                    <button class="state-pill" data-state="LIVRE">Livre</button>
-                    <button class="state-pill" data-state="USADO">Em uso</button>
-                    <button class="state-pill" data-state="QUEBRADO">Quebrado</button>
-                </div>
-                <div class="view-switch">
-                    <button class="view-btn active" id="btn-grid" title="Grade" aria-label="Visualização em grade">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="7" height="7" />
-                            <rect x="14" y="3" width="7" height="7" />
-                            <rect x="14" y="14" width="7" height="7" />
-                            <rect x="3" y="14" width="7" height="7" />
-                        </svg>
-                    </button>
-                    <button class="view-btn" id="btn-table" title="Tabela" aria-label="Visualização em tabela">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="8" y1="6" x2="21" y2="6" />
-                            <line x1="8" y1="12" x2="21" y2="12" />
-                            <line x1="8" y1="18" x2="21" y2="18" />
-                            <line x1="3" y1="6" x2="3.01" y2="6" />
-                            <line x1="3" y1="12" x2="3.01" y2="12" />
-                            <line x1="3" y1="18" x2="3.01" y2="18" />
-                        </svg>
-                    </button>
-                </div>
-                <button class="btn-primary" id="btn-open-create">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="12" y1="5" x2="12" y2="19" />
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                    </svg>
-                    Novo Item
+              <div
+                class="state-filters"
+                role="group"
+                aria-label="Filtrar por estado"
+              >
+                <button class="state-pill" data-state="LIVRE">Livre</button>
+                <button class="state-pill" data-state="USADO">Em uso</button>
+                <button class="state-pill" data-state="QUEBRADO">
+                  Quebrado
                 </button>
-                <a class="btn-primary" id="btn-page-project" href="projetos.html">
-                    Projetos
-                </a>
+              </div>
+              <div class="view-switch" aria-label="Modo de visualização">
+                <button
+                  class="view-btn active"
+                  id="btn-grid"
+                  title="Grade"
+                  aria-label="Visualização em grade"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="3" y="3" width="7" height="7" />
+                    <rect x="14" y="3" width="7" height="7" />
+                    <rect x="14" y="14" width="7" height="7" />
+                    <rect x="3" y="14" width="7" height="7" />
+                  </svg>
+                </button>
+                <button
+                  class="view-btn"
+                  id="btn-table"
+                  title="Tabela"
+                  aria-label="Visualização em tabela"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="8" y1="6" x2="21" y2="6" />
+                    <line x1="8" y1="12" x2="21" y2="12" />
+                    <line x1="8" y1="18" x2="21" y2="18" />
+                    <line x1="3" y1="6" x2="3.01" y2="6" />
+                    <line x1="3" y1="12" x2="3.01" y2="12" />
+                    <line x1="3" y1="18" x2="3.01" y2="18" />
+                  </svg>
+                </button>
+              </div>
+              <button class="btn-secondary" id="btn-open-pdf" type="button">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path d="M6 3h9l3 3v15H6z" />
+                  <path d="M14 3v4h4M8.5 13.5h7M8.5 17h5" />
+                </svg>
+                Gerar PDF
+              </button>
+              <button class="btn-primary" id="btn-open-create" type="button">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+                Novo Item
+              </button>
             </div>
-        </div>
-        <section id="items-grid" aria-live="polite"></section>
-        <section id="items-table" hidden>
+          </div>
+
+          <div class="lab-search-row">
+            <div
+              class="cat-tabs"
+              role="tablist"
+              aria-label="Filtrar por categoria"
+            >
+              <button class="cat-tab active" data-cat="TODOS" type="button">
+                Todos
+              </button>
+
+              <button class="cat-tab" data-cat="FERRAMENTAS" type="button">
+                Ferramentas
+              </button>
+
+              <button class="cat-tab" data-cat="COMPONENTES" type="button">
+                Componentes
+              </button>
+
+              <button class="cat-tab" data-cat="UTILITARIOS" type="button">
+                Utilitários
+              </button>
+            </div>
+            <label class="lab-search" for="search-input">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-4-4" />
+              </svg>
+              <input
+                id="search-input"
+                type="search"
+                placeholder="Buscar por nome..."
+                aria-label="Buscar item por nome"
+                autocomplete="off"
+              />
+            </label>
+          </div>
+
+          <section id="items-grid" aria-live="polite"></section>
+          <section id="items-table" hidden>
             <table>
-                <thead>
-                    <tr>
-                        <th>Foto</th>
-                        <th>Nome</th>
-                        <th>Tipo</th>
-                        <th>Categoria</th>
-                        <th>Quantidade</th>
-                        <th>Estado</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body"></tbody>
+              <thead>
+                <tr>
+                  <th>Foto</th>
+                  <th>Nome</th>
+                  <th>Tipo</th>
+                  <th>Categoria</th>
+                  <th>Quantidade</th>
+                  <th>Estado</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="table-body"></tbody>
             </table>
-        </section>
-    </main>
-    <footer class="footer footer-compact">
-        <span>© 2025 MakerNav - Laboratório Maker Escolar</span>
-        <span class="footer-tech">Java · Spring Boot</span>
-    </footer>
+          </section>
+        </main>
+
+        <footer class="footer footer-compact">
+          <span>© 2026 MakerNav - Laboratório Maker Escolar</span>
+          <span class="footer-tech">Java · Spring Boot</span>
+        </footer>
+      </div>
+    </div>
 
     <div class="overlay" id="form-overlay" aria-hidden="true">
-        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-            <header class="modal-header">
-                <h2 class="modal-title" id="modal-title">Novo Item</h2>
-                <button class="modal-close" id="close-modal" aria-label="Fechar">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                </button>
-            </header>
-            <div class="modal-body">
-                <div class="form-row">
-                    <div class="form-field">
-                        <label for="f-categoria">Categoria</label>
-                        <select id="f-categoria" required>
-                            <option value="">Selecione...</option>
-                            <option value="FERRAMENTAS">Ferramentas</option>
-                            <option value="COMPONENTES">Componentes</option>
-                            <option value="UTILITARIOS">Utilitários</option>
-                        </select>
-                    </div>
-                    <div class="form-field">
-                        <label for="f-tipo">Tipo</label>
-                        <input type="text" id="f-tipo" placeholder="Ex: Uno, Mega, Nano" required />
-                    </div>
-                </div>
-                <div class="form-field">
-                    <label for="f-nome">Nome do item</label>
-                    <input type="text" id="f-nome" placeholder="Ex: Arduino Uno R3" required />
-                </div>
-                <div class="form-row">
-                    <div class="form-field">
-                        <label for="f-quantidade">Quantidade</label>
-                        <input type="number" id="f-quantidade" min="1" placeholder="0" required />
-                    </div>
-                    <div class="form-field">
-                        <label for="f-estado">Estado</label>
-                        <select id="f-estado" required>
-                            <option value="">Selecione...</option>
-                            <option value="LIVRE">Livre</option>
-                            <option value="USADO">Em uso</option>
-                            <option value="QUEBRADO">Quebrado</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-field">
-                    <label>Foto do item</label>
-                    <div class="photo-upload">
-                        <input type="file" id="f-foto" accept="image/*" />
-                        <div id="photo-hint" class="photo-upload-hint">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="3" y="3" width="18" height="18" rx="2" />
-                                <circle cx="8.5" cy="8.5" r="1.5" />
-                                <path d="m21 15-5-5L5 21" />
-                            </svg>
-                            <p>Clique ou arraste uma imagem</p>
-                            <small>JPG, PNG, WEBP - máx. 5 MB</small>
-                        </div>
-                        <img id="photo-preview" class="photo-preview" alt="Pré-visualização" />
-                    </div>
-                </div>
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <header class="modal-header">
+          <h2 class="modal-title" id="modal-title">Novo Item</h2>
+          <button class="modal-close" id="close-modal" aria-label="Fechar">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </header>
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="f-categoria">Categoria</label
+              ><select id="f-categoria" required>
+                <option value="">Selecione...</option>
+                <option value="FERRAMENTAS">Ferramentas</option>
+                <option value="COMPONENTES">Componentes</option>
+                <option value="UTILITARIOS">Utilitários</option>
+              </select>
             </div>
-            <footer class="modal-footer">
-                <button class="btn-ghost" id="btn-cancel">Cancelar</button>
-                <button class="btn-primary" id="btn-save">Salvar</button>
-            </footer>
+            <div class="form-field">
+              <label for="f-tipo">Tipo</label
+              ><input
+                type="text"
+                id="f-tipo"
+                placeholder="Ex: Uno, Mega, Nano"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="f-nome">Nome do item</label
+            ><input
+              type="text"
+              id="f-nome"
+              placeholder="Ex: Arduino Uno R3"
+              required
+            />
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="f-quantidade">Quantidade</label
+              ><input
+                type="number"
+                id="f-quantidade"
+                min="1"
+                placeholder="0"
+                required
+              />
+            </div>
+            <div class="form-field">
+              <label for="f-estado">Estado</label
+              ><select id="f-estado" required>
+                <option value="">Selecione...</option>
+                <option value="LIVRE">Livre</option>
+                <option value="USADO">Em uso</option>
+                <option value="QUEBRADO">Quebrado</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Foto do item</label>
+            <div class="photo-upload">
+              <input type="file" id="f-foto" accept="image/*" />
+              <div id="photo-hint" class="photo-upload-hint">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <path d="m21 15-5-5L5 21" />
+                </svg>
+                <p>Clique ou arraste uma imagem</p>
+                <small>JPG, PNG, WEBP - máx. 5 MB</small>
+              </div>
+              <img
+                id="photo-preview"
+                class="photo-preview"
+                alt="Pré-visualização"
+              />
+            </div>
+          </div>
         </div>
+        <footer class="modal-footer">
+          <button class="btn-ghost" id="btn-cancel">Cancelar</button
+          ><button class="btn-primary" id="btn-save">Salvar</button>
+        </footer>
+      </div>
+    </div>
+
+    <div class="overlay" id="pdf-overlay" aria-hidden="true">
+      <div
+        class="modal modal-pdf"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="pdf-modal-title"
+      >
+        <header class="modal-header">
+          <div>
+            <span class="eyebrow">Exportação</span>
+            <h2 class="modal-title" id="pdf-modal-title">
+              Personalizar relatório PDF
+            </h2>
+          </div>
+          <button class="modal-close" id="close-pdf-modal" aria-label="Fechar">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </header>
+        <div class="modal-body pdf-modal-body">
+          <p class="modal-description">
+            Escolha os critérios que o relatório deve usar. Os filtros são
+            combinados e o PDF trará somente os itens encontrados.
+          </p>
+          <div class="pdf-current-filters" id="pdf-current-filters"></div>
+          <div class="pdf-filter-grid">
+            <div class="form-field">
+              <label for="pdf-name">Nome contém</label
+              ><input id="pdf-name" type="text" placeholder="Ex: Arduino" />
+            </div>
+            <div class="form-field">
+              <label for="pdf-type">Tipo exato</label
+              ><input id="pdf-type" type="text" placeholder="Ex: Uno" />
+            </div>
+            <div class="form-field">
+              <label for="pdf-category">Categoria</label
+              ><select id="pdf-category">
+                <option value="">Todas as categorias</option>
+                <option value="FERRAMENTAS">Ferramentas</option>
+                <option value="COMPONENTES">Componentes</option>
+                <option value="UTILITARIOS">Utilitários</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="pdf-status">Estado</label
+              ><select id="pdf-status">
+                <option value="">Todos os estados</option>
+                <option value="LIVRE">Livre</option>
+                <option value="USADO">Em uso</option>
+                <option value="QUEBRADO">Quebrado</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <footer class="modal-footer">
+          <button class="btn-ghost" id="btn-cancel-pdf">Cancelar</button
+          ><button class="btn-primary" id="btn-generate-pdf">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path d="M12 3v12M7 10l5 5 5-5M5 21h14" /></svg
+            >Baixar PDF
+          </button>
+        </footer>
+      </div>
     </div>
 
     <div class="overlay" id="del-overlay" aria-hidden="true">
-        <div class="modal modal-confirm" role="alertdialog" aria-modal="true">
-            <div class="confirm-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="3 6 5 6 21 6" />
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                </svg>
-            </div>
-            <h3 class="confirm-title">Deletar item?</h3>
-            <p class="confirm-sub">Tem certeza de que deseja deletar <span id="del-item-name"
-                    class="confirm-name"></span>? Esta ação não pode ser desfeita.</p>
-            <div class="confirm-actions">
-                <button class="btn-ghost" id="cancel-del">Cancelar</button>
-                <button class="btn-danger" id="confirm-del">Deletar</button>
-            </div>
+      <div class="modal modal-confirm" role="alertdialog" aria-modal="true">
+        <div class="confirm-icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polyline points="3 6 5 6 21 6" />
+            <path
+              d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+            />
+          </svg>
         </div>
+        <h3 class="confirm-title">Deletar item?</h3>
+        <p class="confirm-sub">
+          Tem certeza de que deseja deletar
+          <span id="del-item-name" class="confirm-name"></span>? Esta ação não
+          pode ser desfeita.
+        </p>
+        <div class="confirm-actions">
+          <button class="btn-ghost" id="cancel-del">Cancelar</button
+          ><button class="btn-danger" id="confirm-del">Deletar</button>
+        </div>
+      </div>
     </div>
 
     <div class="overlay" id="view-overlay" aria-hidden="true">
-        <div class="modal modal-view" role="dialog" aria-modal="true" aria-labelledby="view-modal-title">
-            <header class="modal-header">
-                
-                <button class="modal-close" id="close-view-modal" aria-label="Fechar">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                </button>
-            </header>
-            <div class="view-photo-wrap">
-                <div class="item-photo-view" id="view-photo-container"></div>
-            </div>
-            <div class="modal-body">
-                <div class="form-field">
-                    <label>Nome do item</label>
-                    <span class="view-field" id="view-nome"></span>
-                </div>
-                <div class="form-row">
-                    <div class="form-field">
-                        <label>Categoria</label>
-                        <span class="view-field" id="view-categoria"></span>
-                    </div>
-                    <div class="form-field">
-                        <label>Tipo</label>
-                        <span class="view-field" id="view-tipo"></span>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-field">
-                        <label>Quantidade</label>
-                        <span class="view-field" id="view-quantidade"></span>
-                    </div>
-                    <div class="form-field">
-                        <label>Estado</label>
-                        <span class="view-field" id="view-estado"></span>
-                    </div>
-                </div>
-            </div>
-            <footer class="modal-footer">
-                <button class="btn-primary" id="view-btn-edit">Editar</button>
-            </footer>
+      <div
+        class="modal modal-view"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="view-modal-title"
+      >
+        <header class="modal-header">
+          <h2 class="modal-title" id="view-modal-title">Detalhes do item</h2>
+          <button class="modal-close" id="close-view-modal" aria-label="Fechar">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </header>
+        <div class="view-photo-wrap">
+          <div class="item-photo-view" id="view-photo-container"></div>
         </div>
+        <div class="modal-body">
+          <div class="form-field">
+            <label>Nome do item</label
+            ><span class="view-field" id="view-nome"></span>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Categoria</label
+              ><span class="view-field" id="view-categoria"></span>
+            </div>
+            <div class="form-field">
+              <label>Tipo</label><span class="view-field" id="view-tipo"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Quantidade</label
+              ><span class="view-field" id="view-quantidade"></span>
+            </div>
+            <div class="form-field">
+              <label>Estado</label
+              ><span class="view-field" id="view-estado"></span>
+            </div>
+          </div>
+        </div>
+        <footer class="modal-footer">
+          <button class="btn-primary" id="view-btn-edit">Editar</button>
+        </footer>
+      </div>
     </div>
 
     <div class="toast-wrap" id="toast-wrap" aria-live="polite"></div>
-
-    <script type="module" src="js/userTimesOut.js"> </script>>
+    <script type="module" src="js/userTimesOut.js"></script>
     <script type="module" src="js/lab.js"></script>
-    <script src="js/nav.js"></script>
     <script src="js/theme.js"></script>
-</body>
-
+  </body>
 </html>

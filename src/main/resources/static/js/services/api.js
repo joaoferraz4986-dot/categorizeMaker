@@ -1,6 +1,6 @@
-const BASE_URL = 'http://localhost:8080';
-import {logout} from './authGuard.js';
-// Essas rotas significam que não necessitam de um token para acesso
+const BASE_URL = '';
+import { logout } from './authGuard.js';
+
 const ROTAS_PUBLICAS = [
     '/authentication/login/',
     '/authentication/registro/'
@@ -8,22 +8,27 @@ const ROTAS_PUBLICAS = [
 
 async function parseResposta(resposta) {
     const texto = await resposta.text();
-    return texto ? JSON.parse(texto) : {};
+    if (!texto) return {};
+
+    try {
+        return JSON.parse(texto);
+    } catch {
+        return { message: texto };
+    }
 }
 
 function getHeaders(endpoint, comCorpo = false) {
     const headers = {};
-
     if (comCorpo) headers['Content-Type'] = 'application/json';
 
-    const ehRotaPublica = ROTAS_PUBLICAS.some(rota => endpoint.startsWith(rota));
+    const ehRotaPublica = ROTAS_PUBLICAS.some((rota) => endpoint.startsWith(rota));
     if (!ehRotaPublica) {
         const token = localStorage.getItem('token');
         if (!token) {
             window.location.href = './login.html';
             throw new Error('Token não encontrado. Redirecionando para login.');
         }
-        headers['Authorization'] = token;
+        headers.Authorization = token;
     }
 
     return headers;
@@ -36,17 +41,29 @@ function verificarErroAutorizacao(status) {
     }
 }
 
-const api = {
-    async get(endpoint) {
-        const resposta = await fetch(BASE_URL + endpoint, {
-            headers: getHeaders(endpoint)
-        });
-        verificarErroAutorizacao(resposta.status);
-        if (!resposta.ok) {
+async function verificarResposta(resposta) {
+    verificarErroAutorizacao(resposta.status);
+    if (!resposta.ok) {
+        const contentType = resposta.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
             const erro = await parseResposta(resposta);
             throw new Error(erro.message || 'Erro na requisição');
         }
-        return await parseResposta(resposta);
+        throw new Error(`Não foi possível concluir a requisição (${resposta.status})`);
+    }
+}
+
+const api = {
+    async get(endpoint) {
+        const resposta = await fetch(BASE_URL + endpoint, { headers: getHeaders(endpoint) });
+        await verificarResposta(resposta);
+        return parseResposta(resposta);
+    },
+
+    async getBlob(endpoint) {
+        const resposta = await fetch(BASE_URL + endpoint, { headers: getHeaders(endpoint) });
+        await verificarResposta(resposta);
+        return resposta.blob();
     },
 
     async post(endpoint, corpo) {
@@ -55,12 +72,8 @@ const api = {
             headers: getHeaders(endpoint, true),
             body: JSON.stringify(corpo)
         });
-        verificarErroAutorizacao(resposta.status);
-        if (!resposta.ok) {
-            const erro = await parseResposta(resposta);
-            throw new Error(erro.message || 'Erro na requisição');
-        }
-        return await parseResposta(resposta);
+        await verificarResposta(resposta);
+        return parseResposta(resposta);
     },
 
     async put(endpoint, corpo) {
@@ -69,12 +82,8 @@ const api = {
             headers: getHeaders(endpoint, true),
             body: JSON.stringify(corpo)
         });
-        verificarErroAutorizacao(resposta.status);
-        if (!resposta.ok) {
-            const erro = await parseResposta(resposta);
-            throw new Error(erro.message || 'Erro na requisição');
-        }
-        return await parseResposta(resposta);
+        await verificarResposta(resposta);
+        return parseResposta(resposta);
     },
 
     async delete(endpoint) {
@@ -82,9 +91,8 @@ const api = {
             method: 'DELETE',
             headers: getHeaders(endpoint)
         });
-        verificarErroAutorizacao(resposta.status);
-        if (!resposta.ok) throw new Error('Erro ao deletar');
-        return resposta.ok;
+        await verificarResposta(resposta);
+        return true;
     }
 };
 
