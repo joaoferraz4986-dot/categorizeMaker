@@ -1,5 +1,5 @@
 import { projectService } from './services/projectService.js';
-import api from './services/api.js';
+import { itemService } from './services/itemService.js';
 
 // --- ESTADO & UTILITÁRIOS ---
 const state = {
@@ -231,13 +231,13 @@ async function load() {
   try {
     const [projectsRes, itemsRes] = await Promise.all([
       projectService.listarTodos(),
-      api.get('/api/items')
+      itemService.listarTodos()
     ]);
     state.projects = projectsRes;
-    state.items = itemsRes;
+    state.items = itemsRes.items;
   } catch (error) {
+    console.warn('Não foi possível carregar os projetos.', error);
     state.projects = [];
-    toast('Não foi possível carregar os projetos.', 'error');
   }
   render();
 }
@@ -281,7 +281,7 @@ async function remove() {
 }
 
 // --- EVENTOS ---
-document.addEventListener('DOMContentLoaded', () => {
+function initProjects() {
   load();
 
   // Modais & Form
@@ -333,4 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
       input.value = Math.min(max, Math.max(0, Number(input.value) + delta));
     }
   };
-});
+}
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initProjects, { once: true });
+else initProjects();
