@@ -18,6 +18,6 @@ jwt:
 
 springdoc:
   api-docs:
-    enabled: ${SPRINGDOC_API_DOCS_ENABLED:false}
+    enabled: ${SPRINGDOC_API_DOCS_ENABLED:true}
   swagger-ui:
-    enabled: ${SPRINGDOC_SWAGGER_UI_ENABLED:false}
+    enabled: ${SPRINGDOC_SWAGGER_UI_ENABLED:true}
