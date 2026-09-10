@@ -118,13 +118,13 @@ src/
 | :--- | :--- | :--- | :--- |
 | **Auth** | `POST` | `/authentication/registro/` | Cadastro com senha criptografada em BCrypt |
 | **Auth** | `POST` | `/authentication/login/` | Autenticação e emissão de token JWT |
-| **Itens** | `GET` | `/api/items` | Lista todos os itens do laboratório |
+| **Itens** | `GET` | `/api/items` | Lista itens com filtros combinados por Specifications (`name`, `type`, `category`, `status`) |
 | **Itens** | `GET` | `/api/items/{id}` | Busca detalhes de um item específico |
 | **Itens** | `POST` | `/api/items` | Cadastra novo insumo com imagem Base64 |
 | **Itens** | `PUT` | `/api/items/{id}` | Atualiza dados cadastrais de uma peça |
 | **Itens** | `DELETE` | `/api/items/{id}` | Remove um item do inventário |
-| **Itens** | `GET` | `/api/items/search?nome=` | Busca dinâmica de itens por prefixo |
-| **Itens** | `GET` | `/api/items/export/pdf` | Exportação de relatório PDF customizado |
+| **Itens** | `GET` | `/api/items/search?nome=` | Busca de itens por nome, retornando uma página |
+| **Itens** | `GET` | `/api/items/export/pdf?name=&type=&category=&status=` | Exportação de relatório PDF com os mesmos filtros Specifications |
 | **Projetos** | `GET` | `/projeto` | Listagem dos projetos registrados |
 | **Projetos** | `POST` | `/projeto` | Registro de novos projetos |
 | **Projetos** | `DELETE` | `/projeto/{id}` | Remoção de projetos |
