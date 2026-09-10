@@ -1,100 +1,120 @@
 .container-login {
-    z-index: 20;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  z-index: 20;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
-
 .log {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-width: 30vw;
-    max-width: 50vw;
-    min-height: 60vh;
-    max-height: 80vh;
-    background-color: var(--surface);
-    border: solid 1px var(--border);
-    border-radius: 10px;
-    filter: drop-shadow(0px 0px 20px rgb(0 0 0 / 0.55));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: min(432px, 100%);
+  min-width: 0;
+  max-width: 100%;
+  min-height: 0;
+  max-height: none;
+  padding: clamp(28px, 5vw, 56px) clamp(24px, 5vw, 48px);
+  box-sizing: border-box;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  filter: drop-shadow(0 0 20px rgb(0 0 0 / 0.55));
 }
-
 .log-text {
-    color: var(--text);
-    font-size: clamp(1rem, 2vw, 1.75rem);
+  color: var(--text);
+  font-size: clamp(1rem, 2vw, 1.75rem);
 }
-
 .log-sub-text {
-    color: var(--text-mid);
-    text-align: center;
-    font-size: 1rem;
+  color: var(--text-mid);
+  text-align: center;
+  font-size: 1rem;
 }
-
 .log-header {
-    margin: auto auto 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 80%;
-    max-height: 40%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+  max-height: none;
 }
-
 .log-inner {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 80%;
-    min-height: 30%;
-    max-height: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+  min-height: 0;
+  max-height: none;
 }
-
 .log input {
-    padding: 10px;
-    width: 75%;
-    height: 3%;
-    border-radius: 12px;
-    border: 1px solid var(--border-strong);
-    background-color: var(--surface);
-    color: var(--text);
-    outline: none;
-    margin: 4% auto;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  min-height: 42px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 1px solid var(--border-strong);
+  background-color: var(--surface);
+  color: var(--text);
+  outline: none;
+  margin: 12px auto;
 }
-
 .log button {
-    background-color: var(--primary);
-    color: #f1f1f1;
-    margin: 5% auto;
-    width: 75%;
-    min-height: 10%;
-    max-height: 15%;
-    padding: 8px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    cursor: pointer;
+  background-color: var(--primary);
+  color: var(--text-on-pri);
+  margin: 18px auto 12px;
+  width: 100%;
+  min-height: 42px;
+  max-height: none;
+  box-sizing: border-box;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
 }
-
 .log-bottom {
-    margin: 0 auto auto auto;
-    display: flex;
-    width: 80%;
-    max-height: 20%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  max-width: 320px;
+  max-height: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-
 .troca-do-log {
-    font-size: .8rem;
-    color: var(--text-mid);
+  font-size: 0.8rem;
+  color: var(--text-mid);
 }
-
 .troca-do-log a {
-    color: var(--primary);
-    cursor: pointer;
+  color: var(--primary);
+  cursor: pointer;
+}
+@media (max-width: 480px) {
+  .container-login {
+    align-items: flex-start;
+    padding: 16px;
+  }
+  .log {
+    margin: auto 0;
+    padding: 30px 22px;
+  }
+  .log-text {
+    text-align: center;
+    font-size: 1.55rem;
+  }
+  .log-sub-text {
+    font-size: 0.92rem;
+  }
 }

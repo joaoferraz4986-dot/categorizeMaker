@@ -1,0 +1,224 @@
+.app-body {
+  background: var(--bg);
+}
+.app-shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 252px minmax(0, 1fr);
+  align-items: stretch;
+}
+.app-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  box-sizing: border-box;
+  width: 252px;
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  padding: 1.5rem 1rem;
+  background: var(--surface-alt);
+  border-right: 1px solid var(--border);
+  z-index: 20;
+}
+.app-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0 0.45rem;
+  color: var(--text);
+}
+.app-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+  padding: 0 0.45rem 0.25rem;
+}
+.app-profile-avatar {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--text-on-pri);
+  font-size: 0.95rem;
+  font-weight: 750;
+}
+.app-profile-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+}
+.app-profile-name {
+  color: var(--text);
+  font-size: 0.86rem;
+  font-weight: 650;
+}
+.app-profile-email {
+  overflow: hidden;
+  color: var(--text-dim);
+  font-size: 0.7rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.app-brand-mark {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--primary);
+  color: var(--text-on-pri);
+  font-weight: 800;
+  font-size: 0.8rem;
+  box-shadow: 0 8px 18px rgba(60, 56, 54, 0.2);
+}
+.app-brand-text {
+  font-size: 1rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+.app-sidebar-label {
+  margin: 0.9rem 0.55rem 0.05rem;
+  color: var(--text-soft);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.app-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.app-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.7rem 0.75rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  color: var(--text-dim);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 550;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s,
+    transform 0.15s;
+}
+.app-sidebar-link svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  fill: none;
+}
+.app-sidebar svg {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.app-sidebar-link:hover {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+  transform: translateX(2px);
+}
+.app-sidebar-link.active {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  color: var(--primary-700);
+  font-weight: 700;
+}
+.app-sidebar-spacer {
+  flex: 1;
+}
+.app-sidebar-note {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 0.75rem;
+  color: var(--text-soft);
+  font-size: 0.72rem;
+}
+.app-sidebar-note-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 4px var(--green-soft);
+}
+.app-sidebar-footer-link {
+  padding: 0.7rem 0.75rem 0;
+  border-top: 1px solid var(--border);
+  color: var(--text-soft);
+  font-size: 0.75rem;
+  transition: color 0.15s;
+}
+.app-sidebar-footer-link:hover {
+  color: var(--text);
+}
+.app-content {
+  grid-column: 2;
+  min-width: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.app-mobile-header {
+  display: none;
+}
+@media (max-width: 920px) {
+  .app-shell {
+    grid-template-columns: 208px minmax(0, 1fr);
+  }
+  .app-sidebar {
+    width: 208px;
+    padding-inline: 0.75rem;
+  }
+}
+@media (max-width: 720px) {
+  .app-shell {
+    display: block;
+  }
+  .app-content {
+    grid-column: auto;
+  }
+  .app-sidebar {
+    display: none;
+  }
+  .app-mobile-header {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .app-mobile-header .app-brand {
+    padding: 0;
+  }
+  .app-mobile-link {
+    color: var(--primary-700);
+    font-size: 0.78rem;
+    font-weight: 650;
+  }
+}

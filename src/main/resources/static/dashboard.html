@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MakerNav - Dashboard</title>
@@ -9,208 +8,241 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/app-sidebar.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="dashboard">
-        <nav class="navbar">
-            <div class="perfil">
-                <div class="perfilFoto">C</div>
-                <div class="perfilInfo">
-                    <p class="perfilNome">Perfil</p>
-                    <p class="perfilEmail">email</p>
-                </div>
-            </div>
-            <div class="navbarLinks">
-                <button type="button" class="navLink" data-cat="home">Home
-                </button>
-                <button type="button" class="navLink active" data-cat="dashboard">Dashboard
-                </button>
-                <button type="button" class="navLink" data-cat="armazem">Armazem
-                </button>
-                <button type="button" class="navLink" data-cat="projetos">Projetos
-                </button>
-            </div>
+      <aside class="app-sidebar" aria-label="Navegação principal">
+        <div class="app-profile">
+          <div class="app-profile-avatar">C</div>
+          <div class="app-profile-info">
+            <p class="app-profile-name">Perfil</p>
+            <p class="app-profile-email">email</p>
+          </div>
+        </div>
+        <nav class="app-sidebar-nav">
+          <a class="app-sidebar-link" href="index.html"
+            ><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m3 10 9-7 9 7" />
+              <path d="M5 9v11h14V9M9 20v-6h6v6" /></svg
+            ><span>Início</span></a
+          >
+          <button
+            type="button"
+            class="app-sidebar-link navLink active"
+            data-cat="dashboard"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" /></svg
+            ><span>Dashboard</span>
+          </button>
+          <a class="app-sidebar-link" href="lab.html"
+            ><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 3h6" />
+              <path
+                d="M10 3v6l-5.5 8.8A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.2L14 9V3"
+              />
+              <path d="M8 15h8" /></svg
+            ><span>Itens do Lab</span></a
+          >
+          <a class="app-sidebar-link" href="projetos.html"
+            ><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 6.5A2.5 2.5 0 0 1 6.5 4H10l2 2h5.5A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5z"
+              /></svg
+            ><span>Projetos</span></a
+          >
         </nav>
+        <div class="app-sidebar-spacer"></div>
+        <a href="index.html" class="app-sidebar-footer-link"
+          >Voltar para o início</a
+        >
+      </aside>
+      <header class="app-mobile-header">
+        <a class="app-mobile-link" href="index.html">Início</a
+        ><a class="app-mobile-link" href="lab.html">Itens do Lab</a>
+      </header>
 
-        <section class="pagina" data-pagina="dashboard">
-            <section class="principal">
-                <div class="principalInfo">
-                    <div>
-                        <h1 class="titulo">Visão Geral</h1>
-                        <p class="subtitulo">2026 - 03 de Setembro</p>
-                    </div>
-                </div>
+      <section class="pagina" data-pagina="dashboard">
+        <section class="principal">
+          <div class="principalInfo">
+            <div>
+              <h1 class="titulo">Visão Geral</h1>
+              <p class="subtitulo">2026 - 03 de Setembro</p>
+            </div>
+          </div>
 
-                <div class="mudanca"> <!--Mudanças onde tera os graficos do mes-->
-                </div>
+          <div class="mudanca"></div>
 
-                <section class="principalSecao">
-                    <div class="principalSecao-head">
-                        <h2>Atualmente</h2>
-                        <button type="button" class="opcoes">...
-                        </button>
-                    </div>
-                    <ul class="lista">
-                        <li class="listaItem">
-                            <div class="listaItemImagem">
+          <section class="principalSecao">
+            <div class="principalSecao-head">
+              <h2>Atualmente</h2>
+              <button type="button" class="opcoes">...</button>
+            </div>
+            <ul class="lista">
+              <li class="listaItem">
+                <div class="listaItemImagem"></div>
+                <span class="listaItem-texto">
+                  <span class="listaItemTitulo">Projetos</span>
+                  <span class="listaItemSubtexto"
+                    >Todos projetos dos Lab Maker</span
+                  >
+                </span>
+                <span class="listaItemQuantidade">14</span>
+              </li>
+              <li class="listaItem">
+                <div class="listaItemImagem"></div>
+                <span class="listaItem-texto">
+                  <span class="listaItemTitulo">Projetos Antigos</span>
+                  <span class="listaItemSubtexto"
+                    >Projetos ativos já concluídos</span
+                  >
+                </span>
+                <span class="listaItemQuantidade">4</span>
+              </li>
+              <li class="listaItem">
+                <div class="listaItemImagem"></div>
+                <span class="listaItem-texto">
+                  <span class="listaItemTitulo">Itens Armazenados</span>
+                  <span class="listaItemSubtexto"
+                    >Itens Armazenados no Total</span
+                  >
+                </span>
+                <span class="listaItemQuantidade">999</span>
+              </li>
+              <li class="listaItem">
+                <div class="listaItemImagem"></div>
+                <span class="listaItem-texto">
+                  <span class="listaItemTitulo">Itens Quebrados</span>
+                  <span class="listaItemSubtexto">Todos itens quebrados</span>
+                </span>
+                <span class="listaItemQuantidade">999</span>
+              </li>
+              <li class="listaItem">
+                <div class="listaItemImagem"></div>
+                <span class="listaItem-texto">
+                  <span class="listaItemTitulo">Itens sendo Usados</span>
+                  <span class="listaItemSubtexto">Todos itens quebrados</span>
+                </span>
+                <span class="listaItemQuantidade">23</span>
+              </li>
+            </ul>
+          </section>
 
-                            </div>
-                            <span class="listaItem-texto">
-                                <span class="listaItemTitulo">Projetos</span>
-                                <span class="listaItemSubtexto">Todos projetos dos Lab Maker</span>
-                            </span>
-                            <span class="listaItemQuantidade">14</span>
-                        </li>
-                        <li class="listaItem">
-                            <div class="listaItemImagem">
-
-                            </div>
-                            <span class="listaItem-texto">
-                                <span class="listaItemTitulo">Projetos Antigos</span>
-                                <span class="listaItemSubtexto">Projetos ativos já concluídos</span>
-                            </span>
-                            <span class="listaItemQuantidade">4</span>
-                        </li>
-                        <li class="listaItem">
-                            <div class="listaItemImagem">
-
-                            </div>
-                            <span class="listaItem-texto">
-                                <span class="listaItemTitulo">Itens Armazenados</span>
-                                <span class="listaItemSubtexto">Itens Armazenados no Total</span>
-                            </span>
-                            <span class="listaItemQuantidade">999</span>
-                        </li>
-                        <li class="listaItem">
-                            <div class="listaItemImagem">
-
-                            </div>
-                            <span class="listaItem-texto">
-                                <span class="listaItemTitulo">Itens Quebrados</span>
-                                <span class="listaItemSubtexto">Todos itens quebrados</span>
-                            </span>
-                            <span class="listaItemQuantidade">999</span>
-                        </li>
-                        <li class="listaItem">
-                            <div class="listaItemImagem">
-
-                            </div>
-                            <span class="listaItem-texto">
-                                <span class="listaItemTitulo">Itens sendo Usados</span>
-                                <span class="listaItemSubtexto">Todos itens quebrados</span>
-                            </span>
-                            <span class="listaItemQuantidade">23</span>
-                        </li>
-                    </ul>
-                </section>
-
-                <section class="principalSecao">
-                    <div class="principalSecao-head">
-                        <h2>Agosto</h2>
-                        <button type="button" class="opcoes">...
-
-                        </button>
-                    </div>
-                    <ul class="lista">
-                        <li class="listaItem">
-                            <span class="listaItemImagem">
-
-                            </span>
-                            <span class="listaItem-texto">
-                                <span class="listaItemTitulo">Projetos</span>
-                                <span class="listaItemSubtexto">Todos projetos dos Lab Maker</span>
-                            </span>
-                            <span class="listaItemQuantidade">13</span>
-                        </li>
-                    </ul>
-                </section>
-            </section>
-
-            <section class="parteDireita">
-                <h2 class="parteDireitaTitulo">Projetos Ativos</h2>
-                <ul class="projetos">
-                    <li class="projetosItens">
-                        <div class="item">
-                            <div class="projetoDescricao">
-                                <span class="projetoNome">Robo Otto</span>
-                                <span class="projetoContador">4 itens</span>
-                            </div>
-                            <div class="progresso">
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-
-                <div class="log">
-                    <h3 class="logTitulo">Log de Eventos</h3>
-                    <p class="logTexto">Últimas alterações feitas no aplicativo</p>
-                    <ul class="logLista">
-                        <li class="logConteudo">
-                            <div class="logImagem"></div>
-                            <span class="logItemTexto">Item adicionado</span>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+          <section class="principalSecao">
+            <div class="principalSecao-head">
+              <h2>Agosto</h2>
+              <button type="button" class="opcoes">...</button>
+            </div>
+            <ul class="lista">
+              <li class="listaItem">
+                <span class="listaItemImagem"> </span>
+                <span class="listaItem-texto">
+                  <span class="listaItemTitulo">Projetos</span>
+                  <span class="listaItemSubtexto"
+                    >Todos projetos dos Lab Maker</span
+                  >
+                </span>
+                <span class="listaItemQuantidade">13</span>
+              </li>
+            </ul>
+          </section>
         </section>
 
-        <section class="pagina" data-pagina="armazem" hidden>
-            <section class="principal principalCompleto">
-                <div class="principalInfo">
-                    <div>
-                        <h1 class="titulo">Armazem</h1>
-                        <p class="subtitulo">Itens categorizados</p>
-                    </div>
+        <section class="parteDireita">
+          <h2 class="parteDireitaTitulo">Projetos Ativos</h2>
+          <ul class="projetos">
+            <li class="projetosItens">
+              <div class="item">
+                <div class="projetoDescricao">
+                  <span class="projetoNome">Robo Otto</span>
+                  <span class="projetoContador">4 itens</span>
                 </div>
+                <div class="progresso"></div>
+              </div>
+            </li>
+          </ul>
 
-                <div class="busca">
-                    <input type="text" class="buscaCampo" placeholder="Buscar item..." />
-                </div>
-
-                <div class="armazemLista">
-                    <div class="armazemListaItem">
-                        <div class="armazemFoto"></div>
-                        <span class="armazemNome">Item</span>
-                        <span class="armazemTipo">Componente</span>
-                        <span class="armazemCategoria">Eletrônica</span>
-                        <span class="armazemQtd">12 un.</span>
-                        <span class="armazemEstado">Livre</span>
-                    </div>
-                </div>
-            </section>
+          <div class="log">
+            <h3 class="logTitulo">Log de Eventos</h3>
+            <p class="logTexto">Últimas alterações feitas no aplicativo</p>
+            <ul class="logLista">
+              <li class="logConteudo">
+                <div class="logImagem"></div>
+                <span class="logItemTexto">Item adicionado</span>
+              </li>
+            </ul>
+          </div>
         </section>
+      </section>
 
-        <section class="pagina" data-pagina="projetos" hidden>
-            <section class="principal principalCompleto">
-                <div class="principalInfo">
-                    <div>
-                        <h1 class="titulo">Projetos</h1>
-                        <p class="subtitulo">Projetos categorizados e seus detalhes</p>
-                    </div>
-                </div>
+      <section class="pagina" data-pagina="armazem" hidden>
+        <section class="principal principalCompleto">
+          <div class="principalInfo">
+            <div>
+              <h1 class="titulo">Armazem</h1>
+              <p class="subtitulo">Itens categorizados</p>
+            </div>
+          </div>
 
-                <div class="busca">
-                    <input type="text" class="buscaCampo" placeholder="Buscar item..." />
-                </div>
+          <div class="busca">
+            <input
+              type="text"
+              class="buscaCampo"
+              placeholder="Buscar item..."
+            />
+          </div>
 
-                <div class="projetoLista">
-                    <div class="projetoListaItem">
-                        <div class="projetoFoto"></div>
-                        <span class="projetoNome">Projeto</span>
-                        <span class="projetoCategoria">Categoria</span>
-                        <span class="projetoDescricao">Descrição</span> <!--Nota: talvez eu retire isso e coloque em um card para melhor visualização-->
-                        <span class="projetoInicio">08/09/2026</span>
-                        <span class="projetoFim">Não finalizado</span>
-                    </div>
-                </div>
-            </section>
+          <div class="armazemLista">
+            <div class="armazemListaItem">
+              <div class="armazemFoto"></div>
+              <span class="armazemNome">Item</span>
+              <span class="armazemTipo">Componente</span>
+              <span class="armazemCategoria">Eletrônica</span>
+              <span class="armazemQtd">12 un.</span>
+              <span class="armazemEstado">Livre</span>
+            </div>
+          </div>
         </section>
+      </section>
+
+      <section class="pagina" data-pagina="projetos" hidden>
+        <section class="principal principalCompleto">
+          <div class="principalInfo">
+            <div>
+              <h1 class="titulo">Projetos</h1>
+              <p class="subtitulo">Projetos categorizados e seus detalhes</p>
+            </div>
+          </div>
+
+          <div class="busca">
+            <input
+              type="text"
+              class="buscaCampo"
+              placeholder="Buscar item..."
+            />
+          </div>
+
+          <div class="projetoLista">
+            <div class="projetoListaItem">
+              <div class="projetoFoto"></div>
+              <span class="projetoNome">Projeto</span>
+              <span class="projetoCategoria">Categoria</span>
+              <span class="projetoDescricao">Descrição</span>
+              <span class="projetoInicio">08/09/2026</span>
+              <span class="projetoFim">Não finalizado</span>
+            </div>
+          </div>
+        </section>
+      </section>
     </div>
 
     <script src="js/theme.js"></script>
     <script src="js/dashboard.js"></script>
-</body>
-
+  </body>
 </html>
