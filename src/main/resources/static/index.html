@@ -16,47 +16,49 @@
     />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/nav.css" />
     <link rel="stylesheet" href="css/hero.css" />
     <link rel="stylesheet" href="css/categories.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/btnTheme.css" />
     <link rel="stylesheet" href="css/iaContainer.css" />
+    <link rel="stylesheet" href="css/app-sidebar.css"/>
   </head>
 
-  <body>
-    <nav class="nav">
-      <div class="nav-menu">
-        <div class="menu-links">
-          <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="#categorias">Categorias</a></li>
-            <li><a href="lab.html">Lab</a></li>
-          </ul>
+  <body class="app-body home-body">
+    <div class="app-shell">
+    <aside class="app-sidebar" aria-label="Navegação principal">
+      <div class="app-profile">
+        <div class="app-profile-avatar">C</div>
+        <div class="app-profile-info">
+          <p class="app-profile-name">Perfil</p>
+          <p class="app-profile-email">email</p>
         </div>
       </div>
-
-      <div class="nav-left">
-        <div class="config"></div>
-        <a href="login.html" class="nav-log">Entrar</a>
-        <a href="cadastro.html" class="nav-cad">Cadastrar</a>
-        <a href="index.html" class="nav-logo">
-          <span class="nav-logo-text">MakerNav</span>
-        </a>
-      </div>
-
-      <div class="nav-center">
-        <ul class="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="#categorias">Categorias</a></li>
-          <li><a href="lab.html">Lab</a></li>
-        </ul>
-      </div>
-
-      <div class="nav-right">
-        <a href="lab.html" class="nav-cta">Acessar Lab</a>
-      </div>
-    </nav>
+      <nav class="app-sidebar-nav">
+        <a class="app-sidebar-link active" href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m3 10 9-7 9 7" />
+            <path d="M5 9v11h14V9M9 20v-6h6v6" />
+          </svg><span>Início</span></a>
+        <a class="app-sidebar-link" href="dashboard.html"><svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1" />
+            <rect x="14" y="3" width="7" height="7" rx="1" />
+            <rect x="3" y="14" width="7" height="7" rx="1" />
+            <rect x="14" y="14" width="7" height="7" rx="1" />
+          </svg><span>Dashboard</span></a>
+        <a class="app-sidebar-link" href="lab.html" aria-current="page"><svg viewBox="0 0 24 24"
+            aria-hidden="true">
+            <path d="M9 3h6" />
+            <path d="M10 3v6l-5.5 8.8A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.2L14 9V3" />
+            <path d="M8 15h8" />
+          </svg><span>Itens do Lab</span></a>
+        <a class="app-sidebar-link" href="projetos.html"><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M4 6.5A2.5 2.5 0 0 1 6.5 4H10l2 2h5.5A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5z" />
+          </svg><span>Projetos</span></a>
+      </nav>
+      <div class="app-sidebar-spacer"></div>
+      <button type="button" class="app-sidebar-footer-link" id="logout-button">Sair da sessão</button>
+    </aside>
 
     <header class="hero">
       <div class="hero-inner">
@@ -89,7 +91,7 @@
       </div>
 
       <div class="cat-grid">
-        <a href="/lab.html?cat=Ferramentas" class="cat-card">
+        <a href="lab.html?cat=Ferramentas" class="cat-card">
           <span class="cat-arrow" aria-hidden="true">-></span>
           <h3 class="cat-name">Ferramentas</h3>
           <p class="cat-desc">
@@ -103,7 +105,7 @@
           </ul>
           <span class="cat-cta">Gerenciar ferramentas</span>
         </a>
-        <a href="/lab.html?cat=Componentes" class="cat-card">
+        <a href="lab.html?cat=Componentes" class="cat-card">
           <span class="cat-arrow" aria-hidden="true">-></span>
           <h3 class="cat-name">Componentes</h3>
           <p class="cat-desc">
@@ -118,7 +120,7 @@
           </ul>
           <span class="cat-cta">Gerenciar componentes</span>
         </a>
-        <a href="/lab.html?cat=Utilitarios" class="cat-card">
+        <a href="lab.html?cat=Utilitarios" class="cat-card">
           <span class="cat-arrow" aria-hidden="true">-></span>
           <h3 class="cat-name">Utilitários</h3>
           <p class="cat-desc">
@@ -134,6 +136,7 @@
         </a>
       </div>
     </section>
+    
     <section class="ia">
       <div class="iaContainer">
         <div class="iaChat">
@@ -164,25 +167,25 @@
         <div class="footer-col">
           <h4>Categorias</h4>
           <ul>
-            <li><a href="/lab.html?cat=Ferramentas">Ferramentas</a></li>
-            <li><a href="/lab.html?cat=Componentes">Componentes</a></li>
-            <li><a href="/lab.html?cat=Utilitarios">Utilitários</a></li>
+            <li><a href="lab.html?cat=Ferramentas">Ferramentas</a></li>
+            <li><a href="lab.html?cat=Componentes">Componentes</a></li>
+            <li><a href="lab.html?cat=Utilitarios">Utilitários</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Sistema</h4>
           <ul>
-            <li><a href="/lab.html">Buscar peças</a></li>
-            <li><a href="/lab.html">Novo item</a></li>
-            <li><a href="/lab.html">Gerenciar</a></li>
+            <li><a href="lab.html">Buscar peças</a></li>
+            <li><a href="lab.html">Novo item</a></li>
+            <li><a href="lab.html">Gerenciar</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Estados</h4>
           <ul>
-            <li>Livre</li>
-            <li>Em uso</li>
-            <li>Quebrado</li>
+            <li><a href="lab.html?estado=LIVRE">Livre</a></li>
+            <li><a href="lab.html?estado=USADO">Em uso</a></li>
+            <li><a href="lab.html?estado=QUEBRADO">Quebrado</a></li>
           </ul>
         </div>
       </div>
@@ -197,6 +200,7 @@
     <button class="btn-ia">
       <div class="icon"></div>
     </button>
+  </div>
     <script src="js/nav.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/containerIa.js"></script>

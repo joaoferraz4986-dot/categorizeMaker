@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="pt-BR" data-theme="dark">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MakerNav - Dashboard</title>
@@ -10,182 +11,161 @@
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/app-sidebar.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
-  </head>
+    <link rel="stylesheet" href="css/btnTheme.css"/>
+</head>
 
-  <body>
+<body>
     <div class="dashboard">
-      <aside class="app-sidebar" aria-label="Navegação principal">
-        <div class="app-profile">
-          <div class="app-profile-avatar">C</div>
-          <div class="app-profile-info">
-            <p class="app-profile-name">Perfil</p>
-            <p class="app-profile-email">email</p>
-          </div>
-        </div>
-        <nav class="app-sidebar-nav">
-          <a class="app-sidebar-link" href="index.html"
-            ><svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="m3 10 9-7 9 7" />
-              <path d="M5 9v11h14V9M9 20v-6h6v6" /></svg
-            ><span>Início</span></a
-          >
-          <a
-            class="app-sidebar-link active"
-            href="dashboard.html"
-            aria-current="page"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3" y="3" width="7" height="7" rx="1" />
-              <rect x="14" y="3" width="7" height="7" rx="1" />
-              <rect x="3" y="14" width="7" height="7" rx="1" />
-              <rect x="14" y="14" width="7" height="7" rx="1" /></svg
-            ><span>Dashboard</span></a
-          >
-          <a class="app-sidebar-link" href="lab.html"
-            ><svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M9 3h6" />
-              <path
-                d="M10 3v6l-5.5 8.8A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.2L14 9V3"
-              />
-              <path d="M8 15h8" /></svg
-            ><span>Itens do Lab</span></a
-          >
-          <a class="app-sidebar-link" href="projetos.html"
-            ><svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M4 6.5A2.5 2.5 0 0 1 6.5 4H10l2 2h5.5A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5z"
-              /></svg
-            ><span>Projetos</span></a
-          >
-        </nav>
-        <div class="app-sidebar-spacer"></div>
-        <button
-          type="button"
-          class="app-sidebar-footer-link"
-          id="logout-button"
-        >
-          Sair da sessão
-        </button>
-      </aside>
-      <header class="app-mobile-header">
-        <a class="app-mobile-link" href="index.html">Início</a
-        ><a class="app-mobile-link" href="lab.html">Itens do Lab</a>
-      </header>
+        <aside class="app-sidebar" aria-label="Navegação principal">
+            <div class="app-profile">
+                <div class="app-profile-avatar">C</div>
+                <div class="app-profile-info">
+                    <p class="app-profile-name">Perfil</p>
+                    <p class="app-profile-email">email</p>
+                </div>
+            </div>
+            <nav class="app-sidebar-nav">
+                <a class="app-sidebar-link" href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="m3 10 9-7 9 7" />
+                        <path d="M5 9v11h14V9M9 20v-6h6v6" />
+                    </svg><span>Início</span></a>
+                <a class="app-sidebar-link active" href="dashboard.html" aria-current="page">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <rect x="14" y="14" width="7" height="7" rx="1" />
+                    </svg><span>Dashboard</span></a>
+                <a class="app-sidebar-link" href="lab.html"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M9 3h6" />
+                        <path d="M10 3v6l-5.5 8.8A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.2L14 9V3" />
+                        <path d="M8 15h8" />
+                    </svg><span>Itens do Lab</span></a>
+                <a class="app-sidebar-link" href="projetos.html"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M4 6.5A2.5 2.5 0 0 1 6.5 4H10l2 2h5.5A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5z" />
+                    </svg><span>Projetos</span></a>
+            </nav>
+            <div class="app-sidebar-spacer"></div>
+            <button type="button" class="app-sidebar-footer-link" id="logout-button">
+                Sair da sessão
+            </button>
+        </aside>
+        <header class="app-mobile-header">
+            <a class="app-mobile-link" href="index.html">Início</a><a class="app-mobile-link" href="lab.html">Itens do
+                Lab</a>
+        </header>
 
-      <section class="pagina" data-pagina="dashboard">
-        <section class="principal">
-          <div class="principalInfo">
-            <div>
-              <h1 class="titulo">Visão Geral</h1>
-              <p class="subtitulo" data-current-date>Resumo atualizado hoje</p>
-            </div>
-          </div>
+        <section class="pagina" data-pagina="dashboard">
+            <section class="principal">
+                <div class="principalInfo">
+                    <div>
+                        <h1 class="titulo">Visão Geral</h1>
+                        <p class="subtitulo" data-current-date>Resumo atualizado hoje</p>
+                    </div>
+                </div>
 
-          <div class="mudanca">
-            <div class="chart-heading">
-              <span>Projetos por mês</span
-              ><span class="chart-caption">últimos seis meses</span>
-            </div>
-            <div class="monthly-chart" id="monthly-chart"></div>
-          </div>
+                <div class="mudanca">
+                    <div class="chart-heading">
+                        <span>Projetos por mês</span><span class="chart-caption">últimos seis meses</span>
+                    </div>
+                    <div class="monthly-chart" id="monthly-chart"></div>
+                </div>
 
-          <section class="principalSecao" id="current-section">
-            <div class="principalSecao-head">
-              <h2 data-month-title>Atual</h2>
-              <button type="button" class="opcoes" aria-label="Opções">
-                ...
-              </button>
-            </div>
-            <ul class="lista" data-month-list></ul>
-          </section>
-          <section class="principalSecao" id="previous-section">
-            <div class="principalSecao-head">
-              <h2 data-month-title>Anterior</h2>
-              <button type="button" class="opcoes" aria-label="Opções">
-                ...
-              </button>
-            </div>
-            <ul class="lista" data-month-list></ul>
-          </section>
+                <section class="principalSecao" id="current-section">
+                    <div class="principalSecao-head">
+                        <h2 data-month-title>Atual</h2>
+                        <button type="button" class="opcoes" aria-label="Opções">
+                            ...
+                        </button>
+                    </div>
+                    <ul class="lista" data-month-list></ul>
+                </section>
+                <section class="principalSecao" id="previous-section">
+                    <div class="principalSecao-head">
+                        <h2 data-month-title>Anterior</h2>
+                        <button type="button" class="opcoes" aria-label="Opções">
+                            ...
+                        </button>
+                    </div>
+                    <ul class="lista" data-month-list></ul>
+                </section>
+            </section>
+
+            <section class="parteDireita">
+                <h2 class="parteDireitaTitulo">Projetos Ativos</h2>
+                <ul class="projetos" id="active-projects"></ul>
+
+                <div class="log">
+                    <h3 class="logTitulo">Log de Eventos</h3>
+                    <p class="logTexto">Últimas alterações feitas no aplicativo</p>
+                    <ul class="logLista" id="event-list"></ul>
+                </div>
+            </section>
         </section>
 
-        <section class="parteDireita">
-          <h2 class="parteDireitaTitulo">Projetos Ativos</h2>
-          <ul class="projetos" id="active-projects"></ul>
+        <section class="pagina" data-pagina="armazem" hidden>
+            <section class="principal principalCompleto">
+                <div class="principalInfo">
+                    <div>
+                        <h1 class="titulo">Armazem</h1>
+                        <p class="subtitulo">Itens categorizados</p>
+                    </div>
+                </div>
 
-          <div class="log">
-            <h3 class="logTitulo">Log de Eventos</h3>
-            <p class="logTexto">Últimas alterações feitas no aplicativo</p>
-            <ul class="logLista" id="event-list"></ul>
-          </div>
+                <div class="busca">
+                    <input type="text" class="buscaCampo" placeholder="Buscar item..." />
+                </div>
+
+                <div class="armazemLista">
+                    <div class="armazemListaItem">
+                        <div class="armazemFoto"></div>
+                        <span class="armazemNome">Item</span>
+                        <span class="armazemTipo">Componente</span>
+                        <span class="armazemCategoria">Eletrônica</span>
+                        <span class="armazemQtd">12 un.</span>
+                        <span class="armazemEstado">Livre</span>
+                    </div>
+                </div>
+            </section>
         </section>
-      </section>
 
-      <section class="pagina" data-pagina="armazem" hidden>
-        <section class="principal principalCompleto">
-          <div class="principalInfo">
-            <div>
-              <h1 class="titulo">Armazem</h1>
-              <p class="subtitulo">Itens categorizados</p>
-            </div>
-          </div>
+        <section class="pagina" data-pagina="projetos" hidden>
+            <section class="principal principalCompleto">
+                <div class="principalInfo">
+                    <div>
+                        <h1 class="titulo">Projetos</h1>
+                        <p class="subtitulo">Projetos categorizados e seus detalhes</p>
+                    </div>
+                </div>
 
-          <div class="busca">
-            <input
-              type="text"
-              class="buscaCampo"
-              placeholder="Buscar item..."
-            />
-          </div>
+                <div class="busca">
+                    <input type="text" class="buscaCampo" placeholder="Buscar item..." />
+                </div>
 
-          <div class="armazemLista">
-            <div class="armazemListaItem">
-              <div class="armazemFoto"></div>
-              <span class="armazemNome">Item</span>
-              <span class="armazemTipo">Componente</span>
-              <span class="armazemCategoria">Eletrônica</span>
-              <span class="armazemQtd">12 un.</span>
-              <span class="armazemEstado">Livre</span>
-            </div>
-          </div>
+                <div class="projetoLista">
+                    <div class="projetoListaItem">
+                        <div class="projetoFoto"></div>
+                        <span class="projetoNome">Projeto</span>
+                        <span class="projetoCategoria">Categoria</span>
+                        <span class="projetoDescricao">Descrição</span>
+                        <span class="projetoInicio">08/09/2026</span>
+                        <span class="projetoFim">Não finalizado</span>
+                    </div>
+                </div>
+            </section>
         </section>
-      </section>
-
-      <section class="pagina" data-pagina="projetos" hidden>
-        <section class="principal principalCompleto">
-          <div class="principalInfo">
-            <div>
-              <h1 class="titulo">Projetos</h1>
-              <p class="subtitulo">Projetos categorizados e seus detalhes</p>
-            </div>
-          </div>
-
-          <div class="busca">
-            <input
-              type="text"
-              class="buscaCampo"
-              placeholder="Buscar item..."
-            />
-          </div>
-
-          <div class="projetoLista">
-            <div class="projetoListaItem">
-              <div class="projetoFoto"></div>
-              <span class="projetoNome">Projeto</span>
-              <span class="projetoCategoria">Categoria</span>
-              <span class="projetoDescricao">Descrição</span>
-              <span class="projetoInicio">08/09/2026</span>
-              <span class="projetoFim">Não finalizado</span>
-            </div>
-          </div>
-        </section>
-      </section>
     </div>
 
+    <button class="btn-theme">
+        <div class="icon"></div>
+    </button>
+    
     <script type="module" src="js/services/authNavigation.js"></script>
     <script type="module" src="js/userTimesOut.js"></script>
     <script type="module" src="js/logout.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/dashboard.js"></script>
-  </body>
+</body>
+
 </html>

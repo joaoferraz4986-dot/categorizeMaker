@@ -187,6 +187,11 @@
   display: flex;
   flex-direction: column;
 }
+.app-shell > .hero,
+.app-shell > .categories,
+.app-shell > .footer {
+  grid-column: 2;
+}
 .app-mobile-header {
   display: none;
 }

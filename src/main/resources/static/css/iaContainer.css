@@ -14,10 +14,11 @@
   opacity: 1;
 }
 .btn-ia {
+  display: none;
   position: fixed;
   z-index: 61;
   bottom: 60px;
-  left: 20px;
+  right: 20px;
   min-width: 35px;
   min-height: 35px;
   max-width: 50px;

@@ -1,6 +1,7 @@
 import { itemService } from "./services/itemService.js";
 import { handlePhotoUpload } from "./img-base64.js";
 
+const VALID_STATES = ["LIVRE", "USADO", "QUEBRADO"];
 const VALID_CATEGORIES = ["FERRAMENTAS", "COMPONENTES", "UTILITARIOS"];
 const TITLE_BY_CATEGORY = {
   TODOS: "Todos os Itens",
@@ -435,8 +436,18 @@ window.openDeleteModal = openDeleteModal;
 window.openItemCard = openItemCard;
 
 function initLab() {
-  const categoryParam = new URLSearchParams(window.location.search).get("cat");
-  const category = String(categoryParam || "").toUpperCase();
+  const params = new URLSearchParams(window.location.search);
+  const category = String(params.get("cat") || "").toUpperCase();
+  const estado = String(params.get("estado") || "").toUpperCase();
+
+  if (VALID_STATES.includes(estado)) {
+    state.filterState = estado;
+    $$(".state-pill").forEach((pill) => {
+      if (pill.dataset.state === estado)
+        pill.classList.add(`active-${estado.toLowerCase()}`);
+    });
+  }
+
   if (VALID_CATEGORIES.includes(category)) filterByCategory(category);
   else loadItems();
 
