@@ -9,7 +9,9 @@ const state = {
   deletingId: null,
   filter: 'TODOS',
   query: '',
-  photo: ''
+  photo: '',
+  itemQuery: '',
+  quantities: new Map()
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -30,9 +32,11 @@ const categoryLabel = (value) => {
 
 const icon = {
   photo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>',
+  itemPhoto: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9" r="1.5"/><path d="m21 15-5-5L5 20"/></svg>',
   edit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="m18.5 2.5 3 3L12 15l-4 1 1-4 10.5-9.5z"/></svg>',
   delete: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6 18 20H6L5 6m5 0V4h4v2"/></svg>'
 };
+const placeholderPhoto = `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 150"><rect width="240" height="150" rx="12" fill="#504945"/><path d="M40 118 92 66l34 34 24-24 50 42H40Z" fill="#bdae93"/><circle cx="83" cy="48" r="15" fill="#d5c4a1"/></svg>')}`;
 
 // --- MODAIS & NOTIFICAÇÕES ---
 function openOverlay(id, open) {
@@ -75,17 +79,16 @@ function filtered() {
 }
 
 function selectedItems() {
-  return [...document.querySelectorAll('.project-item-row')]
-    .map((row) => ({
-      idItem: Number(row.dataset.id),
-      quantidadeUsada: Number(row.querySelector('input').value)
-    }))
+  return [...state.quantities.entries()]
+    .map(([idItem, quantidadeUsada]) => ({ idItem: Number(idItem), quantidadeUsada }))
     .filter((item) => item.quantidadeUsada > 0);
 }
 
 // --- RENDERIZAÇÃO ---
 function renderPicker(selected = []) {
-  const quantities = new Map(selected.map((item) => [item.idItem, item.quantidadeUsada]));
+  if (selected.length) {
+    state.quantities = new Map(selected.map((item) => [item.idItem, item.quantidadeUsada]));
+  }
   const picker = $('#project-items-picker');
   
   if (!state.items.length) {
@@ -93,15 +96,17 @@ function renderPicker(selected = []) {
     return;
   }
 
-  picker.innerHTML = state.items.map((item) => `
+  const query = state.itemQuery.toLowerCase().trim();
+  const items = state.items.filter((item) => !query || `${item.nome} ${item.tipo || ''}`.toLowerCase().includes(query));
+  picker.innerHTML = items.length ? items.map((item) => `
     <div class="project-item-row" data-id="${item.id}">
-      <span>${esc(item.nome)}</span>
+      <div class="project-item-info"><div class="project-item-image">${item.imagem ? `<img src="${esc(item.imagem)}" alt="">` : icon.itemPhoto}</div><span>${esc(item.nome)}</span></div>
       <button type="button" class="qty-minus" aria-label="Diminuir">-</button>
-      <input type="number" min="0" max="${item.quantidade}" value="${quantities.get(item.id) || 0}">
+      <input type="number" min="0" max="${item.quantidade}" value="${state.quantities.get(item.id) || 0}" aria-label="Quantidade de ${esc(item.nome)}">
       <button type="button" class="qty-plus" aria-label="Aumentar">+</button>
       <small>disp. ${item.quantidade}</small>
     </div>
-  `).join('');
+  `).join('') : '<p class="item-picker-empty">Nenhum item encontrado.</p>';
 }
 
 function render() {
@@ -152,9 +157,12 @@ function render() {
 function clearForm() {
   $('#form-project').reset();
   state.photo = '';
+  state.itemQuery = '';
+  state.quantities = new Map();
   const preview = $('#p-image-preview');
-  preview.src = '';
-  preview.hidden = true;
+  preview.src = placeholderPhoto;
+  preview.hidden = false;
+  $('#project-item-search').value = '';
   renderPicker();
 }
 
@@ -175,13 +183,10 @@ function openEdit(id) {
   $('#p-desc').value = project.descricao;
   
   state.photo = project.imagem || '';
+  state.quantities = new Map();
   const preview = $('#p-image-preview');
-  if (state.photo) {
-    preview.src = state.photo;
-    preview.hidden = false;
-  } else {
-    preview.hidden = true;
-  }
+  preview.src = state.photo || placeholderPhoto;
+  preview.hidden = false;
 
   renderPicker(project.itens || []);
   $('#project-modal-title').textContent = 'Editar Projeto';
@@ -297,6 +302,10 @@ function initProjects() {
 
   // Inputs
   $('#p-image').onchange = (e) => readPhoto(e.target.files[0]);
+  $('#project-item-search').oninput = (e) => {
+    state.itemQuery = e.target.value;
+    renderPicker();
+  };
   $('#search-input').oninput = (e) => {
     state.query = e.target.value;
     render();
@@ -330,8 +339,18 @@ function initProjects() {
     const delta = e.target.classList.contains('qty-plus') ? 1 : e.target.classList.contains('qty-minus') ? -1 : 0;
     
     if (delta !== 0) {
-      input.value = Math.min(max, Math.max(0, Number(input.value) + delta));
+      const value = Math.min(max, Math.max(0, Number(input.value) + delta));
+      input.value = value;
+      state.quantities.set(Number(row.dataset.id), value);
     }
+  };
+  $('#project-items-picker').oninput = (e) => {
+    if (!e.target.matches('input[type="number"]')) return;
+    const row = e.target.closest('.project-item-row');
+    const max = Number(e.target.max);
+    const value = Math.min(max, Math.max(0, Number(e.target.value) || 0));
+    e.target.value = value;
+    state.quantities.set(Number(row.dataset.id), value);
   };
 }
 

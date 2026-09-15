@@ -40,6 +40,9 @@ public class Projeto {
     @Column(nullable = false)
     private String descricao;
 
+    @Column(columnDefinition = "LONGTEXT")
+    private String imagem;
+
     @Column()
     private Date dataInicio;
 

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,8 @@ import com.makernav.categorize.infra.repository.ItemRepository;
 import com.makernav.categorize.model.Categoria;
 import com.makernav.categorize.model.Estado;
 import com.makernav.categorize.model.Item;
+import com.makernav.categorize.model.TipoEvento;
+import com.makernav.categorize.model.Usuario;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -25,10 +28,12 @@ public class ItemService {
 
     private final ItemRepository itemRepository;
     private final ItemMapper itemMapper;
+    private final EventoService eventoService;
 
-    public ItemService(ItemRepository itemRepository, ItemMapper itemMapper) {
+    public ItemService(ItemRepository itemRepository, ItemMapper itemMapper, EventoService eventoService) {
         this.itemRepository = itemRepository;
         this.itemMapper = itemMapper;
+        this.eventoService = eventoService;
     }
 
     public Page<ItemResponseDTO> getAllItems(Pageable pageable) {
@@ -84,6 +89,7 @@ public class ItemService {
     public ItemResponseDTO createItem(ItemRequestDTO itemRequestDTO) {
         var item = itemMapper.toEntity(itemRequestDTO);
         itemRepository.save(item);
+        eventoService.registrar(TipoEvento.ITEM_CRIADO, "ITEM", item.getIdItem(), "Item criado", item.getNome(), usuarioAtual());
         return itemMapper.toResponseDTO(item);
     }
 
@@ -92,10 +98,13 @@ public class ItemService {
         var item = itemRepository.findById(id).orElseThrow();
         itemMapper.updateEntityFromDTO(itemRequestDTO, item);
         itemRepository.save(item);
+        eventoService.registrar(TipoEvento.ITEM_ATUALIZADO, "ITEM", id, "Item atualizado", item.getNome(), usuarioAtual());
     }
 
     @Transactional
     public void deleteItem(int id) {
+        var item = itemRepository.findById(id).orElseThrow();
+        eventoService.registrar(TipoEvento.ITEM_EXCLUIDO, "ITEM", id, "Item excluído", item.getNome(), usuarioAtual());
         itemRepository.deleteById(id);
     }
 
@@ -103,5 +112,10 @@ public class ItemService {
         return itemRepository.findByNomeStartingWithIgnoreCase(nome).stream()
                 .map(itemMapper::toResponseDTO)
                 .toList();
+    }
+
+    private Usuario usuarioAtual() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return principal instanceof Usuario usuario ? usuario : null;
     }
 }

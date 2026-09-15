@@ -1,0 +1,1 @@
+ALTER TABLE projeto ADD COLUMN imagem LONGTEXT NULL;

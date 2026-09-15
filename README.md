@@ -44,7 +44,7 @@ cd categorizeMaker
 ```sql
 CREATE DATABASE categorize_db;
 ```
-> O Flyway executará as migrations automaticamente no primeiro boot da aplicação, criando as tabelas (`item`, `usuario`, `projeto` e `projeto_item`).
+> O Flyway executará as migrations automaticamente no primeiro boot da aplicação, criando as tabelas (`item`, `usuario`, `projeto`, `projeto_item` e `evento`) e os campos de imagem e snapshot do inventário.
 
 ### 3. Configurar Credenciais
 As configurações estão em `src/main/resources/application.yaml`. Por padrão, a aplicação conecta com o usuário `root` e senha em branco. Caso seu ambiente use credenciais diferentes, defina as variáveis de ambiente antes de rodar:
@@ -81,6 +81,8 @@ A aplicação subirá na porta padrão `8080`:
 * **Login:** `http://localhost:8080/login.html`
 * **Cadastro:** `http://localhost:8080/cadastro.html`
 * **Inventário do Laboratório:** `http://localhost:8080/lab.html`
+* **Projetos:** `http://localhost:8080/projetos.html`
+* **Dashboard:** `http://localhost:8080/dashboard.html`
 
 > **Como testar o fluxo básico:**
 > 1. Acesse a tela de **Cadastro** e registre um novo usuário (por padrão, recebe a permissão `PROFESSOR`).
@@ -125,6 +127,7 @@ src/
 | **Itens** | `DELETE` | `/api/items/{id}` | Remove um item do inventário |
 | **Itens** | `GET` | `/api/items/search?nome=` | Busca de itens por nome, retornando uma página |
 | **Itens** | `GET` | `/api/items/export/pdf?name=&type=&category=&status=` | Exportação de relatório PDF com os mesmos filtros Specifications |
+| **Dashboard** | `GET` | `/api/dashboard` | Métricas mensais, itens por estado, projetos ativos e eventos de projetos |
 | **Projetos** | `GET` | `/projeto` | Listagem dos projetos registrados |
 | **Projetos** | `POST` | `/projeto` | Registro de novos projetos |
 | **Projetos** | `DELETE` | `/projeto/{id}` | Remoção de projetos |
@@ -140,7 +143,7 @@ src/
 - [x] Camada de *Service Layer* no front-end para isolar chamadas `fetch`.
 - [ ] Conclusão dos endpoints de atualização (`PUT`) e filtros por categoria para Projetos.
 - [ ] Mapeamento JPA e regras de negócio para a tabela associativa `projeto_item`.
-- [ ] Conexão da interface de métricas (`dashboard.html`) a rotas agregadoras de dados.
+- [x] Conexão da interface de métricas (`dashboard.html`) a rota agregadora de dados.
 - [ ] Padronização visual da interface (UI) e criação de padrões base para novas telas.
 
 

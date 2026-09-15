@@ -23,45 +23,12 @@
           </div>
         </div>
         <nav class="app-sidebar-nav">
-          <a class="app-sidebar-link" href="index.html"
-            ><svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="m3 10 9-7 9 7" />
-              <path d="M5 9v11h14V9M9 20v-6h6v6" /></svg
-            ><span>Início</span></a
-          >
-          <button
-            type="button"
-            class="app-sidebar-link navLink active"
-            data-cat="dashboard"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3" y="3" width="7" height="7" rx="1" />
-              <rect x="14" y="3" width="7" height="7" rx="1" />
-              <rect x="3" y="14" width="7" height="7" rx="1" />
-              <rect x="14" y="14" width="7" height="7" rx="1" /></svg
-            ><span>Dashboard</span>
-          </button>
-          <a class="app-sidebar-link" href="lab.html"
-            ><svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M9 3h6" />
-              <path
-                d="M10 3v6l-5.5 8.8A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.2L14 9V3"
-              />
-              <path d="M8 15h8" /></svg
-            ><span>Itens do Lab</span></a
-          >
-          <a class="app-sidebar-link" href="projetos.html"
-            ><svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M4 6.5A2.5 2.5 0 0 1 6.5 4H10l2 2h5.5A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5z"
-              /></svg
-            ><span>Projetos</span></a
-          >
+          <a class="app-sidebar-link active" href="dashboard.html" aria-current="page"> <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Dashboard</span></a>
+          <a class="app-sidebar-link" href="lab.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6l-5.5 8.8A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.2L14 9V3"/><path d="M8 15h8"/></svg><span>Itens do Lab</span></a>
+          <a class="app-sidebar-link" href="projetos.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4H10l2 2h5.5A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5z"/></svg><span>Projetos</span></a>
         </nav>
         <div class="app-sidebar-spacer"></div>
-        <a href="index.html" class="app-sidebar-footer-link"
-          >Voltar para o início</a
-        >
+        <button type="button" class="app-sidebar-footer-link" id="logout-button">Sair da sessão</button>
       </aside>
       <header class="app-mobile-header">
         <a class="app-mobile-link" href="index.html">Início</a
@@ -73,110 +40,30 @@
           <div class="principalInfo">
             <div>
               <h1 class="titulo">Visão Geral</h1>
-              <p class="subtitulo">2026 - 03 de Setembro</p>
+              <p class="subtitulo" data-current-date>Resumo atualizado hoje</p>
             </div>
           </div>
 
-          <div class="mudanca"></div>
+          <div class="mudanca"><div class="chart-heading"><span>Projetos por mês</span><span class="chart-caption">últimos seis meses</span></div><div class="monthly-chart" id="monthly-chart"></div></div>
 
-          <section class="principalSecao">
-            <div class="principalSecao-head">
-              <h2>Atualmente</h2>
-              <button type="button" class="opcoes">...</button>
-            </div>
-            <ul class="lista">
-              <li class="listaItem">
-                <div class="listaItemImagem"></div>
-                <span class="listaItem-texto">
-                  <span class="listaItemTitulo">Projetos</span>
-                  <span class="listaItemSubtexto"
-                    >Todos projetos dos Lab Maker</span
-                  >
-                </span>
-                <span class="listaItemQuantidade">14</span>
-              </li>
-              <li class="listaItem">
-                <div class="listaItemImagem"></div>
-                <span class="listaItem-texto">
-                  <span class="listaItemTitulo">Projetos Antigos</span>
-                  <span class="listaItemSubtexto"
-                    >Projetos ativos já concluídos</span
-                  >
-                </span>
-                <span class="listaItemQuantidade">4</span>
-              </li>
-              <li class="listaItem">
-                <div class="listaItemImagem"></div>
-                <span class="listaItem-texto">
-                  <span class="listaItemTitulo">Itens Armazenados</span>
-                  <span class="listaItemSubtexto"
-                    >Itens Armazenados no Total</span
-                  >
-                </span>
-                <span class="listaItemQuantidade">999</span>
-              </li>
-              <li class="listaItem">
-                <div class="listaItemImagem"></div>
-                <span class="listaItem-texto">
-                  <span class="listaItemTitulo">Itens Quebrados</span>
-                  <span class="listaItemSubtexto">Todos itens quebrados</span>
-                </span>
-                <span class="listaItemQuantidade">999</span>
-              </li>
-              <li class="listaItem">
-                <div class="listaItemImagem"></div>
-                <span class="listaItem-texto">
-                  <span class="listaItemTitulo">Itens sendo Usados</span>
-                  <span class="listaItemSubtexto">Todos itens quebrados</span>
-                </span>
-                <span class="listaItemQuantidade">23</span>
-              </li>
-            </ul>
+          <section class="principalSecao" id="current-section">
+            <div class="principalSecao-head"><h2 data-month-title>Atual</h2><button type="button" class="opcoes" aria-label="Opções">...</button></div>
+            <ul class="lista" data-month-list></ul>
           </section>
-
-          <section class="principalSecao">
-            <div class="principalSecao-head">
-              <h2>Agosto</h2>
-              <button type="button" class="opcoes">...</button>
-            </div>
-            <ul class="lista">
-              <li class="listaItem">
-                <span class="listaItemImagem"> </span>
-                <span class="listaItem-texto">
-                  <span class="listaItemTitulo">Projetos</span>
-                  <span class="listaItemSubtexto"
-                    >Todos projetos dos Lab Maker</span
-                  >
-                </span>
-                <span class="listaItemQuantidade">13</span>
-              </li>
-            </ul>
+          <section class="principalSecao" id="previous-section">
+            <div class="principalSecao-head"><h2 data-month-title>Anterior</h2><button type="button" class="opcoes" aria-label="Opções">...</button></div>
+            <ul class="lista" data-month-list></ul>
           </section>
         </section>
 
         <section class="parteDireita">
           <h2 class="parteDireitaTitulo">Projetos Ativos</h2>
-          <ul class="projetos">
-            <li class="projetosItens">
-              <div class="item">
-                <div class="projetoDescricao">
-                  <span class="projetoNome">Robo Otto</span>
-                  <span class="projetoContador">4 itens</span>
-                </div>
-                <div class="progresso"></div>
-              </div>
-            </li>
-          </ul>
+          <ul class="projetos" id="active-projects"></ul>
 
           <div class="log">
             <h3 class="logTitulo">Log de Eventos</h3>
             <p class="logTexto">Últimas alterações feitas no aplicativo</p>
-            <ul class="logLista">
-              <li class="logConteudo">
-                <div class="logImagem"></div>
-                <span class="logItemTexto">Item adicionado</span>
-              </li>
-            </ul>
+            <ul class="logLista" id="event-list"></ul>
           </div>
         </section>
       </section>
@@ -243,6 +130,8 @@
     </div>
 
     <script type="module" src="js/services/authNavigation.js"></script>
+    <script type="module" src="js/userTimesOut.js"></script>
+    <script type="module" src="js/logout.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/dashboard.js"></script>
   </body>

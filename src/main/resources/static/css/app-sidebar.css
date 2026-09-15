@@ -44,7 +44,7 @@
   flex: 0 0 auto;
   display: grid;
   place-items: center;
-  border-radius: 50%;
+  border-radius: var(--radius);
   background: var(--primary);
   color: var(--text-on-pri);
   font-size: 0.95rem;
@@ -162,10 +162,19 @@
   box-shadow: 0 0 0 4px var(--green-soft);
 }
 .app-sidebar-footer-link {
+  display: block;
   padding: 0.7rem 0.75rem 0;
+  width: 100%;
   border-top: 1px solid var(--border);
+  background: transparent;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 0;
   color: var(--text-soft);
+  font: inherit;
   font-size: 0.75rem;
+  text-align: center;
+  cursor: pointer;
   transition: color 0.15s;
 }
 .app-sidebar-footer-link:hover {
