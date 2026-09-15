@@ -28,7 +28,7 @@ function getHeaders(endpoint, comCorpo = false) {
             window.location.href = './login.html';
             throw new Error('Token não encontrado. Redirecionando para login.');
         }
-        headers.Authorization = token;
+        headers.Authorization = `Bearer ${token}`;
     }
 
     return headers;
