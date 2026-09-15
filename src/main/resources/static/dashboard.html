@@ -23,12 +23,55 @@
           </div>
         </div>
         <nav class="app-sidebar-nav">
-          <a class="app-sidebar-link active" href="dashboard.html" aria-current="page"> <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Dashboard</span></a>
-          <a class="app-sidebar-link" href="lab.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6l-5.5 8.8A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.2L14 9V3"/><path d="M8 15h8"/></svg><span>Itens do Lab</span></a>
-          <a class="app-sidebar-link" href="projetos.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4H10l2 2h5.5A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5z"/></svg><span>Projetos</span></a>
+          <a class="app-sidebar-link" href="index.html"
+            ><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m3 10 9-7 9 7" />
+              <path d="M5 9v11h14V9M9 20v-6h6v6" /></svg
+            ><span>Início</span></a
+          >
+          <a
+            class="app-sidebar-link active"
+            href="dashboard.html"
+            aria-current="page"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" /></svg
+            ><span>Dashboard</span></a
+          >
+          <a class="app-sidebar-link" href="lab.html"
+            ><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 3h6" />
+              <path
+                d="M10 3v6l-5.5 8.8A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.2L14 9V3"
+              />
+              <path d="M8 15h8" /></svg
+            ><span>Itens do Lab</span></a
+          >
+          <a class="app-sidebar-link" href="projetos.html"
+            ><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 6.5A2.5 2.5 0 0 1 6.5 4H10l2 2h5.5A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5z"
+              /></svg
+            ><span>Projetos</span></a
+          >
+          <a class="app-sidebar-link" href="index.html"
+            ><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m3 10 9-7 9 7" />
+              <path d="M5 9v11h14V9M9 20v-6h6v6" /></svg
+            ><span>Início</span></a
+          >
         </nav>
         <div class="app-sidebar-spacer"></div>
-        <button type="button" class="app-sidebar-footer-link" id="logout-button">Sair da sessão</button>
+        <button
+          type="button"
+          class="app-sidebar-footer-link"
+          id="logout-button"
+        >
+          Sair da sessão
+        </button>
       </aside>
       <header class="app-mobile-header">
         <a class="app-mobile-link" href="index.html">Início</a
@@ -44,14 +87,30 @@
             </div>
           </div>
 
-          <div class="mudanca"><div class="chart-heading"><span>Projetos por mês</span><span class="chart-caption">últimos seis meses</span></div><div class="monthly-chart" id="monthly-chart"></div></div>
+          <div class="mudanca">
+            <div class="chart-heading">
+              <span>Projetos por mês</span
+              ><span class="chart-caption">últimos seis meses</span>
+            </div>
+            <div class="monthly-chart" id="monthly-chart"></div>
+          </div>
 
           <section class="principalSecao" id="current-section">
-            <div class="principalSecao-head"><h2 data-month-title>Atual</h2><button type="button" class="opcoes" aria-label="Opções">...</button></div>
+            <div class="principalSecao-head">
+              <h2 data-month-title>Atual</h2>
+              <button type="button" class="opcoes" aria-label="Opções">
+                ...
+              </button>
+            </div>
             <ul class="lista" data-month-list></ul>
           </section>
           <section class="principalSecao" id="previous-section">
-            <div class="principalSecao-head"><h2 data-month-title>Anterior</h2><button type="button" class="opcoes" aria-label="Opções">...</button></div>
+            <div class="principalSecao-head">
+              <h2 data-month-title>Anterior</h2>
+              <button type="button" class="opcoes" aria-label="Opções">
+                ...
+              </button>
+            </div>
             <ul class="lista" data-month-list></ul>
           </section>
         </section>
