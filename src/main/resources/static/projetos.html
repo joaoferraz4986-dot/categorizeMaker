@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/itemCard.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/projetos.css" />
-  <link rel="stylesheet" href="css/btnTheme.css"/>
+  <link rel="stylesheet" href="css/btnTheme.css" />
 </head>
 
 <body class="app-body lab-body">
@@ -168,9 +168,13 @@
               aria-live="polite" hidden></small>
           </div>
           <div class="form-field">
-            <label for="p-image">Foto</label><label class="photo-upload-button" for="p-image">
-              <span>Selecionar imagem</span> </label><input type="file" id="p-image" accept="image/*" hidden /><img
-              id="p-image-preview" class="project-image-preview" alt="Pré-visualização da foto" />
+            <label for="p-image">Foto</label>
+            <div>
+              <label class="photo-upload-button" for="p-image">+</label>
+              <input type="file" id="p-image" accept="image/*" hidden />
+              <img id="p-image-preview" class="project-image-preview" alt="Pré-visualização da foto" />
+            </div>
+
           </div>
           <div class="form-field">
             <label>Itens utilizados</label>

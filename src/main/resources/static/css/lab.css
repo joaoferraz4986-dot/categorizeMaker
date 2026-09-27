@@ -986,6 +986,8 @@
 }
 .photo-upload-button {
   display: inline-flex;
+  position: fixed;
+  margin: 10px;
   align-items: center;
   justify-content: center;
   align-self: flex-start;
@@ -993,7 +995,7 @@
   padding: 0.6rem 0.85rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: var(--surface-alt);
+  background: var(--surface);
   color: var(--text-mid);
   cursor: pointer;
   font-size: 0.8rem;
